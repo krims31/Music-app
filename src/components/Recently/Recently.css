@@ -1,0 +1,66 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+.recently-container h1 {
+  margin-top: -45rem;
+  font-size: 24px;
+  color: #fff;
+  margin-left: 25rem;
+}
+
+.juice-wrld img {
+  margin-top: 1.5rem;
+  margin-left: 25rem;
+  border-radius: 10px;
+  transform: scale(1.1);
+  transition: all 0.3s ease-in-out;
+}
+
+.juice-wrld img:hover {
+  cursor: pointer;
+  box-shadow: 0 0 0 10px rgba(255, 255, 255, 0.02);
+}
+
+.juice-wrld h1 {
+  font-size: 16px;
+  margin-top: 1rem;
+  margin-left: 26.5rem;
+}
+
+.juice-wrld p {
+  font-size: 13px;
+  margin-left: 27.2rem;
+  margin-top: 0.5rem;
+  color: gray;
+}
+
+.ed-sheeran img {
+  margin-top: 1.5rem;
+  margin-left: 25rem;
+  border-radius: 10px;
+  transform: scale(1.1);
+  transition: all 0.3s ease-in-out;
+}
+
+.ed-sheeran img:hover {
+  cursor: pointer;
+  box-shadow: 0 0 0 10px rgba(255, 255, 255, 0.02);
+}
+
+.ed-sheeran h1 {
+  font-size: 16px;
+  margin-top: 1rem;
+  color: #fff;
+  margin-left: 26.5rem;
+}
+
+.ed-sheeran p {
+  font-size: 13px;
+  margin-left: 27.2rem;
+  margin-top: 0.5rem;
+  color: gray;
+}/*# sourceMappingURL=Recently.css.map */
