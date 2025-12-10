@@ -12,178 +12,265 @@
   margin-left: 25rem;
 }
 
-.juice-wrld img {
-  margin-top: 1.5rem;
-  margin-left: 25rem;
-  border-radius: 10px;
-  transform: scale(1.1);
-  transition: all 0.3s ease-in-out;
-}
-
-.juice-wrld img:hover {
-  cursor: pointer;
-  box-shadow: 0 0 0 10px rgb(255, 255, 255, 0.02);
-}
-
-.juice-wrld h1 {
-  font-size: 16px;
-  margin-top: 1rem;
-  margin-left: 26.5rem;
-}
-
-.juice-wrld p {
-  font-size: 13px;
-  margin-left: 27.2rem;
-  margin-top: 0.5rem;
-  color: gray;
-}
-
-.ed-sheeran img {
-  position: relative;
-  top: -13.1rem;
-  left: 37rem;
-  border-radius: 10px;
-  transform: scale(1.1);
-  transition: all 0.3s ease-in-out;
-}
-
-.ed-sheeran img:hover {
-  cursor: pointer;
-  box-shadow: 0 0 0 10px rgb(255, 255, 255, 0.02);
-}
-
-.ed-sheeran h1 {
-  font-size: 16px;
-  margin-top: -12.1rem;
-  color: #fff;
-  margin-left: 37.6rem;
-}
-
-.ed-sheeran p {
-  font-size: 13px;
-  margin-left: 39.5rem;
-  margin-top: 0.5rem;
-  color: gray;
-}
-
-.carti img {
-  position: relative;
-  top: -13.2rem;
-  left: 49rem;
-  border-radius: 10px;
-  transform: scale(1.1);
-  transition: all 0.3s ease-in-out;
-}
-
-.carti img:hover {
-  cursor: pointer;
-  box-shadow: 0 0 0 10px rgb(255, 255, 255, 0.02);
-}
-
-.carti h1 {
-  font-size: 16px;
-  margin-top: -12.2rem;
-  color: #fff;
-  margin-left: 53rem;
-}
-
-.carti p {
-  font-size: 13px;
-  margin-left: 51.5rem;
-  margin-top: 0.5rem;
-  color: gray;
-}
-
-.travis img {
-  position: relative;
-  top: -13.2rem;
-  left: 61rem;
-  border-radius: 10px;
-  transform: scale(1.1);
-  transition: all 0.3s ease-in-out;
-}
-
-.travis img:hover {
-  cursor: pointer;
-  box-shadow: 0 0 0 10px rgb(255, 255, 255, 0.02);
-}
-
-.travis h1 {
-  font-size: 16px;
-  margin-top: -12.2rem;
-  color: #fff;
-  margin-left: 62.5rem;
-}
-
-.travis p {
-  font-size: 13px;
-  margin-left: 63.4rem;
-  margin-top: 0.5rem;
-  color: gray;
-}
-
-.The-weeknd img {
-  position: relative;
-  top: -13.2rem;
-  left: 73rem;
-  border-radius: 10px;
-  transform: scale(1.1);
-  transition: all 0.3s ease-in-out;
-}
-
-.The-weeknd img:hover {
-  cursor: pointer;
-  box-shadow: 0 0 0 10px rgb(255, 255, 255, 0.02);
-}
-
-.The-weeknd h1 {
-  font-size: 16px;
-  margin-top: -12.3rem;
-  color: #fff;
-  margin-left: 75.8rem;
-}
-
-.The-weeknd p {
-  font-size: 13px;
-  margin-left: 75.2rem;
-  margin-top: 0.5rem;
-  color: gray;
-}
-
-.x img {
-  position: relative;
-  top: -13.2rem;
-  left: 85rem;
-  border-radius: 10px;
-  transform: scale(1.1);
-  transition: all 0.3s ease-in-out;
-}
-
-.x img:hover {
-  cursor: pointer;
-  box-shadow: 0 0 0 10px rgb(255, 255, 255, 0.02);
-}
-
-.x h1 {
-  font-size: 16px;
-  margin-top: -12.2rem;
-  color: #fff;
-  margin-left: 86rem;
-}
-
-.x p {
-  font-size: 13px;
-  margin-left: 87rem;
-  margin-top: 0.5rem;
-  color: gray;
-}
-
-.play-button-overlay {
+// Общие стили для всех альбомов
+.album-container {
+  .album-cover-wrapper {
     position: relative;
-    top: -50px;
-    left: -100px;
+    display: inline-block;
+  }
+
+  .play-button-overlay {
+    position: absolute;
+    top: 35%;
+    left: 24.5%;
+    transform: translate(-50%, -50%);
+    width: 50px;
+    height: 50px;
     border: 1px solid lightgreen;
     border-radius: 20px;
     padding: 10px;
     background-color: lightgreen;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    cursor: pointer;
+    z-index: 10;
+  }
+
+  .album-cover-wrapper:hover .play-button-overlay {
+    opacity: 1;
+  }
+
+  .play-button-overlay:hover {
+    background-color: #32CD32;
+    border-color: #32CD32;
+  }
+}
+
+// Juice WRLD
+.juice-wrld {
+  img {
+    margin-top: 1.5rem;
+    margin-left: 25rem;
+    border-radius: 10px;
+    transform: scale(1.1);
+    transition: all 0.3s ease-in-out;
+  }
+
+  img:hover {
+    cursor: pointer;
+    box-shadow: 0 0 0 10px rgb(255, 255, 255, 0.02);
+  }
+
+  h1 {
+    font-size: 16px;
+    margin-top: 1rem;
+    margin-left: 26.5rem;
+  }
+
+  p {
+    font-size: 13px;
+    margin-left: 27.2rem;
+    margin-top: 0.5rem;
+    color: gray;
+  }
+}
+
+// Ed Sheeran
+.ed-sheeran {
+  img {
+    position: relative;
+    top: -13.1rem;
+    left: 37rem;
+    border-radius: 10px;
+    transform: scale(1.1);
+    transition: all 0.3s ease-in-out;
+  }
+
+  img:hover {
+    cursor: pointer;
+    box-shadow: 0 0 0 10px rgb(255, 255, 255, 0.02);
+  }
+
+  h1 {
+    font-size: 16px;
+    margin-top: -12.1rem;
+    color: #fff;
+    margin-left: 37.6rem;
+  }
+
+  p {
+    font-size: 13px;
+    margin-left: 39.5rem;
+    margin-top: 0.5rem;
+    color: gray;
+  }
+}
+
+// Carti
+.carti {
+  img {
+    position: relative;
+    top: -13.2rem;
+    left: 49rem;
+    border-radius: 10px;
+    transform: scale(1.1);
+    transition: all 0.3s ease-in-out;
+  }
+
+  img:hover {
+    cursor: pointer;
+    box-shadow: 0 0 0 10px rgb(255, 255, 255, 0.02);
+  }
+
+  h1 {
+    font-size: 16px;
+    margin-top: -12.2rem;
+    color: #fff;
+    margin-left: 53rem;
+  }
+
+  p {
+    font-size: 13px;
+    margin-left: 51.5rem;
+    margin-top: 0.5rem;
+    color: gray;
+  }
+}
+
+// Travis
+.travis {
+  img {
+    position: relative;
+    top: -13.2rem;
+    left: 61rem;
+    border-radius: 10px;
+    transform: scale(1.1);
+    transition: all 0.3s ease-in-out;
+  }
+
+  img:hover {
+    cursor: pointer;
+    box-shadow: 0 0 0 10px rgb(255, 255, 255, 0.02);
+  }
+
+  h1 {
+    font-size: 16px;
+    margin-top: -12.2rem;
+    color: #fff;
+    margin-left: 62.5rem;
+  }
+
+  p {
+    font-size: 13px;
+    margin-left: 63.4rem;
+    margin-top: 0.5rem;
+    color: gray;
+  }
+}
+
+// The Weeknd
+.The-weeknd {
+  img {
+    position: relative;
+    top: -13.2rem;
+    left: 73rem;
+    border-radius: 10px;
+    transform: scale(1.1);
+    transition: all 0.3s ease-in-out;
+  }
+
+  img:hover {
+    cursor: pointer;
+    box-shadow: 0 0 0 10px rgb(255, 255, 255, 0.02);
+  }
+
+  h1 {
+    font-size: 16px;
+    margin-top: -12.3rem;
+    color: #fff;
+    margin-left: 75.8rem;
+  }
+
+  p {
+    font-size: 13px;
+    margin-left: 75.2rem;
+    margin-top: 0.5rem;
+    color: gray;
+  }
+}
+
+// X
+.x {
+  img {
+    position: relative;
+    top: -13.2rem;
+    left: 85rem;
+    border-radius: 10px;
+    transform: scale(1.1);
+    transition: all 0.3s ease-in-out;
+  }
+
+  img:hover {
+    cursor: pointer;
+    box-shadow: 0 0 0 10px rgb(255, 255, 255, 0.02);
+  }
+
+  h1 {
+    font-size: 16px;
+    margin-top: -12.2rem;
+    color: #fff;
+    margin-left: 86rem;
+  }
+
+  p {
+    font-size: 13px;
+    margin-left: 87rem;
+    margin-top: 0.5rem;
+    color: gray;
+  }
+}
+
+.juice-wrld .play-button-overlay {
+  position: absolute;
+  top: 52%;
+  left: 50%;
+  transform: translate(350%, -50%);
+}
+
+.ed-sheeran .play-button-overlay {
+  position: absolute;
+  top: -90%;
+  left: 295%;
+  transform: translate(400%, -50%);
+}
+
+.carti .play-button-overlay {
+  position: absolute;
+  top: -90%;
+  left: 575%;
+  transform: translate(-50%, -50%);
+}
+
+.travis .play-button-overlay {
+  position: absolute;
+  top: -90%;
+  left: 700%;
+  transform: translate(-50%, -50%);
+}
+
+.The-weeknd .play-button-overlay {
+  position: absolute;
+  top: -90%;
+  left: 830%;
+  transform: translate(-50%, -50%);
+}
+
+.x .play-button-overlay {
+  position: absolute;
+  top: -90%;
+  left: 955%;
+  transform: translate(-50%, -50%);
 }

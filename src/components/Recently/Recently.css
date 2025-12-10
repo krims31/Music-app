@@ -12,6 +12,37 @@
   margin-left: 25rem;
 }
 
+.album-container .album-cover-wrapper {
+  position: relative;
+  display: inline-block;
+}
+.album-container .play-button-overlay {
+  position: absolute;
+  top: 35%;
+  left: 24.5%;
+  transform: translate(-50%, -50%);
+  width: 50px;
+  height: 50px;
+  border: 1px solid lightgreen;
+  border-radius: 20px;
+  padding: 10px;
+  background-color: lightgreen;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  cursor: pointer;
+  z-index: 10;
+}
+.album-container .album-cover-wrapper:hover .play-button-overlay {
+  opacity: 1;
+}
+.album-container .play-button-overlay:hover {
+  background-color: #32CD32;
+  border-color: #32CD32;
+}
+
 .juice-wrld img {
   margin-top: 1.5rem;
   margin-left: 25rem;
@@ -19,18 +50,15 @@
   transform: scale(1.1);
   transition: all 0.3s ease-in-out;
 }
-
 .juice-wrld img:hover {
   cursor: pointer;
   box-shadow: 0 0 0 10px rgba(255, 255, 255, 0.02);
 }
-
 .juice-wrld h1 {
   font-size: 16px;
   margin-top: 1rem;
   margin-left: 26.5rem;
 }
-
 .juice-wrld p {
   font-size: 13px;
   margin-left: 27.2rem;
@@ -46,19 +74,16 @@
   transform: scale(1.1);
   transition: all 0.3s ease-in-out;
 }
-
 .ed-sheeran img:hover {
   cursor: pointer;
   box-shadow: 0 0 0 10px rgba(255, 255, 255, 0.02);
 }
-
 .ed-sheeran h1 {
   font-size: 16px;
   margin-top: -12.1rem;
   color: #fff;
   margin-left: 37.6rem;
 }
-
 .ed-sheeran p {
   font-size: 13px;
   margin-left: 39.5rem;
@@ -74,19 +99,16 @@
   transform: scale(1.1);
   transition: all 0.3s ease-in-out;
 }
-
 .carti img:hover {
   cursor: pointer;
   box-shadow: 0 0 0 10px rgba(255, 255, 255, 0.02);
 }
-
 .carti h1 {
   font-size: 16px;
   margin-top: -12.2rem;
   color: #fff;
   margin-left: 53rem;
 }
-
 .carti p {
   font-size: 13px;
   margin-left: 51.5rem;
@@ -102,19 +124,16 @@
   transform: scale(1.1);
   transition: all 0.3s ease-in-out;
 }
-
 .travis img:hover {
   cursor: pointer;
   box-shadow: 0 0 0 10px rgba(255, 255, 255, 0.02);
 }
-
 .travis h1 {
   font-size: 16px;
   margin-top: -12.2rem;
   color: #fff;
   margin-left: 62.5rem;
 }
-
 .travis p {
   font-size: 13px;
   margin-left: 63.4rem;
@@ -130,19 +149,16 @@
   transform: scale(1.1);
   transition: all 0.3s ease-in-out;
 }
-
 .The-weeknd img:hover {
   cursor: pointer;
   box-shadow: 0 0 0 10px rgba(255, 255, 255, 0.02);
 }
-
 .The-weeknd h1 {
   font-size: 16px;
   margin-top: -12.3rem;
   color: #fff;
   margin-left: 75.8rem;
 }
-
 .The-weeknd p {
   font-size: 13px;
   margin-left: 75.2rem;
@@ -158,19 +174,16 @@
   transform: scale(1.1);
   transition: all 0.3s ease-in-out;
 }
-
 .x img:hover {
   cursor: pointer;
   box-shadow: 0 0 0 10px rgba(255, 255, 255, 0.02);
 }
-
 .x h1 {
   font-size: 16px;
   margin-top: -12.2rem;
   color: #fff;
   margin-left: 86rem;
 }
-
 .x p {
   font-size: 13px;
   margin-left: 87rem;
@@ -178,12 +191,44 @@
   color: gray;
 }
 
-.play-button-overlay {
-  position: relative;
-  top: -50px;
-  left: -100px;
-  border: 1px solid lightgreen;
-  border-radius: 20px;
-  padding: 10px;
-  background-color: lightgreen;
+.juice-wrld .play-button-overlay {
+  position: absolute;
+  top: 52%;
+  left: 50%;
+  transform: translate(350%, -50%);
+}
+
+.ed-sheeran .play-button-overlay {
+  position: absolute;
+  top: -90%;
+  left: 295%;
+  transform: translate(400%, -50%);
+}
+
+.carti .play-button-overlay {
+  position: absolute;
+  top: -90%;
+  left: 575%;
+  transform: translate(-50%, -50%);
+}
+
+.travis .play-button-overlay {
+  position: absolute;
+  top: -90%;
+  left: 700%;
+  transform: translate(-50%, -50%);
+}
+
+.The-weeknd .play-button-overlay {
+  position: absolute;
+  top: -90%;
+  left: 830%;
+  transform: translate(-50%, -50%);
+}
+
+.x .play-button-overlay {
+  position: absolute;
+  top: -90%;
+  left: 955%;
+  transform: translate(-50%, -50%);
 }/*# sourceMappingURL=Recently.css.map */

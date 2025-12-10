@@ -70,52 +70,106 @@ const Music = [
 ];
 
 export default function Recently() {
-  const [isPlaying, setIsPlaying] = useState(false);
+  const [isPlayingJuice, setIsPlayingJuice] = useState(false);
+  const [isPlayingEd, setIsPlayingEd] = useState(false);
+  const [isPlayingCarti, setIsPlayingCarti] = useState(false);
+  const [isPlayingTravis, setIsPlayingTravis] = useState(false);
+  const [isPlayingWeeknd, setIsPlayingWeeknd] = useState(false);
+  const [isPlayingX, setIsPlayingX] = useState(false);
 
-  const togglePlay = () => {
-    setIsPlaying(!isPlaying);
-  };
   return (
     <>
       <div className="recently-container">
         <h1>{RES.recently}</h1>
-        <div className="juice-wrld">
-          <img src={legend} alt="Juice WRLD - Wishing Well" width={150} />
-          <button
-            onClick={togglePlay}
-            className="play-button-overlay"
-            aria-label={isPlaying ? "Pause" : "Continue"}
-          >
-            {isPlaying ? <FaPause size={24} /> : <FaPlay size={24} />}
-          </button>
+        <div className="juice-wrld album-container">
+          <div className="album-cover-wrapper">
+            <img src={legend} alt="Juice WRLD - Wishing Well" width={150} />
+            <button
+              onClick={() => setIsPlayingJuice(!isPlayingJuice)}
+              className="play-button-overlay"
+              aria-label={isPlayingJuice ? "Pause" : "Play"}
+            >
+              {isPlayingJuice ? <FaPause size={20} /> : <FaPlay size={20} />}
+            </button>
+          </div>
           <h1>{RES.nameLegend}</h1>
           <p>{RES.artist1}</p>
         </div>
-      </div>
-      <div className="ed-sheeran">
-        <img src={ed} alt="ed" width={150} />
-        <h1>{RES.nameEd}</h1>
-        <p>{RES.artist2}</p>
-      </div>
-      <div className="carti">
-        <img src={carti} alt="carti" width={150} />
-        <h1>{RES.nameCarti}</h1>
-        <p>{RES.artist3}</p>
-      </div>
-      <div className="travis">
-        <img src={travis} alt="travis" width={150} />
-        <h1>{RES.nameTravis}</h1>
-        <p>{RES.artist4}</p>
-      </div>
-      <div className="The-weeknd">
-        <img src={weeknd} alt="The Weeknd" width={150} />
-        <h1>{RES.nameWeeknd}</h1>
-        <p>{RES.artist5}</p>
-      </div>
-      <div className="x">
-        <img src={x} alt="X" width={150} />
-        <h1>{RES.nameX}</h1>
-        <p>{RES.artist6}</p>
+
+        <div className="ed-sheeran album-container">
+          <div className="album-cover-wrapper">
+            <img src={ed} alt="ed" width={150} />
+            <button
+              onClick={() => setIsPlayingEd(!isPlayingEd)}
+              className="play-button-overlay"
+              aria-label={isPlayingEd ? "Pause" : "Play"}
+            >
+              {isPlayingEd ? <FaPause size={20} /> : <FaPlay size={20} />}
+            </button>
+          </div>
+          <h1>{RES.nameEd}</h1>
+          <p>{RES.artist2}</p>
+        </div>
+
+        <div className="carti album-container">
+          <div className="album-cover-wrapper">
+            <img src={carti} alt="carti" width={150} />
+            <button
+              onClick={() => setIsPlayingCarti(!isPlayingCarti)}
+              className="play-button-overlay"
+              aria-label={isPlayingCarti ? "Pause" : "Play"}
+            >
+              {isPlayingCarti ? <FaPause size={20} /> : <FaPlay size={20} />}
+            </button>
+          </div>
+          <h1>{RES.nameCarti}</h1>
+          <p>{RES.artist3}</p>
+        </div>
+
+        <div className="travis album-container">
+          <div className="album-cover-wrapper">
+            <img src={travis} alt="travis" width={150} />
+            <button
+              onClick={() => setIsPlayingTravis(!isPlayingTravis)}
+              className="play-button-overlay"
+              aria-label={isPlayingTravis ? "Pause" : "Play"}
+            >
+              {isPlayingTravis ? <FaPause size={20} /> : <FaPlay size={20} />}
+            </button>
+          </div>
+          <h1>{RES.nameTravis}</h1>
+          <p>{RES.artist4}</p>
+        </div>
+
+        <div className="The-weeknd album-container">
+          <div className="album-cover-wrapper">
+            <img src={weeknd} alt="The Weeknd" width={150} />
+            <button
+              onClick={() => setIsPlayingWeeknd(!isPlayingWeeknd)}
+              className="play-button-overlay"
+              aria-label={isPlayingWeeknd ? "Pause" : "Play"}
+            >
+              {isPlayingWeeknd ? <FaPause size={20} /> : <FaPlay size={20} />}
+            </button>
+          </div>
+          <h1>{RES.nameWeeknd}</h1>
+          <p>{RES.artist5}</p>
+        </div>
+
+        <div className="x album-container">
+          <div className="album-cover-wrapper">
+            <img src={x} alt="X" width={150} />
+            <button
+              onClick={() => setIsPlayingX(!isPlayingX)}
+              className="play-button-overlay"
+              aria-label={isPlayingX ? "Pause" : "Play"}
+            >
+              {isPlayingX ? <FaPause size={20} /> : <FaPlay size={20} />}
+            </button>
+          </div>
+          <h1>{RES.nameX}</h1>
+          <p>{RES.artist6}</p>
+        </div>
       </div>
     </>
   );
