@@ -71,12 +71,12 @@ const Music = [
 ];
 
 export default function Recently() {
-  const [isPlayingJuice, setIsPlayingJuice] = useState(false);
-  const [isPlayingEd, setIsPlayingEd] = useState(false);
-  const [isPlayingCarti, setIsPlayingCarti] = useState(false);
-  const [isPlayingTravis, setIsPlayingTravis] = useState(false);
-  const [isPlayingWeeknd, setIsPlayingWeeknd] = useState(false);
-  const [isPlayingX, setIsPlayingX] = useState(false);
+  const [isPlayingJuice, setIsPlayingJuice] = useState<boolean>(false);
+  const [isPlayingEd, setIsPlayingEd] = useState<boolean>(false);
+  const [isPlayingCarti, setIsPlayingCarti] = useState<boolean>(false);
+  const [isPlayingTravis, setIsPlayingTravis] = useState<boolean>(false);
+  const [isPlayingWeeknd, setIsPlayingWeeknd] = useState<boolean>(false);
+  const [isPlayingX, setIsPlayingX] = useState<boolean>(false);
 
   return (
     <>
