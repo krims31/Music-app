@@ -22,6 +22,7 @@ const RES = {
   artist5: "The Weeknd",
   nameX: "Jocelyn Flores",
   artist6: "XXXtentacion",
+  seeall: "See all",
 };
 
 const Music = [
@@ -170,6 +171,9 @@ export default function Recently() {
           <h1>{RES.nameX}</h1>
           <p>{RES.artist6}</p>
         </div>
+      </div>
+      <div className="see-all">
+        <h1>{RES.seeall}</h1>
       </div>
     </>
   );
