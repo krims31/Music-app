@@ -39,8 +39,9 @@
 }
 
 .ed-sheeran img {
-  margin-top: 1.5rem;
-  margin-left: 25rem;
+  position: relative;
+  top: -13.1rem;
+  left: 37rem;
   border-radius: 10px;
   transform: scale(1.1);
   transition: all 0.3s ease-in-out;
@@ -53,14 +54,136 @@
 
 .ed-sheeran h1 {
   font-size: 16px;
-  margin-top: 1rem;
+  margin-top: -12.1rem;
   color: #fff;
-  margin-left: 26.5rem;
+  margin-left: 37.6rem;
 }
 
 .ed-sheeran p {
   font-size: 13px;
-  margin-left: 27.2rem;
+  margin-left: 39.5rem;
   margin-top: 0.5rem;
   color: gray;
+}
+
+.carti img {
+  position: relative;
+  top: -13.2rem;
+  left: 49rem;
+  border-radius: 10px;
+  transform: scale(1.1);
+  transition: all 0.3s ease-in-out;
+}
+
+.carti img:hover {
+  cursor: pointer;
+  box-shadow: 0 0 0 10px rgb(255, 255, 255, 0.02);
+}
+
+.carti h1 {
+  font-size: 16px;
+  margin-top: -12.2rem;
+  color: #fff;
+  margin-left: 53rem;
+}
+
+.carti p {
+  font-size: 13px;
+  margin-left: 51.5rem;
+  margin-top: 0.5rem;
+  color: gray;
+}
+
+.travis img {
+  position: relative;
+  top: -13.2rem;
+  left: 61rem;
+  border-radius: 10px;
+  transform: scale(1.1);
+  transition: all 0.3s ease-in-out;
+}
+
+.travis img:hover {
+  cursor: pointer;
+  box-shadow: 0 0 0 10px rgb(255, 255, 255, 0.02);
+}
+
+.travis h1 {
+  font-size: 16px;
+  margin-top: -12.2rem;
+  color: #fff;
+  margin-left: 62.5rem;
+}
+
+.travis p {
+  font-size: 13px;
+  margin-left: 63.4rem;
+  margin-top: 0.5rem;
+  color: gray;
+}
+
+.The-weeknd img {
+  position: relative;
+  top: -13.2rem;
+  left: 73rem;
+  border-radius: 10px;
+  transform: scale(1.1);
+  transition: all 0.3s ease-in-out;
+}
+
+.The-weeknd img:hover {
+  cursor: pointer;
+  box-shadow: 0 0 0 10px rgb(255, 255, 255, 0.02);
+}
+
+.The-weeknd h1 {
+  font-size: 16px;
+  margin-top: -12.3rem;
+  color: #fff;
+  margin-left: 75.8rem;
+}
+
+.The-weeknd p {
+  font-size: 13px;
+  margin-left: 75.2rem;
+  margin-top: 0.5rem;
+  color: gray;
+}
+
+.x img {
+  position: relative;
+  top: -13.2rem;
+  left: 85rem;
+  border-radius: 10px;
+  transform: scale(1.1);
+  transition: all 0.3s ease-in-out;
+}
+
+.x img:hover {
+  cursor: pointer;
+  box-shadow: 0 0 0 10px rgb(255, 255, 255, 0.02);
+}
+
+.x h1 {
+  font-size: 16px;
+  margin-top: -12.2rem;
+  color: #fff;
+  margin-left: 86rem;
+}
+
+.x p {
+  font-size: 13px;
+  margin-left: 87rem;
+  margin-top: 0.5rem;
+  color: gray;
+}
+
+.play-button-overlay {
+    position: relative;
+    top: -50px;
+    left: -100px;
+    border: 1px solid lightgreen;
+    border-radius: 20px;
+    padding: 10px;
+    background-color: lightgreen;
 }
