@@ -1,27 +1,25 @@
 .search-container input {
   padding: 12px 50px;
   position: relative;
-  top: -48rem;
-  left: 25rem;
+  top: 0.5rem;
+  left: 50rem;
   border: 1px solid gray;
   border-radius: 20px;
-  width: 15%;
+  width: 20%;
   color: #fff;
   background-color: #1a1a1a;
 }
-
-.search-container input::-moz-placeholder {
+.search-container input input::-moz-placeholder {
   color: #ccc;
   padding: 0px;
 }
-
-.search-container input::placeholder {
+.search-container input input::placeholder {
   color: #ccc;
   padding: 0px;
 }
 
 .search img {
   position: relative;
-  top: -49.9rem;
-  left: 26rem;
+  top: -1.4rem;
+  left: 51rem;
 }/*# sourceMappingURL=Search.css.map */

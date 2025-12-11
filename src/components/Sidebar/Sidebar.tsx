@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { FaTrash } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 import "../Sidebar/sidebar.scss";
 import home from "./assets/house.png";
@@ -21,15 +22,27 @@ const TEXT = {
 
 export default function Sidebar() {
   const [playlist, setPlaylist] = useState<string[]>([]);
+  const [newPlaylistName, setNewPlaylistName] = useState<string>("");
+  const [showInput, setShowInput] = useState<boolean>(false);
 
-  const handlePlaylist = () => {
-    setPlaylist([
-      ...playlist,
-      "Rock & Roll",
-      "Best of 90s",
-      "Work Time",
-      "Exercise mode",
-    ]);
+  const handleAddClick = () => {
+    setShowInput(true);
+  };
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setNewPlaylistName(e.target.value);
+  };
+
+  const handleInputSubmit = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter" && newPlaylistName.trim() !== "") {
+      setPlaylist([...playlist, newPlaylistName.trim()]);
+      setNewPlaylistName("");
+      setShowInput(false);
+    }
+  };
+
+  const handleDeletePlaylist = (index: number) => {
+    setPlaylist(playlist.filter((_, i) => i !== index));
   };
 
   return (
@@ -97,12 +110,43 @@ export default function Sidebar() {
           <div>{TEXT.recently}</div>
         </NavLink>
 
-        <div className="playlist" onClick={handlePlaylist}>
+        <div className="playlist">
           <h1>{TEXT.playlist}</h1>
-          <button>+</button>
+          <button onClick={handleAddClick}>+</button>
+          {showInput && (
+            <input
+              type="text"
+              value={newPlaylistName}
+              onChange={handleInputChange}
+              onKeyDown={handleInputSubmit}
+              placeholder="Enter playlist name"
+              autoFocus
+              style={{
+                marginTop: "5px",
+                width: "90%",
+                padding: "10px 5px",
+                borderRadius: "5px",
+                border: "1px solid #1e90ff",
+                background: "#1a1a1a",
+                color: "#fff",
+              }}
+            />
+          )}
           <ul>
             {playlist.map((item, index) => (
-              <li key={index}>{item}</li>
+              <li key={index}>
+                {item}
+                <FaTrash
+                  style={{
+                    cursor: "pointer",
+                    color: "#ff4d4d",
+                    flexShrink: 0,
+                    marginLeft: "130px",
+                    marginTop: "10px",
+                  }}
+                  onClick={() => handleDeletePlaylist(index)}
+                />
+              </li>
             ))}
           </ul>
         </div>
