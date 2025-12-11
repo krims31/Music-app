@@ -3,7 +3,7 @@ import "./App.css";
 import Search from "./components/Header/Search";
 import Sidebar from "./components/Sidebar/Sidebar";
 import Recently from "./components/Recently/Recently";
-
+import Music from "./components/MusicPlay/Music";
 function App() {
   return (
     <div>
@@ -11,6 +11,7 @@ function App() {
         <Sidebar />
         <Search />
         <Recently />
+        <Music />
       </BrowserRouter>
     </div>
   );

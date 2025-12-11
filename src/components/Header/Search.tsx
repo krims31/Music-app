@@ -1,5 +1,5 @@
 import "./Search.scss";
-import search from "./assets/icons8-search-50.png"
+import search from "./assets/icons8-search-50.png";
 
 export default function Search() {
   return (
@@ -8,7 +8,7 @@ export default function Search() {
         <input type="text" placeholder="Search tracks, albums, artists" />
       </div>
       <div className="search">
-        <img src={search} alt="search" width={20}/>
+        <img src={search} alt="search" width={20} />
       </div>
     </>
   );

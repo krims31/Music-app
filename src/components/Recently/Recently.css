@@ -21,8 +21,6 @@
   top: 35%;
   left: 24.5%;
   transform: translate(-50%, -50%);
-  width: 50px;
-  height: 50px;
   border: 1px solid lightgreen;
   border-radius: 20px;
   padding: 10px;
@@ -34,13 +32,18 @@
   transition: opacity 0.3s ease;
   cursor: pointer;
   z-index: 10;
+  pointer-events: auto;
+}
+.album-container .play-button-overlay.overlapping {
+  pointer-events: none;
+  opacity: 0.5;
 }
 .album-container .album-cover-wrapper:hover .play-button-overlay {
   opacity: 1;
 }
 .album-container .play-button-overlay:hover {
-  background-color: #32CD32;
-  border-color: #32CD32;
+  background-color: #32cd32;
+  border-color: #32cd32;
 }
 
 .juice-wrld img {
@@ -193,16 +196,17 @@
 
 .juice-wrld .play-button-overlay {
   position: absolute;
-  top: 52%;
-  left: 50%;
-  transform: translate(350%, -50%);
+  top: 55%;
+  left: 86%;
+  z-index: 1;
 }
 
 .ed-sheeran .play-button-overlay {
   position: absolute;
-  top: -90%;
-  left: 295%;
+  top: -88%;
+  left: 318%;
   transform: translate(400%, -50%);
+  z-index: 1;
 }
 
 .carti .play-button-overlay {
@@ -231,4 +235,11 @@
   top: -90%;
   left: 955%;
   transform: translate(-50%, -50%);
+}
+
+.see-all {
+  color: #fff;
+  font-size: 8px;
+  margin-top: -15.8rem;
+  margin-left: 100rem;
 }/*# sourceMappingURL=Recently.css.map */
