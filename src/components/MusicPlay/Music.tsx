@@ -107,14 +107,12 @@ export default function Music() {
 
   // Функция для добавления/удаления из любимых
   const toggleLike = (songId: number, e: React.MouseEvent) => {
-    e.stopPropagation(); // Предотвращаем всплытие клика
+    e.stopPropagation();
 
     setLikedSongs((prev) => {
       if (prev.includes(songId)) {
-        // Удаляем из любимых
         return prev.filter((id) => id !== songId);
       } else {
-        // Добавляем в любимые
         return [...prev, songId];
       }
     });
