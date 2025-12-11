@@ -1,5 +1,13 @@
 import { useState, useRef } from "react";
-import { FaPause, FaPlay } from "react-icons/fa";
+import {
+  FaPause,
+  FaPlay,
+  FaVolumeUp,
+  FaVolumeMute,
+  FaHeart,
+  FaStepForward,
+  FaStepBackward,
+} from "react-icons/fa";
 import "./Recently.scss";
 import x from "./assets/17_by_XXXTentacion_cover.jpg";
 import travis from "./assets/Travis_Scott_Astroworld.jpg";
@@ -25,7 +33,7 @@ const RES = {
   seeall: "See all",
 };
 
-interface Music {
+interface Song {
   id: number;
   title: string;
   artist: string;
@@ -36,7 +44,7 @@ interface Music {
   genre: string[];
 }
 
-const music: Music[] = [
+const songs: Song[] = [
   {
     id: 1,
     title: "Wishing Well",
@@ -44,7 +52,7 @@ const music: Music[] = [
     album: "Legends Never Die",
     duration: "3:45",
     audioUrl: "./music/Juice-WRLD-Wishing-Well-(HipHopKit.com).mp3",
-    coverUrl: "",
+    coverUrl: legend,
     genre: ["Hip-hop", "Emo rap", "R&B"],
   },
   {
@@ -54,7 +62,7 @@ const music: Music[] = [
     album: "Divide",
     duration: "4:21",
     audioUrl: "./music/Castle On The Hill - Ed Sheeran.mp3",
-    coverUrl: "",
+    coverUrl: ed,
     genre: ["Pop & Rock", "R&B"],
   },
   {
@@ -64,7 +72,7 @@ const music: Music[] = [
     album: "Whole Lotta Red",
     duration: "3:13",
     audioUrl: "./music/Playboi Carti - Sky (Official Audio).mp3",
-    coverUrl: "",
+    coverUrl: carti,
     genre: ["R&B"],
   },
   {
@@ -74,7 +82,7 @@ const music: Music[] = [
     album: "Astroworld",
     duration: "5:12",
     audioUrl: "./music/Travis Scott - SICKO MODE ft. Drake.mp3",
-    coverUrl: "",
+    coverUrl: travis,
     genre: ["Hip-hop"],
   },
   {
@@ -84,7 +92,7 @@ const music: Music[] = [
     album: "Starboy",
     duration: "3:50",
     audioUrl: "./music/SpotiDown.App - Starboy - The Weeknd.mp3",
-    coverUrl: "",
+    coverUrl: weeknd,
     genre: ["Pop"],
   },
   {
@@ -94,59 +102,131 @@ const music: Music[] = [
     album: "17",
     duration: "1:59",
     audioUrl: "./music/Xxxtentacion_-_Jocelyn_Flores_17_2017_(Rilds.com).mp3",
-    coverUrl: "",
+    coverUrl: x,
     genre: ["Emo rap"],
   },
 ];
 
 export default function Recently() {
-  const [currentSongId, setCurrentSongId] = useState<string | null>(null);
+  const [currentSong, setCurrentSong] = useState<Song | null>(null);
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
+  const [currentTime, setCurrentTime] = useState<number>(0);
+  const [duration, setDuration] = useState<number>(0);
+  const [volume, setVolume] = useState<number>(0.7);
+  const [isMuted, setIsMuted] = useState<boolean>(false);
+  const [likedSongs, setLikedSongs] = useState<number[]>([]);
 
   const audioRef = useRef<HTMLAudioElement>(null);
 
-  // Функция для воспроизведения/паузы песни
-  const togglePlayPause = (songId: string, audioUrl: string) => {
-    if (currentSongId === songId) {
-      // Если это текущая песня, пауза/продолжение
-      if (isPlaying) {
-        audioRef.current?.pause();
-        setIsPlaying(false);
+  // Функции для управления плеером
+  const playNextSong = () => {
+    if (!currentSong) return;
+
+    const currentIndex = songs.findIndex((song) => song.id === currentSong.id);
+    const nextIndex = (currentIndex + 1) % songs.length;
+    const nextSong = songs[nextIndex];
+
+    togglePlayPause(nextSong);
+  };
+
+  const playPreviousSong = () => {
+    if (!currentSong) return;
+
+    const currentIndex = songs.findIndex((song) => song.id === currentSong.id);
+    const prevIndex = currentIndex === 0 ? songs.length - 1 : currentIndex - 1;
+    const prevSong = songs[prevIndex];
+
+    togglePlayPause(prevSong);
+  };
+
+  const toggleLike = (songId: number, e?: React.MouseEvent) => {
+    if (e) e.stopPropagation();
+
+    setLikedSongs((prev) => {
+      if (prev.includes(songId)) {
+        return prev.filter((id) => id !== songId);
       } else {
-        audioRef.current
-          ?.play()
-          .then(() => setIsPlaying(true))
-          .catch((err) => console.error("Ошибка воспроизведения:", err));
+        return [...prev, songId];
       }
-    } else {
-      // Если это новая песня
-      setCurrentSongId(songId);
+    });
+  };
 
+  const togglePlayPause = (song?: Song) => {
+    if (song && song !== currentSong) {
+      setCurrentSong(song);
       if (audioRef.current) {
-        audioRef.current.pause();
-
-        audioRef.current.src = audioUrl;
-
+        audioRef.current.src = song.audioUrl;
         audioRef.current.load();
+
         audioRef.current
           .play()
           .then(() => {
             setIsPlaying(true);
-            console.log("Воспроизведение начато:", songId);
           })
           .catch((err) => {
             console.error("Ошибка воспроизведения:", err);
             setIsPlaying(false);
           });
       }
+    } else if (currentSong) {
+      if (audioRef.current) {
+        if (isPlaying) {
+          audioRef.current.pause();
+          setIsPlaying(false);
+        } else {
+          audioRef.current
+            .play()
+            .then(() => setIsPlaying(true))
+            .catch((err) => console.error("Ошибка воспроизведения:", err));
+        }
+      }
     }
   };
 
-  // Получаем состояние для конкретной песни
-  const getSongState = (songId: string) => {
+  const handleTimeUpdate = () => {
+    if (audioRef.current) {
+      setCurrentTime(audioRef.current.currentTime);
+      setDuration(audioRef.current.duration || 0);
+    }
+  };
+
+  const handleProgressChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const time = parseFloat(e.target.value);
+    setCurrentTime(time);
+    if (audioRef.current) {
+      audioRef.current.currentTime = time;
+    }
+  };
+
+  const handleVolumeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const vol = parseFloat(e.target.value);
+    setVolume(vol);
+    if (audioRef.current) {
+      audioRef.current.volume = vol;
+    }
+  };
+
+  const toggleMute = () => {
+    if (audioRef.current) {
+      if (isMuted) {
+        audioRef.current.volume = volume;
+      } else {
+        audioRef.current.volume = 0;
+      }
+      setIsMuted(!isMuted);
+    }
+  };
+
+  const formatTime = (seconds: number) => {
+    const min = Math.floor(seconds / 60);
+    const sec = Math.floor(seconds % 60);
+    return `${min}:${sec < 10 ? "0" : ""}${sec}`;
+  };
+
+  const getSongState = (songId: number) => {
     return {
-      isCurrent: currentSongId === songId,
-      isPlaying: currentSongId === songId && isPlaying,
+      isCurrent: currentSong?.id === songId,
+      isPlaying: currentSong?.id === songId && isPlaying,
     };
   };
 
@@ -160,11 +240,11 @@ export default function Recently() {
           <div className="album-cover-wrapper">
             <img src={legend} alt="Juice WRLD - Wishing Well" width={150} />
             <button
-              onClick={() => togglePlayPause("juice", music[0].audioUrl)}
+              onClick={() => togglePlayPause(songs[0])}
               className="play-button-overlay"
-              aria-label={getSongState("juice").isPlaying ? "Pause" : "Play"}
+              aria-label={getSongState(1).isPlaying ? "Pause" : "Play"}
             >
-              {getSongState("juice").isPlaying ? (
+              {getSongState(1).isPlaying ? (
                 <FaPause size={20} />
               ) : (
                 <FaPlay size={20} />
@@ -180,11 +260,11 @@ export default function Recently() {
           <div className="album-cover-wrapper">
             <img src={ed} alt="Ed Sheeran" width={150} />
             <button
-              onClick={() => togglePlayPause("ed", music[1].audioUrl)}
+              onClick={() => togglePlayPause(songs[1])}
               className="play-button-overlay"
-              aria-label={getSongState("ed").isPlaying ? "Pause" : "Play"}
+              aria-label={getSongState(2).isPlaying ? "Pause" : "Play"}
             >
-              {getSongState("ed").isPlaying ? (
+              {getSongState(2).isPlaying ? (
                 <FaPause size={20} />
               ) : (
                 <FaPlay size={20} />
@@ -200,11 +280,11 @@ export default function Recently() {
           <div className="album-cover-wrapper">
             <img src={carti} alt="Playboi Carti" width={150} />
             <button
-              onClick={() => togglePlayPause("carti", music[2].audioUrl)}
+              onClick={() => togglePlayPause(songs[2])}
               className="play-button-overlay"
-              aria-label={getSongState("carti").isPlaying ? "Pause" : "Play"}
+              aria-label={getSongState(3).isPlaying ? "Pause" : "Play"}
             >
-              {getSongState("carti").isPlaying ? (
+              {getSongState(3).isPlaying ? (
                 <FaPause size={20} />
               ) : (
                 <FaPlay size={20} />
@@ -220,11 +300,11 @@ export default function Recently() {
           <div className="album-cover-wrapper">
             <img src={travis} alt="Travis Scott" width={150} />
             <button
-              onClick={() => togglePlayPause("travis", music[3].audioUrl)}
+              onClick={() => togglePlayPause(songs[3])}
               className="play-button-overlay"
-              aria-label={getSongState("travis").isPlaying ? "Pause" : "Play"}
+              aria-label={getSongState(4).isPlaying ? "Pause" : "Play"}
             >
-              {getSongState("travis").isPlaying ? (
+              {getSongState(4).isPlaying ? (
                 <FaPause size={20} />
               ) : (
                 <FaPlay size={20} />
@@ -240,11 +320,11 @@ export default function Recently() {
           <div className="album-cover-wrapper">
             <img src={weeknd} alt="The Weeknd" width={150} />
             <button
-              onClick={() => togglePlayPause("weeknd", music[4].audioUrl)}
+              onClick={() => togglePlayPause(songs[4])}
               className="play-button-overlay"
-              aria-label={getSongState("weeknd").isPlaying ? "Pause" : "Play"}
+              aria-label={getSongState(5).isPlaying ? "Pause" : "Play"}
             >
-              {getSongState("weeknd").isPlaying ? (
+              {getSongState(5).isPlaying ? (
                 <FaPause size={20} />
               ) : (
                 <FaPlay size={20} />
@@ -260,11 +340,11 @@ export default function Recently() {
           <div className="album-cover-wrapper">
             <img src={x} alt="XXXTentacion" width={150} />
             <button
-              onClick={() => togglePlayPause("x", music[5].audioUrl)}
+              onClick={() => togglePlayPause(songs[5])}
               className="play-button-overlay"
-              aria-label={getSongState("x").isPlaying ? "Pause" : "Play"}
+              aria-label={getSongState(6).isPlaying ? "Pause" : "Play"}
             >
-              {getSongState("x").isPlaying ? (
+              {getSongState(6).isPlaying ? (
                 <FaPause size={20} />
               ) : (
                 <FaPlay size={20} />
@@ -280,18 +360,101 @@ export default function Recently() {
         <h1>{RES.seeall}</h1>
       </div>
 
-      {/* Скрытый аудио элемент */}
+      {/* Аудио элемент */}
       <audio
         ref={audioRef}
+        onTimeUpdate={handleTimeUpdate}
+        onLoadedMetadata={() => {
+          if (audioRef.current) {
+            setDuration(audioRef.current.duration);
+          }
+        }}
         onEnded={() => {
           setIsPlaying(false);
-          setCurrentSongId(null);
+          setCurrentTime(0);
+          playNextSong();
         }}
         onError={(e) => {
           console.error("Аудио ошибка:", e);
           setIsPlaying(false);
         }}
       />
+
+      {/* Панель управления плеером */}
+      {currentSong && (
+        <div className="music-player">
+          <div className="player-left">
+            <img
+              src={currentSong.coverUrl}
+              alt={currentSong.title}
+              className="player-cover"
+            />
+            <div className="player-song-info">
+              <h4>{currentSong.title}</h4>
+              <p>{currentSong.artist}</p>
+            </div>
+          </div>
+
+          <div className="player-center">
+            <div className="player-controls">
+              {/* Кнопки управления */}
+              <button
+                className="control-btn prev-btn"
+                onClick={playPreviousSong}
+              >
+                <FaStepBackward size={16} />
+              </button>
+
+              <button
+                className="control-btn play-btn-main"
+                onClick={() => togglePlayPause()}
+              >
+                {isPlaying ? <FaPause size={16} /> : <FaPlay size={16} />}
+              </button>
+
+              <button className="control-btn next-btn" onClick={playNextSong}>
+                <FaStepForward size={16} />
+              </button>
+            </div>
+
+            <div className="player-progress">
+              <span className="time-current">{formatTime(currentTime)}</span>
+              <input
+                type="range"
+                min="0"
+                max={duration || 0}
+                value={currentTime}
+                onChange={handleProgressChange}
+                className="progress-bar"
+              />
+              <span className="time-total">{formatTime(duration)}</span>
+            </div>
+          </div>
+
+          <div className="player-right">
+            {/* Кнопка лайка в плеере */}
+            <button
+              className={`like-btn-player ${likedSongs.includes(currentSong.id) ? "liked" : ""}`}
+              onClick={() => toggleLike(currentSong.id)}
+            >
+              <FaHeart size={16} />
+            </button>
+
+            <button className="volume-btn" onClick={toggleMute}>
+              {isMuted ? <FaVolumeMute size={16} /> : <FaVolumeUp size={16} />}
+            </button>
+            <input
+              type="range"
+              min="0"
+              max="1"
+              step="0.01"
+              value={isMuted ? 0 : volume}
+              onChange={handleVolumeChange}
+              className="volume-slider"
+            />
+          </div>
+        </div>
+      )}
     </>
   );
 }

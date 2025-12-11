@@ -1,18 +1,20 @@
-.search-container input {
-    padding: 12px 50px;
-    position: relative;
-    top: -48rem;
-    left: 25rem;
-    border: 1px solid gray;
-    border-radius: 20px;
-    width: 20%;
-    color: #fff;
-    background-color: #1a1a1a;
-}
+.search-container {
+    input {
+        padding: 13px 50px;
+        position: relative;
+        top: -48rem;
+        left: 25rem;
+        border: 1px solid gray;
+        border-radius: 20px;
+        width: 20%;
+        color: #fff;
+        background-color: #1a1a1a;
 
-.search-container input::placeholder {
-    color: #ccc;
-    padding: 0px;
+        input::placeholder {
+            color: #ccc;
+            padding: 0px;
+        }
+    }
 }
 
 .search img {
