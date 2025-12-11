@@ -1,282 +1,281 @@
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 
 .recently-container h1 {
-  margin-top: -45rem;
-  font-size: 24px;
-  color: #fff;
-  margin-left: 25rem;
+    margin-top: -47rem;
+    font-size: 24px;
+    color: #fff;
+    margin-left: 25rem;
 }
 
-// Общие стили для всех альбомов
 .album-container {
-  .album-cover-wrapper {
-    position: relative;
-    display: inline-block;
-  }
-
-  .play-button-overlay {
-    position: absolute;
-    top: 35%;
-    left: 24.5%;
-    transform: translate(-50%, -50%);
-    border: 1px solid lightgreen;
-    border-radius: 20px;
-    padding: 10px;
-    background-color: lightgreen;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    cursor: pointer;
-    z-index: 10;
-    pointer-events: auto;
-
-    &.overlapping {
-      pointer-events: none;
-      opacity: 0.5;
+    .album-cover-wrapper {
+        position: relative;
+        display: inline-block;
     }
-  }
 
-  .album-cover-wrapper:hover .play-button-overlay {
-    opacity: 1;
-  }
+    .play-button-overlay {
+        position: absolute;
+        top: 35%;
+        left: 24.5%;
+        transform: translate(-50%, -50%);
+        border: 1px solid lightgreen;
+        border-radius: 20px;
+        padding: 10px;
+        background-color: lightgreen;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        cursor: pointer;
+        z-index: 10;
+        pointer-events: auto;
 
-  .play-button-overlay:hover {
-    background-color: #32cd32;
-    border-color: #32cd32;
-  }
+        &.overlapping {
+            pointer-events: none;
+            opacity: 0.5;
+        }
+    }
+
+    .album-cover-wrapper:hover .play-button-overlay {
+        opacity: 1;
+    }
+
+    .play-button-overlay:hover {
+        background-color: #32cd32;
+        border-color: #32cd32;
+    }
 }
 
 .juice-wrld {
-  img {
-    margin-top: 1.5rem;
-    margin-left: 25rem;
-    border-radius: 10px;
-    transform: scale(1.1);
-    transition: all 0.3s ease-in-out;
-  }
+    img {
+        margin-top: 1.5rem;
+        margin-left: 25rem;
+        border-radius: 10px;
+        transform: scale(1.1);
+        transition: all 0.3s ease-in-out;
+    }
 
-  img:hover {
-    cursor: pointer;
-    box-shadow: 0 0 0 10px rgb(255, 255, 255, 0.02);
-  }
+    img:hover {
+        cursor: pointer;
+        box-shadow: 0 0 0 10px rgb(255, 255, 255, 0.02);
+    }
 
-  h1 {
-    font-size: 16px;
-    margin-top: 1rem;
-    margin-left: 26.5rem;
-  }
+    h1 {
+        font-size: 16px;
+        margin-top: 1rem;
+        margin-left: 26.5rem;
+    }
 
-  p {
-    font-size: 13px;
-    margin-left: 27.2rem;
-    margin-top: 0.5rem;
-    color: gray;
-  }
+    p {
+        font-size: 13px;
+        margin-left: 27.2rem;
+        margin-top: 0.5rem;
+        color: gray;
+    }
 }
 
 .ed-sheeran {
-  img {
-    position: relative;
-    top: -13.1rem;
-    left: 37rem;
-    border-radius: 10px;
-    transform: scale(1.1);
-    transition: all 0.3s ease-in-out;
-  }
+    img {
+        position: relative;
+        top: -13.1rem;
+        left: 37rem;
+        border-radius: 10px;
+        transform: scale(1.1);
+        transition: all 0.3s ease-in-out;
+    }
 
-  img:hover {
-    cursor: pointer;
-    box-shadow: 0 0 0 10px rgb(255, 255, 255, 0.02);
-  }
+    img:hover {
+        cursor: pointer;
+        box-shadow: 0 0 0 10px rgb(255, 255, 255, 0.02);
+    }
 
-  h1 {
-    font-size: 16px;
-    margin-top: -12.1rem;
-    color: #fff;
-    margin-left: 37.6rem;
-  }
+    h1 {
+        font-size: 16px;
+        margin-top: -12.1rem;
+        color: #fff;
+        margin-left: 37.6rem;
+    }
 
-  p {
-    font-size: 13px;
-    margin-left: 39.5rem;
-    margin-top: 0.5rem;
-    color: gray;
-  }
+    p {
+        font-size: 13px;
+        margin-left: 39.5rem;
+        margin-top: 0.5rem;
+        color: gray;
+    }
 }
 
 .carti {
-  img {
-    position: relative;
-    top: -13.2rem;
-    left: 49rem;
-    border-radius: 10px;
-    transform: scale(1.1);
-    transition: all 0.3s ease-in-out;
-  }
+    img {
+        position: relative;
+        top: -13.2rem;
+        left: 49rem;
+        border-radius: 10px;
+        transform: scale(1.1);
+        transition: all 0.3s ease-in-out;
+    }
 
-  img:hover {
-    cursor: pointer;
-    box-shadow: 0 0 0 10px rgb(255, 255, 255, 0.02);
-  }
+    img:hover {
+        cursor: pointer;
+        box-shadow: 0 0 0 10px rgb(255, 255, 255, 0.02);
+    }
 
-  h1 {
-    font-size: 16px;
-    margin-top: -12.2rem;
-    color: #fff;
-    margin-left: 53rem;
-  }
+    h1 {
+        font-size: 16px;
+        margin-top: -12.2rem;
+        color: #fff;
+        margin-left: 53rem;
+    }
 
-  p {
-    font-size: 13px;
-    margin-left: 51.5rem;
-    margin-top: 0.5rem;
-    color: gray;
-  }
+    p {
+        font-size: 13px;
+        margin-left: 51.5rem;
+        margin-top: 0.5rem;
+        color: gray;
+    }
 }
 
 .travis {
-  img {
-    position: relative;
-    top: -13.2rem;
-    left: 61rem;
-    border-radius: 10px;
-    transform: scale(1.1);
-    transition: all 0.3s ease-in-out;
-  }
+    img {
+        position: relative;
+        top: -13.2rem;
+        left: 61rem;
+        border-radius: 10px;
+        transform: scale(1.1);
+        transition: all 0.3s ease-in-out;
+    }
 
-  img:hover {
-    cursor: pointer;
-    box-shadow: 0 0 0 10px rgb(255, 255, 255, 0.02);
-  }
+    img:hover {
+        cursor: pointer;
+        box-shadow: 0 0 0 10px rgb(255, 255, 255, 0.02);
+    }
 
-  h1 {
-    font-size: 16px;
-    margin-top: -12.2rem;
-    color: #fff;
-    margin-left: 62.5rem;
-  }
+    h1 {
+        font-size: 16px;
+        margin-top: -12.2rem;
+        color: #fff;
+        margin-left: 62.5rem;
+    }
 
-  p {
-    font-size: 13px;
-    margin-left: 63.4rem;
-    margin-top: 0.5rem;
-    color: gray;
-  }
+    p {
+        font-size: 13px;
+        margin-left: 63.4rem;
+        margin-top: 0.5rem;
+        color: gray;
+    }
 }
 
 .The-weeknd {
-  img {
-    position: relative;
-    top: -13.2rem;
-    left: 73rem;
-    border-radius: 10px;
-    transform: scale(1.1);
-    transition: all 0.3s ease-in-out;
-  }
+    img {
+        position: relative;
+        top: -13.2rem;
+        left: 73rem;
+        border-radius: 10px;
+        transform: scale(1.1);
+        transition: all 0.3s ease-in-out;
+    }
 
-  img:hover {
-    cursor: pointer;
-    box-shadow: 0 0 0 10px rgb(255, 255, 255, 0.02);
-  }
+    img:hover {
+        cursor: pointer;
+        box-shadow: 0 0 0 10px rgb(255, 255, 255, 0.02);
+    }
 
-  h1 {
-    font-size: 16px;
-    margin-top: -12.3rem;
-    color: #fff;
-    margin-left: 75.8rem;
-  }
+    h1 {
+        font-size: 16px;
+        margin-top: -12.3rem;
+        color: #fff;
+        margin-left: 75.8rem;
+    }
 
-  p {
-    font-size: 13px;
-    margin-left: 75.2rem;
-    margin-top: 0.5rem;
-    color: gray;
-  }
+    p {
+        font-size: 13px;
+        margin-left: 75.2rem;
+        margin-top: 0.5rem;
+        color: gray;
+    }
 }
 
 .x {
-  img {
-    position: relative;
-    top: -13.2rem;
-    left: 85rem;
-    border-radius: 10px;
-    transform: scale(1.1);
-    transition: all 0.3s ease-in-out;
-  }
+    img {
+        position: relative;
+        top: -13.2rem;
+        left: 85rem;
+        border-radius: 10px;
+        transform: scale(1.1);
+        transition: all 0.3s ease-in-out;
+    }
 
-  img:hover {
-    cursor: pointer;
-    box-shadow: 0 0 0 10px rgb(255, 255, 255, 0.02);
-  }
+    img:hover {
+        cursor: pointer;
+        box-shadow: 0 0 0 10px rgb(255, 255, 255, 0.02);
+    }
 
-  h1 {
-    font-size: 16px;
-    margin-top: -12.2rem;
-    color: #fff;
-    margin-left: 86rem;
-  }
+    h1 {
+        font-size: 16px;
+        margin-top: -12.2rem;
+        color: #fff;
+        margin-left: 86rem;
+    }
 
-  p {
-    font-size: 13px;
-    margin-left: 87rem;
-    margin-top: 0.5rem;
-    color: gray;
-  }
+    p {
+        font-size: 13px;
+        margin-left: 87rem;
+        margin-top: 0.5rem;
+        color: gray;
+    }
 }
 
 .juice-wrld .play-button-overlay {
-  position: absolute;
-  top: 55%;
-  left: 86%;
-  z-index: 1;
+    position: absolute;
+    top: 55%;
+    left: 86%;
+    z-index: 1;
 }
 
 .ed-sheeran .play-button-overlay {
-  position: absolute;
-  top: -88%;
-  left: 318%;
-  transform: translate(400%, -50%);
-  z-index: 1;
+    position: absolute;
+    top: -88%;
+    left: 318%;
+    transform: translate(400%, -50%);
+    z-index: 1;
 }
 
 .carti .play-button-overlay {
-  position: absolute;
-  top: -90%;
-  left: 575%;
-  transform: translate(-50%, -50%);
+    position: absolute;
+    top: -90%;
+    left: 575%;
+    transform: translate(-50%, -50%);
 }
 
 .travis .play-button-overlay {
-  position: absolute;
-  top: -90%;
-  left: 700%;
-  transform: translate(-50%, -50%);
+    position: absolute;
+    top: -90%;
+    left: 700%;
+    transform: translate(-50%, -50%);
 }
 
 .The-weeknd .play-button-overlay {
-  position: absolute;
-  top: -90%;
-  left: 830%;
-  transform: translate(-50%, -50%);
+    position: absolute;
+    top: -90%;
+    left: 830%;
+    transform: translate(-50%, -50%);
 }
 
 .x .play-button-overlay {
-  position: absolute;
-  top: -90%;
-  left: 955%;
-  transform: translate(-50%, -50%);
+    position: absolute;
+    top: -90%;
+    left: 955%;
+    transform: translate(-50%, -50%);
 }
 
 .see-all {
-  color: #fff;
-  font-size: 8px;
-  margin-top: -15.8rem;
-  margin-left: 100rem;
+    color: #fff;
+    font-size: 8px;
+    margin-top: -15.8rem;
+    margin-left: 100rem;
 }

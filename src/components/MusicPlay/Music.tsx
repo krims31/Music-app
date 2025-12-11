@@ -1,5 +1,13 @@
 import { useRef, useState } from "react";
-import { FaPlay, FaPause, FaVolumeUp, FaVolumeMute } from "react-icons/fa";
+import {
+  FaPlay,
+  FaPause,
+  FaVolumeUp,
+  FaVolumeMute,
+  FaHeart,
+  FaStepForward,
+  FaStepBackward,
+} from "react-icons/fa";
 import "./Music.scss";
 
 interface Song {
@@ -72,8 +80,45 @@ export default function Music() {
   const [duration, setDuration] = useState<number>(0);
   const [volume, setVolume] = useState<number>(0.7);
   const [isMuted, setIsMuted] = useState<boolean>(false);
+  const [likedSongs, setLikedSongs] = useState<number[]>([]);
 
   const audioRef = useRef<HTMLAudioElement>(null);
+
+  // Функция для переключения треков
+  const playNextSong = () => {
+    if (!currentSong) return;
+
+    const currentIndex = songs.findIndex((song) => song.id === currentSong.id);
+    const nextIndex = (currentIndex + 1) % songs.length;
+    const nextSong = songs[nextIndex];
+
+    togglePlayPause(nextSong);
+  };
+
+  const playPreviousSong = () => {
+    if (!currentSong) return;
+
+    const currentIndex = songs.findIndex((song) => song.id === currentSong.id);
+    const prevIndex = currentIndex === 0 ? songs.length - 1 : currentIndex - 1;
+    const prevSong = songs[prevIndex];
+
+    togglePlayPause(prevSong);
+  };
+
+  // Функция для добавления/удаления из любимых
+  const toggleLike = (songId: number, e: React.MouseEvent) => {
+    e.stopPropagation(); // Предотвращаем всплытие клика
+
+    setLikedSongs((prev) => {
+      if (prev.includes(songId)) {
+        // Удаляем из любимых
+        return prev.filter((id) => id !== songId);
+      } else {
+        // Добавляем в любимые
+        return [...prev, songId];
+      }
+    });
+  };
 
   const togglePlayPause = (song?: Song) => {
     console.log("Клик по песне:", song?.title);
@@ -185,13 +230,32 @@ export default function Music() {
               </div>
 
               <div className="song-right">
+                {/* Кнопка "лайк" в списке песен */}
+                <button
+                  className={`like-btn ${likedSongs.includes(song.id) ? "liked" : ""}`}
+                  onClick={(e) => toggleLike(song.id, e)}
+                  aria-label={
+                    likedSongs.includes(song.id)
+                      ? "Удалить из любимых"
+                      : "Добавить в любимые"
+                  }
+                >
+                  <FaHeart size={14} />
+                </button>
+
                 <span className="song-duration">{song.duration}</span>
+
                 <button
                   className="play-btn"
                   onClick={(e) => {
                     e.stopPropagation();
                     togglePlayPause(song);
                   }}
+                  aria-label={
+                    currentSong?.id === song.id && isPlaying
+                      ? "Пауза"
+                      : "Воспроизвести"
+                  }
                 >
                   {currentSong?.id === song.id && isPlaying ? (
                     <FaPause size={14} />
@@ -216,6 +280,8 @@ export default function Music() {
         onEnded={() => {
           setIsPlaying(false);
           setCurrentTime(0);
+          // Автоматическое переключение на следующий трек
+          playNextSong();
         }}
       />
 
@@ -231,15 +297,52 @@ export default function Music() {
               <h4>{currentSong.title}</h4>
               <p>{currentSong.artist}</p>
             </div>
+
+            {/* Кнопка "лайк" в плеере */}
+            <button
+              className={`like-btn-player ${likedSongs.includes(currentSong.id) ? "liked" : ""}`}
+              onClick={() =>
+                toggleLike(currentSong.id, {
+                  stopPropagation: () => {},
+                } as React.MouseEvent)
+              }
+              aria-label={
+                likedSongs.includes(currentSong.id)
+                  ? "Удалить из любимых"
+                  : "Добавить в любимые"
+              }
+            >
+              <FaHeart size={16} />
+            </button>
           </div>
 
           <div className="player-center">
             <div className="player-controls">
+              {/* Кнопка предыдущего трека */}
+              <button
+                className="control-btn prev-btn"
+                onClick={playPreviousSong}
+                aria-label="Предыдущий трек"
+              >
+                <FaStepBackward size={16} />
+              </button>
+
+              {/* Основная кнопка воспроизведения/паузы */}
               <button
                 className="control-btn play-btn-main"
                 onClick={() => togglePlayPause()}
+                aria-label={isPlaying ? "Пауза" : "Воспроизвести"}
               >
                 {isPlaying ? <FaPause size={16} /> : <FaPlay size={16} />}
+              </button>
+
+              {/* Кнопка следующего трека */}
+              <button
+                className="control-btn next-btn"
+                onClick={playNextSong}
+                aria-label="Следующий трек"
+              >
+                <FaStepForward size={16} />
               </button>
             </div>
 
@@ -258,7 +361,11 @@ export default function Music() {
           </div>
 
           <div className="player-right">
-            <button className="volume-btn" onClick={toggleMute}>
+            <button
+              className="volume-btn"
+              onClick={toggleMute}
+              aria-label={isMuted ? "Включить звук" : "Выключить звук"}
+            >
               {isMuted ? <FaVolumeMute size={16} /> : <FaVolumeUp size={16} />}
             </button>
             <input
