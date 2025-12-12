@@ -1,4 +1,10 @@
-import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
+import {
+  BrowserRouter,
+  Route,
+  Routes,
+  Navigate,
+  useNavigate,
+} from "react-router-dom";
 import "./App.css";
 import Search from "./components/Header/Search";
 import AuthProvider from "./components/LoginAuth/AuthContext";
@@ -7,67 +13,61 @@ import Music from "./components/MusicPlay/Music";
 import ProfileAuth from "./components/ProfileAuth/ProfileAuth";
 import Recently from "./components/Recently/Recently";
 import Sidebar from "./components/Sidebar/Sidebar";
-import { useEffect, useState } from "react";
 
 function App() {
-  const [isLoading, setIsLoading] = useState(true);
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  return (
+    <BrowserRouter>
+      <AuthProvider>
+        <Routes>
+          <Route path="/" element={<ProtectedRoute />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
+      </AuthProvider>
+    </BrowserRouter>
+  );
+}
 
-  // Проверяем авторизацию при загрузке
-  useEffect(() => {
-    const authStatus = localStorage.getItem("auth") === "true";
-    console.log("App mounted, auth status:", authStatus);
-    setIsAuthenticated(authStatus);
-    setIsLoading(false);
-  }, []);
+// Компонент главного приложения
+function MainApp() {
+  const navigate = useNavigate();
 
-  if (isLoading) {
-    return <div>Загрузка...</div>;
-  }
+  const handleLogout = () => {
+    localStorage.removeItem("auth");
+    navigate("/login", { replace: true });
+  };
 
   return (
-    <div>
-      <BrowserRouter>
-        <AuthProvider>
-          <Routes>
-            {/* Главная страница - всегда защищена */}
-            <Route
-              path="/"
-              element={
-                isAuthenticated ? (
-                  <>
-                    <Sidebar />
-                    <Search />
-                    <Recently />
-                    <Music />
-                    <ProfileAuth />
-                  </>
-                ) : (
-                  <Navigate to="/login" replace />
-                )
-              }
-            />
-
-            {/* Страница логина */}
-            <Route
-              path="/login"
-              element={
-                !isAuthenticated ? <LoginAuth /> : <Navigate to="/" replace />
-              }
-            />
-
-            {/* Для всех остальных маршрутов */}
-            <Route
-              path="*"
-              element={
-                <Navigate to={isAuthenticated ? "/" : "/login"} replace />
-              }
-            />
-          </Routes>
-        </AuthProvider>
-      </BrowserRouter>
+    <div className="app-container">
+      <Sidebar />
+      <Search />
+      <Recently />
+      <Music />
+      <ProfileAuth />
     </div>
   );
+}
+
+// Компонент защиты маршрута
+function ProtectedRoute() {
+  const isAuthenticated = localStorage.getItem("auth") === "true";
+
+  if (!isAuthenticated) {
+    return <Navigate to="/login" replace />;
+  }
+
+  return <MainApp />;
+}
+
+// Компонент страницы логина
+function LoginPage() {
+  const isAuthenticated = localStorage.getItem("auth") === "true";
+
+  if (isAuthenticated) {
+    return <Navigate to="/" replace />;
+  }
+
+  return <LoginAuth />;
 }
 
 export default App;
