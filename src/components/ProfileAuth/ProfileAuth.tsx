@@ -1,9 +1,11 @@
 import { useEffect, useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { user } from "../data/user";
 import "./ProfileAuth.scss";
 export default function ProfileAuth() {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const dropdownref = useRef<HTMLDivElement>(null);
+  const navigate = useNavigate();
 
   const toggleDropdown = () => setIsOpen(!isOpen);
 
@@ -37,7 +39,7 @@ export default function ProfileAuth() {
               <li
                 onClick={() => {
                   localStorage.removeItem("auth");
-                  window.location.href = "/login";
+                  navigate("/login", { replace: true });
                 }}
               >
                 {user.log}
