@@ -118,7 +118,6 @@ export default function Recently() {
 
   const audioRef = useRef<HTMLAudioElement>(null);
 
-  // Функции для управления плеером
   const playNextSong = () => {
     if (!currentSong) return;
 
@@ -231,129 +230,133 @@ export default function Recently() {
   };
 
   return (
-    <>
-      <div className="page-wrapper">
+    <div className="page-wrapper">
+      {/* Основной контейнер с прокруткой */}
+      <div className="main-content-scrollable">
         <div className="recently-container">
           <h1>{RES.recently}</h1>
 
-          {/* Juice WRLD */}
-          <div className="juice-wrld album-container">
-            <div className="album-cover-wrapper">
-              <img src={legend} alt="Juice WRLD - Wishing Well" width={150} />
-              <button
-                onClick={() => togglePlayPause(songs[0])}
-                className="play-button-overlay"
-                aria-label={getSongState(1).isPlaying ? "Pause" : "Play"}
-              >
-                {getSongState(1).isPlaying ? (
-                  <FaPause size={20} />
-                ) : (
-                  <FaPlay size={20} />
-                )}
-              </button>
+          {/* Сетка для альбомов */}
+          <div className="albums-grid">
+            {/* Juice WRLD */}
+            <div className="juice-wrld album-container">
+              <div className="album-cover-wrapper">
+                <img src={legend} alt="Juice WRLD - Wishing Well" />
+                <button
+                  onClick={() => togglePlayPause(songs[0])}
+                  className="play-button-overlay"
+                  aria-label={getSongState(1).isPlaying ? "Pause" : "Play"}
+                >
+                  {getSongState(1).isPlaying ? (
+                    <FaPause size={20} />
+                  ) : (
+                    <FaPlay size={20} />
+                  )}
+                </button>
+              </div>
+              <h1>{RES.nameLegend}</h1>
+              <p>{RES.artist1}</p>
             </div>
-            <h1>{RES.nameLegend}</h1>
-            <p>{RES.artist1}</p>
-          </div>
 
-          {/* Ed Sheeran */}
-          <div className="ed-sheeran album-container">
-            <div className="album-cover-wrapper">
-              <img src={ed} alt="Ed Sheeran" width={150} />
-              <button
-                onClick={() => togglePlayPause(songs[1])}
-                className="play-button-overlay"
-                aria-label={getSongState(2).isPlaying ? "Pause" : "Play"}
-              >
-                {getSongState(2).isPlaying ? (
-                  <FaPause size={20} />
-                ) : (
-                  <FaPlay size={20} />
-                )}
-              </button>
+            {/* Ed Sheeran */}
+            <div className="ed-sheeran album-container">
+              <div className="album-cover-wrapper">
+                <img src={ed} alt="Ed Sheeran" />
+                <button
+                  onClick={() => togglePlayPause(songs[1])}
+                  className="play-button-overlay"
+                  aria-label={getSongState(2).isPlaying ? "Pause" : "Play"}
+                >
+                  {getSongState(2).isPlaying ? (
+                    <FaPause size={20} />
+                  ) : (
+                    <FaPlay size={20} />
+                  )}
+                </button>
+              </div>
+              <h1>{RES.nameEd}</h1>
+              <p>{RES.artist2}</p>
             </div>
-            <h1>{RES.nameEd}</h1>
-            <p>{RES.artist2}</p>
-          </div>
 
-          {/* Playboi Carti */}
-          <div className="carti album-container">
-            <div className="album-cover-wrapper">
-              <img src={carti} alt="Playboi Carti" width={150} />
-              <button
-                onClick={() => togglePlayPause(songs[2])}
-                className="play-button-overlay"
-                aria-label={getSongState(3).isPlaying ? "Pause" : "Play"}
-              >
-                {getSongState(3).isPlaying ? (
-                  <FaPause size={20} />
-                ) : (
-                  <FaPlay size={20} />
-                )}
-              </button>
+            {/* Playboi Carti */}
+            <div className="carti album-container">
+              <div className="album-cover-wrapper">
+                <img src={carti} alt="Playboi Carti" />
+                <button
+                  onClick={() => togglePlayPause(songs[2])}
+                  className="play-button-overlay"
+                  aria-label={getSongState(3).isPlaying ? "Pause" : "Play"}
+                >
+                  {getSongState(3).isPlaying ? (
+                    <FaPause size={20} />
+                  ) : (
+                    <FaPlay size={20} />
+                  )}
+                </button>
+              </div>
+              <h1>{RES.nameCarti}</h1>
+              <p>{RES.artist3}</p>
             </div>
-            <h1>{RES.nameCarti}</h1>
-            <p>{RES.artist3}</p>
-          </div>
 
-          {/* Travis Scott */}
-          <div className="travis album-container">
-            <div className="album-cover-wrapper">
-              <img src={travis} alt="Travis Scott" width={150} />
-              <button
-                onClick={() => togglePlayPause(songs[3])}
-                className="play-button-overlay"
-                aria-label={getSongState(4).isPlaying ? "Pause" : "Play"}
-              >
-                {getSongState(4).isPlaying ? (
-                  <FaPause size={20} />
-                ) : (
-                  <FaPlay size={20} />
-                )}
-              </button>
+            {/* Travis Scott */}
+            <div className="travis album-container">
+              <div className="album-cover-wrapper">
+                <img src={travis} alt="Travis Scott" />
+                <button
+                  onClick={() => togglePlayPause(songs[3])}
+                  className="play-button-overlay"
+                  aria-label={getSongState(4).isPlaying ? "Pause" : "Play"}
+                >
+                  {getSongState(4).isPlaying ? (
+                    <FaPause size={20} />
+                  ) : (
+                    <FaPlay size={20} />
+                  )}
+                </button>
+              </div>
+              <h1>{RES.nameTravis}</h1>
+              <p>{RES.artist4}</p>
             </div>
-            <h1>{RES.nameTravis}</h1>
-            <p>{RES.artist4}</p>
-          </div>
 
-          {/* The Weeknd */}
-          <div className="The-weeknd album-container">
-            <div className="album-cover-wrapper">
-              <img src={weeknd} alt="The Weeknd" width={150} />
-              <button
-                onClick={() => togglePlayPause(songs[4])}
-                className="play-button-overlay"
-                aria-label={getSongState(5).isPlaying ? "Pause" : "Play"}
-              >
-                {getSongState(5).isPlaying ? (
-                  <FaPause size={20} />
-                ) : (
-                  <FaPlay size={20} />
-                )}
-              </button>
+            {/* The Weeknd */}
+            <div className="The-weeknd album-container">
+              <div className="album-cover-wrapper">
+                <img src={weeknd} alt="The Weeknd" />
+                <button
+                  onClick={() => togglePlayPause(songs[4])}
+                  className="play-button-overlay"
+                  aria-label={getSongState(5).isPlaying ? "Pause" : "Play"}
+                >
+                  {getSongState(5).isPlaying ? (
+                    <FaPause size={20} />
+                  ) : (
+                    <FaPlay size={20} />
+                  )}
+                </button>
+              </div>
+              <h1>{RES.nameWeeknd}</h1>
+              <p>{RES.artist5}</p>
             </div>
-            <h1>{RES.nameWeeknd}</h1>
-            <p>{RES.artist5}</p>
-          </div>
 
-          {/* XXXTentacion */}
-          <div className="x album-container">
-            <div className="album-cover-wrapper">
-              <img src={x} alt="XXXTentacion" width={150} />
-              <button
-                onClick={() => togglePlayPause(songs[5])}
-                className="play-button-overlay"
-                aria-label={getSongState(6).isPlaying ? "Pause" : "Play"}
-              >
-                {getSongState(6).isPlaying ? (
-                  <FaPause size={20} />
-                ) : (
-                  <FaPlay size={20} />
-                )}
-              </button>
+            {/* XXXTentacion */}
+            <div className="x album-container">
+              <div className="album-cover-wrapper">
+                <img src={x} alt="XXXTentacion" />
+                <button
+                  onClick={() => togglePlayPause(songs[5])}
+                  className="play-button-overlay"
+                  aria-label={getSongState(6).isPlaying ? "Pause" : "Play"}
+                >
+                  {getSongState(6).isPlaying ? (
+                    <FaPause size={20} />
+                  ) : (
+                    <FaPlay size={20} />
+                  )}
+                </button>
+              </div>
+              <h1>{RES.nameX}</h1>
+              <p>{RES.artist6}</p>
             </div>
-            <h1>{RES.nameX}</h1>
-            <p>{RES.artist6}</p>
           </div>
         </div>
 
@@ -361,106 +364,133 @@ export default function Recently() {
           <h1>{RES.seeall}</h1>
         </div>
 
-        {/* Аудио элемент */}
-        <audio
-          ref={audioRef}
-          onTimeUpdate={handleTimeUpdate}
-          onLoadedMetadata={() => {
-            if (audioRef.current) {
-              setDuration(audioRef.current.duration);
-            }
-          }}
-          onEnded={() => {
-            setIsPlaying(false);
-            setCurrentTime(0);
-            playNextSong();
-          }}
-          onError={(e) => {
-            console.error("Аудио ошибка:", e);
-            setIsPlaying(false);
-          }}
-        />
-
-        {/* Панель управления плеером */}
-        {currentSong && (
-          <div className="music-player">
-            <div className="player-left">
-              <img
-                src={currentSong.coverUrl}
-                alt={currentSong.title}
-                className="player-cover"
-              />
-              <div className="player-song-info">
-                <h4>{currentSong.title}</h4>
-                <p>{currentSong.artist}</p>
-              </div>
+        {/* Пространство для скролла */}
+        <div className="scroll-space">
+          <div className="placeholder-section">
+            <h2>Ваши плейлисты</h2>
+            <div className="placeholder-grid">
+              <div className="placeholder-item">Добавьте сюда плейлист 1</div>
+              <div className="placeholder-item">Добавьте сюда плейлист 2</div>
+              <div className="placeholder-item">Добавьте сюда плейлист 3</div>
+              <div className="placeholder-item">Добавьте сюда плейлист 4</div>
             </div>
+          </div>
 
-            <div className="player-center">
-              <div className="player-controls">
-                {/* Кнопки управления */}
-                <button
-                  className="control-btn prev-btn"
-                  onClick={playPreviousSong}
-                >
-                  <FaStepBackward size={16} />
-                </button>
-
-                <button
-                  className="control-btn play-btn-main"
-                  onClick={() => togglePlayPause()}
-                >
-                  {isPlaying ? <FaPause size={16} /> : <FaPlay size={16} />}
-                </button>
-
-                <button className="control-btn next-btn" onClick={playNextSong}>
-                  <FaStepForward size={16} />
-                </button>
-              </div>
-
-              <div className="player-progress">
-                <span className="time-current">{formatTime(currentTime)}</span>
-                <input
-                  type="range"
-                  min="0"
-                  max={duration || 0}
-                  value={currentTime}
-                  onChange={handleProgressChange}
-                  className="progress-bar"
-                />
-                <span className="time-total">{formatTime(duration)}</span>
-              </div>
+          <div className="placeholder-section">
+            <h2>Рекомендуемые треки</h2>
+            <div className="placeholder-grid">
+              <div className="placeholder-item">Добавьте сюда трек 1</div>
+              <div className="placeholder-item">Добавьте сюда трек 2</div>
+              <div className="placeholder-item">Добавьте сюда трек 3</div>
+              <div className="placeholder-item">Добавьте сюда трек 4</div>
             </div>
+          </div>
 
-            <div className="player-right">
-              {/* Кнопка лайка в плеере */}
+          <div className="placeholder-section">
+            <h2>Новые релизы</h2>
+            <div className="placeholder-grid">
+              <div className="placeholder-item">Добавьте сюда альбом 1</div>
+              <div className="placeholder-item">Добавьте сюда альбом 2</div>
+              <div className="placeholder-item">Добавьте сюда альбом 3</div>
+              <div className="placeholder-item">Добавьте сюда альбом 4</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Аудио элемент */}
+      <audio
+        ref={audioRef}
+        onTimeUpdate={handleTimeUpdate}
+        onLoadedMetadata={() => {
+          if (audioRef.current) {
+            setDuration(audioRef.current.duration);
+          }
+        }}
+        onEnded={() => {
+          setIsPlaying(false);
+          setCurrentTime(0);
+          playNextSong();
+        }}
+        onError={(e) => {
+          console.error("Аудио ошибка:", e);
+          setIsPlaying(false);
+        }}
+      />
+
+      {/* Панель управления плеером */}
+      {currentSong && (
+        <div className="music-player">
+          <div className="player-left">
+            <img
+              src={currentSong.coverUrl}
+              alt={currentSong.title}
+              className="player-cover"
+            />
+            <div className="player-song-info">
+              <h4>{currentSong.title}</h4>
+              <p>{currentSong.artist}</p>
+            </div>
+          </div>
+
+          <div className="player-center">
+            <div className="player-controls">
               <button
-                className={`like-btn-player ${likedSongs.includes(currentSong.id) ? "liked" : ""}`}
-                onClick={() => toggleLike(currentSong.id)}
+                className="control-btn prev-btn"
+                onClick={playPreviousSong}
               >
-                <FaHeart size={16} />
+                <FaStepBackward size={16} />
               </button>
 
-              <button className="volume-btn" onClick={toggleMute}>
-                {isMuted ? (
-                  <FaVolumeMute size={16} />
-                ) : (
-                  <FaVolumeUp size={16} />
-                )}
+              <button
+                className="control-btn play-btn-main"
+                onClick={() => togglePlayPause()}
+              >
+                {isPlaying ? <FaPause size={16} /> : <FaPlay size={16} />}
               </button>
+
+              <button className="control-btn next-btn" onClick={playNextSong}>
+                <FaStepForward size={16} />
+              </button>
+            </div>
+
+            <div className="player-progress">
+              <span className="time-current">{formatTime(currentTime)}</span>
               <input
                 type="range"
                 min="0"
-                max="1"
-                step="0.01"
-                value={isMuted ? 0 : volume}
-                onChange={handleVolumeChange}
-                className="volume-slider"
+                max={duration || 0}
+                value={currentTime}
+                onChange={handleProgressChange}
+                className="progress-bar"
               />
+              <span className="time-total">{formatTime(duration)}</span>
             </div>
           </div>
-        )}
-      </div>
-    </>
+
+          <div className="player-right">
+            <button
+              className={`like-btn-player ${likedSongs.includes(currentSong.id) ? "liked" : ""}`}
+              onClick={() => toggleLike(currentSong.id)}
+            >
+              <FaHeart size={16} />
+            </button>
+
+            <button className="volume-btn" onClick={toggleMute}>
+              {isMuted ? <FaVolumeMute size={16} /> : <FaVolumeUp size={16} />}
+            </button>
+            <input
+              type="range"
+              min="0"
+              max="1"
+              step="0.01"
+              value={isMuted ? 0 : volume}
+              onChange={handleVolumeChange}
+              className="volume-slider"
+            />
+          </div>
+        </div>
+      )}
+    </div>
   );
 }

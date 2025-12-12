@@ -3,7 +3,7 @@ import {
   Route,
   Routes,
   Navigate,
-  useNavigate,
+  Outlet,
 } from "react-router-dom";
 import "./App.css";
 import Search from "./components/Header/Search";
@@ -13,53 +13,49 @@ import Music from "./components/MusicPlay/Music";
 import ProfileAuth from "./components/ProfileAuth/ProfileAuth";
 import Recently from "./components/Recently/Recently";
 import Sidebar from "./components/Sidebar/Sidebar";
+import { Favourites } from "./Favourites/Favourites";
+import { PlayerProvider } from "./components/PlayerContext/PlayerContext";
 
 function App() {
   return (
     <BrowserRouter>
       <AuthProvider>
-        <Routes>
-          <Route path="/" element={<ProtectedRoute />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="*" element={<Navigate to="/" replace />} />
-        </Routes>
+        <PlayerProvider>
+          <Routes>
+            <Route element={<ProtectedLayout />}>
+              <Route path="/" element={<Recently />} />
+              <Route path="/recently" element={<Recently />} />
+              <Route path="/favourites" element={<Favourites />} />
+            </Route>
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </Routes>
+        </PlayerProvider>
       </AuthProvider>
     </BrowserRouter>
   );
 }
 
-// Компонент главного приложения
-function MainApp() {
-  const navigate = useNavigate();
-
-  const handleLogout = () => {
-    localStorage.removeItem("auth");
-    navigate("/login", { replace: true });
-  };
-
-  return (
-    <div className="app-container">
-      <Sidebar />
-      <Search />
-      <Recently />
-      <Music />
-      <ProfileAuth />
-    </div>
-  );
-}
-
-// Компонент защиты маршрута
-function ProtectedRoute() {
+function ProtectedLayout() {
   const isAuthenticated = localStorage.getItem("auth") === "true";
 
   if (!isAuthenticated) {
     return <Navigate to="/login" replace />;
   }
 
-  return <MainApp />;
+  return (
+    <div className="app-container">
+      <Sidebar />
+      <Search />
+      <div className="content-area">
+        <Outlet />
+      </div>
+      <Music />
+      <ProfileAuth />
+    </div>
+  );
 }
 
-// Компонент страницы логина
 function LoginPage() {
   const isAuthenticated = localStorage.getItem("auth") === "true";
 
