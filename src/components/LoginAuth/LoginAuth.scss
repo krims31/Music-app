@@ -1,0 +1,202 @@
+.login-container {
+    background-color: #fff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-header {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    width: 50%;
+    height: 40rem;
+
+    h1 {
+        color: #1a1a1a;
+        margin-top: 5rem;
+        font-size: 35px;
+        margin-left: 36rem;
+    }
+
+    p {
+        margin-top: 1rem;
+        font-size: 14px;
+        margin-left: 36rem;
+        color: gray;
+    }
+}
+
+.input-login h1 {
+    color: #000;
+    margin-top: 1rem;
+    font-size: 14px;
+    margin-left: 36rem;
+}
+
+.input-login input {
+    border: none;
+    outline: none;
+    background-color: transparent;
+    font-size: 14px;
+    color: #000;
+    margin-top: 0.5rem;
+    margin-left: 36rem;
+    width: 20rem;
+    padding: 0.7rem;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+}
+
+.input-email h1 {
+    color: #000;
+    margin-top: 1rem;
+    font-size: 14px;
+    margin-left: 36rem;
+}
+
+.input-email input {
+    border: none;
+    outline: none;
+    background-color: transparent;
+    font-size: 14px;
+    color: #000;
+    margin-top: 0.5rem;
+    margin-left: 36rem;
+    width: 20rem;
+    padding: 0.7rem;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+}
+
+.input-password h1 {
+    color: #000;
+    margin-top: 1rem;
+    font-size: 14px;
+    margin-left: 36rem;
+}
+
+.input-password input {
+    border: none;
+    outline: none;
+    background-color: transparent;
+    font-size: 14px;
+    color: #000;
+    margin-top: 0.5rem;
+    margin-left: 36rem;
+    width: 20rem;
+    padding: 0.7rem;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+}
+
+.password-wrapper {
+    position: relative;
+    display: inline-block;
+    width: 20rem;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 10px;
+    top: 58.5%;
+    left: 90%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #666;
+    padding: 0;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.3s ease;
+}
+
+.toggle-password:hover {
+    color: #007bff;
+}
+
+.forgot-password a {
+    color: #007bff;
+    text-decoration: none;
+    position: relative;
+    left: 48rem;
+    top: -4rem;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.agree input {
+    margin-left: 36.2rem;
+}
+
+.agree a {
+    position: relative;
+    top: 0.7%;
+    left: 0.5rem;
+    font-size: 14px;
+    color: #000;
+    text-decoration: none;
+}
+
+.btn button {
+    margin-left: 36rem;
+    width: 20rem;
+    margin-top: 1rem;
+    padding: 0.7rem;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.btn button:hover {
+    background-color: #0056b3;
+    transition: all 0.3s ease-in-out;
+}
+
+.have a {
+    color: #000;
+    text-decoration: none;
+    position: relative;
+    font-size: 14px;
+    left: 41rem;
+    top: 1rem;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.signup a {
+    color: #007bff;
+    text-decoration: none;
+    position: relative;
+    font-size: 14px;
+    left: 48.3rem;
+    top: -0.1rem;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.img img {
+    margin-top: -32.5rem;
+    margin-left: 0.5rem;
+    border-radius: 1rem;
+}

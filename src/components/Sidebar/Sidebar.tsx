@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { FaTrash } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
+import { FaTrash } from "react-icons/fa"; // <-- импорт иконки
 import "../Sidebar/sidebar.scss";
 import home from "./assets/house.png";
 import albums from "./assets/icons8-albums-96.png";
@@ -41,6 +41,7 @@ export default function Sidebar() {
     }
   };
 
+  // Удаление плейлиста по индексу
   const handleDeletePlaylist = (index: number) => {
     setPlaylist(playlist.filter((_, i) => i !== index));
   };
@@ -51,62 +52,27 @@ export default function Sidebar() {
 
       <nav className="menu">
         <NavLink to="/" className="menu-item">
-          <img
-            src={home}
-            alt="home"
-            width={30}
-            style={{ marginLeft: "-40px" }}
-          />
+          <img src={home} alt="home" width={30} style={{ marginLeft: "-40px" }} />
           <div>{TEXT.home}</div>
         </NavLink>
-
         <NavLink to="/genres" className="menu-item">
-          <img
-            src={genres}
-            alt="genres"
-            width={30}
-            style={{ marginLeft: "-40px" }}
-          />
+          <img src={genres} alt="genres" width={30} style={{ marginLeft: "-40px" }} />
           <div>{TEXT.genres}</div>
         </NavLink>
-
         <NavLink to="/artist" className="menu-item">
-          <img
-            src={artist}
-            alt="artist"
-            width={30}
-            style={{ marginLeft: "-40px" }}
-          />
+          <img src={artist} alt="artist" width={30} style={{ marginLeft: "-40px" }} />
           <div>{TEXT.artist}</div>
         </NavLink>
-
         <NavLink to="/albums" className="menu-item">
-          <img
-            src={albums}
-            alt="albums"
-            width={30}
-            style={{ marginLeft: "-40px" }}
-          />
+          <img src={albums} alt="albums" width={30} style={{ marginLeft: "-40px" }} />
           <div>{TEXT.albums}</div>
         </NavLink>
-
         <NavLink to="/favorites" className="menu-item2">
-          <img
-            src={favourite}
-            alt="favourite"
-            width={30}
-            style={{ marginLeft: "-10px" }}
-          />
+          <img src={favourite} alt="favourite" width={30} style={{ marginLeft: "-10px" }} />
           <div>{TEXT.favorites}</div>
         </NavLink>
-
         <NavLink to="/recently" className="menu-item3">
-          <img
-            src={recently}
-            alt="recently"
-            width={30}
-            style={{ marginLeft: "-40px" }}
-          />
+          <img src={recently} alt="recently" width={30} style={{ marginLeft: "-40px" }} />
           <div>{TEXT.recently}</div>
         </NavLink>
 
@@ -134,16 +100,10 @@ export default function Sidebar() {
           )}
           <ul>
             {playlist.map((item, index) => (
-              <li key={index}>
+              <li key={index} style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                 {item}
                 <FaTrash
-                  style={{
-                    cursor: "pointer",
-                    color: "#ff4d4d",
-                    flexShrink: 0,
-                    marginLeft: "130px",
-                    marginTop: "10px",
-                  }}
+                  style={{ cursor: "pointer", marginLeft: "10px", color: "#ff4d4d" }}
                   onClick={() => handleDeletePlaylist(index)}
                 />
               </li>
