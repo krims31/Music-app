@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import "./App.css";
 import Search from "./components/Header/Search";
 import AuthProvider from "./components/LoginAuth/AuthContext";
@@ -7,25 +7,34 @@ import Music from "./components/MusicPlay/Music";
 import ProfileAuth from "./components/ProfileAuth/ProfileAuth";
 import Recently from "./components/Recently/Recently";
 import Sidebar from "./components/Sidebar/Sidebar";
-import type { PrivateRouteProps } from "./components/type/PrivateRoute";
-
-export function PrivateRoute({ children }: PrivateRouteProps) {
-  const isAuth = localStorage.getItem("auth");
-
-  return isAuth ? <>{children}</> : <LoginAuth />;
-}
+import { useEffect, useState } from "react";
 
 function App() {
+  const [isLoading, setIsLoading] = useState(true);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  // Проверяем авторизацию при загрузке
+  useEffect(() => {
+    const authStatus = localStorage.getItem("auth") === "true";
+    console.log("App mounted, auth status:", authStatus);
+    setIsAuthenticated(authStatus);
+    setIsLoading(false);
+  }, []);
+
+  if (isLoading) {
+    return <div>Загрузка...</div>;
+  }
+
   return (
     <div>
       <BrowserRouter>
         <AuthProvider>
           <Routes>
-            <Route path="/login" element={<LoginAuth />} />
+            {/* Главная страница - всегда защищена */}
             <Route
               path="/"
               element={
-                <PrivateRoute>
+                isAuthenticated ? (
                   <>
                     <Sidebar />
                     <Search />
@@ -33,7 +42,25 @@ function App() {
                     <Music />
                     <ProfileAuth />
                   </>
-                </PrivateRoute>
+                ) : (
+                  <Navigate to="/login" replace />
+                )
+              }
+            />
+
+            {/* Страница логина */}
+            <Route
+              path="/login"
+              element={
+                !isAuthenticated ? <LoginAuth /> : <Navigate to="/" replace />
+              }
+            />
+
+            {/* Для всех остальных маршрутов */}
+            <Route
+              path="*"
+              element={
+                <Navigate to={isAuthenticated ? "/" : "/login"} replace />
               }
             />
           </Routes>

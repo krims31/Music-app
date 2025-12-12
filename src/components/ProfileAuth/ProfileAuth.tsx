@@ -34,7 +34,14 @@ export default function ProfileAuth() {
               <li>{user.acc}</li>
               <li>{user.prof}</li>
               <li>{user.set}</li>
-              <li>{user.log}</li>
+              <li
+                onClick={() => {
+                  localStorage.removeItem("auth");
+                  window.location.href = "/login";
+                }}
+              >
+                {user.log}
+              </li>
             </ul>
           </div>
         )}

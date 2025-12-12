@@ -1,13 +1,36 @@
 import { Login } from "../data/login";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import "./LoginAuth.scss";
+
 export default function LoginAuth() {
   const [showPassword, setShowPassword] = useState<boolean>(false);
+  const navigate = useNavigate();
+
+  // Проверяем при загрузке компонента
+  useEffect(() => {
+    const isAuth = localStorage.getItem("auth") === "true";
+    if (isAuth) {
+      navigate("/", { replace: true });
+    }
+  }, [navigate]);
+
   const handleLogin = () => {
+    console.log("Login button clicked");
+
+    // Устанавливаем флаг авторизации
     localStorage.setItem("auth", "true");
-    window.location.href = "/";
+
+    // Обновляем состояние во всем приложении
+    window.dispatchEvent(new Event("storage"));
+
+    // Переходим на главную
+    navigate("/", { replace: true });
+
+    // Для надежности можно добавить перезагрузку
+    // window.location.href = "/";
   };
 
   return (
