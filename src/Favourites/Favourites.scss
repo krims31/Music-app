@@ -49,6 +49,29 @@
     gap: 10px;
     max-width: 1100px;
     margin: 0 auto;
+    height: calc(100vh - 200px);
+    overflow-y: auto;
+
+    /* Стилизация скроллбара */
+    &::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: rgba(255, 255, 255, 0.05);
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: rgba(255, 255, 255, 0.3);
+        border-radius: 5px;
+
+        &:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+    }
+
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.2) rgba(255, 255, 255, 0.05);
 }
 
 .favourite-item {
@@ -329,11 +352,19 @@
     .favourites-container .favourites-header h1 {
         margin-left: 15rem;
     }
+
+    .favourites-list {
+        height: calc(100vh - 220px);
+    }
 }
 
 @media (max-width: 768px) {
     .favourites-container .favourites-header h1 {
         margin-left: 2rem;
+    }
+
+    .favourites-list {
+        height: calc(100vh - 240px);
     }
 
     .favourites-player {
