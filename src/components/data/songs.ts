@@ -76,4 +76,37 @@ export const songs = [
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJJq0y03KydKnhmM6A1V6FuepXEVoMjlhbOg&s",
     genre: ["Darkwave", "Electronic"],
   },
+  {
+    id: 9,
+    title: "Neon Glow",
+    artist: "Digital Waves",
+    album: "Synthwave Dreams",
+    duration: "3:45",
+    audioUrl: "/music/DIGITAL REY - NEON WAVE.mp3",
+    coverUrl:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQoGt8IMdSXZGD5DTPiLBuanFMxV1Mi9oLUJw&s",
+    genre: ["Synthwave", "Electronic"],
+  },
+  {
+    id: 10,
+    title: "All Girls Are The Same",
+    artist: "Juice WRLD",
+    album: "Goodbye & Good Riddance",
+    duration: "2:45",
+    audioUrl: "/music/Juice_WRLD_-_All_Girls_Are_The_Same_(SkySound.cc).mp3",
+    coverUrl:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTADPbTOAYChGHj37vnjPUqH4bT3XupuDp6AA&s",
+    genre: ["Emo rap"],
+  },
+  {
+    id: 11,
+    title: "Wishing Well",
+    artist: "Juice WRLD",
+    album: "Legends Never Die",
+    duration: "3:14",
+    audioUrl: "/music/Juice-WRLD-Wishing-Well-(HipHopKit.com).mp3",
+    coverUrl:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGnBixjQyYRPF8QvMm4V87RnZ2nHf3c7yzjQ&s",
+    genre: ["Emo rap", "Hip Hop"],
+  },
 ];
