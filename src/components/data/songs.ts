@@ -109,4 +109,37 @@ export const songs = [
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGnBixjQyYRPF8QvMm4V87RnZ2nHf3c7yzjQ&s",
     genre: ["Emo rap", "Hip Hop"],
   },
+  {
+    id: 12,
+    title: "Come & Go",
+    artist: "Juice WRLD, Marshmello",
+    album: "Legends Never Die",
+    duration: "3:25",
+    audioUrl: "/music/Juice_WRLD_-_Juice_WRLD_-_Come_And_Go_(SkySound.cc).mp3",
+    coverUrl:
+      "https://images.genius.com/8830989510e788cf0c95721ec7706871.1000x1000x1.png",
+    genre: ["Emo rap", "Electronic"],
+  },
+  {
+    id: 13,
+    title: "Godzilla",
+    artist: "Eminem, Juice WRLD",
+    album: "Music To Be Murdered By",
+    duration: "3:30",
+    audioUrl: "/music/Eminem_feat._Juice_WRLD_-_Godzilla_(SkySound.cc).mp3",
+    coverUrl:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTGmOE09rEMcVOCxPY69Rr3Ku5lmOk1WflCA&s.png",
+    genre: ["Hip Hop", "Rap"],
+  },
+  {
+    id: 14,
+    title: "Empty Your Pockets",
+    artist: "Juice WRLD",
+    album: "The Party Never Ends",
+    duration: "2:58",
+    audioUrl: "/music/Juice_WRLD_-_Empty_Out_Your_Pockets_(SkySound.cc).mp3",
+    coverUrl:
+      "https://images.genius.com/8b20a60ba6976ab7806df2151df7369b.872x872x1.png",
+    genre: ["Emo rap", "Hip Hop"],
+  },
 ];
