@@ -1,10 +1,11 @@
-// contexts/PlayerContext.tsx
 import React, {
   createContext,
   useContext,
   useRef,
   useState,
-  ReactNode,
+  useEffect,
+  useCallback,
+  type ReactNode,
 } from "react";
 
 interface Song {
@@ -47,78 +48,134 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
   const [isMuted, setIsMuted] = useState(false);
   const [likedSongs, setLikedSongs] = useState<number[]>([]);
 
-  const audioRef = useRef<HTMLAudioElement>(new Audio());
+  const audioRef = useRef<HTMLAudioElement | null>(null);
 
-  const playSong = (song: Song) => {
-    if (song !== currentSong) {
-      setCurrentSong(song);
-      audioRef.current.src = song.audioUrl;
-      audioRef.current.load();
-      audioRef.current.play().then(() => setIsPlaying(true));
+  // Инициализация аудио элемента при монтировании
+  useEffect(() => {
+    audioRef.current = new Audio();
+    const audio = audioRef.current;
+
+    // Обработчики событий
+    const handleTimeUpdate = () => setCurrentTime(audio.currentTime);
+    const handleLoadedMetadata = () => setDuration(audio.duration);
+    const handleEnded = () => {
+      setIsPlaying(false);
+      setCurrentTime(0);
+    };
+
+    audio.addEventListener("timeupdate", handleTimeUpdate);
+    audio.addEventListener("loadedmetadata", handleLoadedMetadata);
+    audio.addEventListener("ended", handleEnded);
+
+    // Установка начальной громкости
+    audio.volume = volume;
+
+    return () => {
+      audio.pause();
+      audio.removeEventListener("timeupdate", handleTimeUpdate);
+      audio.removeEventListener("loadedmetadata", handleLoadedMetadata);
+      audio.removeEventListener("ended", handleEnded);
+      audioRef.current = null;
+    };
+  }, []);
+
+  useEffect(() => {
+    if (audioRef.current) {
+      audioRef.current.volume = isMuted ? 0 : volume;
     }
-  };
+  }, [volume, isMuted]);
 
-  const togglePlayPause = () => {
-    if (currentSong) {
-      if (isPlaying) {
-        audioRef.current.pause();
-      } else {
-        audioRef.current.play();
+  const playSong = useCallback(
+    (song: Song) => {
+      if (!audioRef.current) return;
+
+      if (song !== currentSong) {
+        setCurrentSong(song);
+        setCurrentTime(0);
+        audioRef.current.src = song.audioUrl;
+        audioRef.current.load();
+        audioRef.current
+          .play()
+          .then(() => setIsPlaying(true))
+          .catch((err) => {
+            console.error("Ошибка воспроизведения:", err);
+            setIsPlaying(false);
+          });
       }
-      setIsPlaying(!isPlaying);
+    },
+    [currentSong],
+  );
+
+  const togglePlayPause = useCallback(() => {
+    if (!currentSong || !audioRef.current) return;
+
+    if (isPlaying) {
+      audioRef.current.pause();
+      setIsPlaying(false);
+    } else {
+      audioRef.current
+        .play()
+        .then(() => setIsPlaying(true))
+        .catch((err) => {
+          console.error("Ошибка воспроизведения:", err);
+        });
     }
-  };
+  }, [currentSong, isPlaying]);
 
-  const playNextSong = (songs: Song[]) => {
-    if (!currentSong) return;
-    const currentIndex = songs.findIndex((song) => song.id === currentSong.id);
-    const nextIndex = (currentIndex + 1) % songs.length;
-    playSong(songs[nextIndex]);
-  };
+  const playNextSong = useCallback(
+    (songs: Song[]) => {
+      if (!currentSong || !audioRef.current) return;
 
-  const playPreviousSong = (songs: Song[]) => {
-    if (!currentSong) return;
-    const currentIndex = songs.findIndex((song) => song.id === currentSong.id);
-    const prevIndex = currentIndex === 0 ? songs.length - 1 : currentIndex - 1;
-    playSong(songs[prevIndex]);
-  };
+      const currentIndex = songs.findIndex(
+        (song) => song.id === currentSong.id,
+      );
+      const nextIndex = (currentIndex + 1) % songs.length;
+      playSong(songs[nextIndex]);
+    },
+    [currentSong, playSong],
+  );
 
-  const toggleLike = (songId: number) => {
+  const playPreviousSong = useCallback(
+    (songs: Song[]) => {
+      if (!currentSong || !audioRef.current) return;
+
+      const currentIndex = songs.findIndex(
+        (song) => song.id === currentSong.id,
+      );
+      const prevIndex =
+        currentIndex === 0 ? songs.length - 1 : currentIndex - 1;
+      playSong(songs[prevIndex]);
+    },
+    [currentSong, playSong],
+  );
+
+  const toggleLike = useCallback((songId: number) => {
     setLikedSongs((prev) =>
       prev.includes(songId)
         ? prev.filter((id) => id !== songId)
         : [...prev, songId],
     );
-  };
+  }, []);
 
-  const toggleMute = () => {
-    if (isMuted) {
-      audioRef.current.volume = volume;
-    } else {
-      audioRef.current.volume = 0;
+  const handleSetVolume = useCallback(
+    (newVolume: number) => {
+      setVolume(newVolume);
+      if (!isMuted && audioRef.current) {
+        audioRef.current.volume = newVolume;
+      }
+    },
+    [isMuted],
+  );
+
+  const handleSetCurrentTime = useCallback((time: number) => {
+    setCurrentTime(time);
+    if (audioRef.current) {
+      audioRef.current.currentTime = time;
     }
-    setIsMuted(!isMuted);
-  };
+  }, []);
 
-  // Настройка аудио элемента
-  React.useEffect(() => {
-    const audio = audioRef.current;
-
-    audio.addEventListener("timeupdate", () =>
-      setCurrentTime(audio.currentTime),
-    );
-    audio.addEventListener("loadedmetadata", () => setDuration(audio.duration));
-    audio.addEventListener("ended", () => {
-      setIsPlaying(false);
-      setCurrentTime(0);
-    });
-
-    return () => {
-      audio.pause();
-      audio.removeEventListener("timeupdate", () => {});
-      audio.removeEventListener("loadedmetadata", () => {});
-      audio.removeEventListener("ended", () => {});
-    };
+  const handleToggleMute = useCallback(() => {
+    setIsMuted((prev) => !prev);
   }, []);
 
   return (
@@ -136,12 +193,11 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
         playNextSong,
         playPreviousSong,
         toggleLike,
-        setCurrentTime,
-        setVolume,
-        toggleMute,
+        setCurrentTime: handleSetCurrentTime,
+        setVolume: handleSetVolume,
+        toggleMute: handleToggleMute,
       }}
     >
-      <audio ref={audioRef} />
       {children}
     </PlayerContext.Provider>
   );
