@@ -105,7 +105,6 @@ export default function Sidebar() {
           <div>{TEXT.favorites}</div>
         </NavLink>
 
-        {/* Недавние - ПРАВИЛЬНЫЙ ПУТЬ */}
         <NavLink to="/recently" className="menu-item3">
           <img
             src={recently}

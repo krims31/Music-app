@@ -142,4 +142,15 @@ export const songs = [
       "https://images.genius.com/8b20a60ba6976ab7806df2151df7369b.872x872x1.png",
     genre: ["Emo rap", "Hip Hop"],
   },
+  {
+    id: 15,
+    title: "The Bees Knees",
+    artist: "Juice WRLD",
+    album: "The Party Never Ends",
+    duration: "5:25",
+    audioUrl: "/music/Juice Wrld - The Bees Knees.mp3",
+    coverUrl:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7lJLjRfnNQGl5_M3AECRh-6jszaPhruiLzQ&s",
+    genre: ["Emo rap", "Hip Hop"],
+  },
 ];
