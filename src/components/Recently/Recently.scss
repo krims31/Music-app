@@ -428,3 +428,331 @@
     border-top: 1px solid #333;
     padding: 15px 20px;
 }
+
+/* Адаптивность для мобильных устройств */
+
+/* Для экранов 425px и меньше */
+@media (max-width: 425px) {
+    .page-wrapper {
+        margin-left: 0;
+        padding: 10px;
+        height: auto;
+        min-height: 100vh;
+    }
+
+    .main-content-scrollable {
+        padding: 10px;
+        padding-bottom: 80px;
+        margin-top: 10px;
+        width: 100%;
+        overflow-x: hidden;
+    }
+
+    .recently-container h1 {
+        font-size: 20px;
+        margin-left: 1rem;
+        margin-bottom: 1.5rem;
+        text-align: center;
+    }
+
+    /* Адаптивная сетка для альбомов */
+    .albums-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        margin-left: 0;
+        margin-right: 0;
+        width: 100%;
+        padding: 0 10px;
+    }
+
+    .album-container {
+        max-width: 100%;
+        width: 100%;
+
+        img {
+            width: 100%;
+            height: 150px;
+            min-height: 150px;
+        }
+
+        h1 {
+            font-size: 14px;
+            margin-top: 0.5rem;
+            text-align: center;
+        }
+
+        p {
+            font-size: 12px;
+            margin-top: 0.2rem;
+            text-align: center;
+        }
+
+        .play-button-overlay {
+            width: 40px;
+            height: 40px;
+            
+            svg {
+                width: 16px;
+                height: 16px;
+            }
+        }
+    }
+
+    .see-all {
+        margin-left: 1rem;
+        margin-right: 1rem;
+        font-size: 12px;
+        text-align: center;
+        width: calc(100% - 2rem);
+    }
+
+    .scroll-space {
+        margin-left: 0;
+        margin-right: 0;
+        width: 100%;
+        padding: 10px;
+    }
+
+    .placeholder-section {
+        margin-bottom: 30px;
+        padding: 0 10px;
+    }
+
+    .placeholder-section h2 {
+        font-size: 18px;
+        margin-bottom: 15px;
+        text-align: center;
+    }
+
+    .placeholder-grid {
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+        gap: 15px;
+    }
+
+    .placeholder-item {
+        padding: 25px 15px;
+        min-height: 120px;
+        font-size: 12px;
+    }
+
+    /* Уменьшаем скроллбар на мобильных */
+    .main-content-scrollable::-webkit-scrollbar {
+        width: 4px;
+    }
+}
+
+/* Для экранов 375px и меньше */
+@media (max-width: 375px) {
+    .recently-container h1 {
+        font-size: 18px;
+        margin-left: 0.5rem;
+    }
+
+    .albums-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+        padding: 0 8px;
+    }
+
+    .album-container {
+        img {
+            height: 140px;
+            min-height: 140px;
+        }
+
+        h1 {
+            font-size: 13px;
+        }
+
+        p {
+            font-size: 11px;
+        }
+
+        .play-button-overlay {
+            width: 36px;
+            height: 36px;
+            
+            svg {
+                width: 14px;
+                height: 14px;
+            }
+        }
+    }
+
+    .placeholder-grid {
+        grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+        gap: 12px;
+    }
+
+    .placeholder-item {
+        padding: 20px 12px;
+        min-height: 110px;
+        font-size: 11px;
+    }
+}
+
+/* Для экранов 320px и меньше */
+@media (max-width: 320px) {
+    .page-wrapper {
+        padding: 8px;
+    }
+
+    .main-content-scrollable {
+        padding: 8px;
+        padding-bottom: 70px;
+    }
+
+    .recently-container h1 {
+        font-size: 16px;
+        margin-left: 0;
+        margin-bottom: 1rem;
+    }
+
+    .albums-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        padding: 0 5px;
+    }
+
+    .album-container {
+        img {
+            height: 130px;
+            min-height: 130px;
+            border-radius: 8px;
+        }
+
+        h1 {
+            font-size: 12px;
+            margin-top: 0.3rem;
+        }
+
+        p {
+            font-size: 10px;
+            margin-top: 0.1rem;
+        }
+
+        .play-button-overlay {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            
+            svg {
+                width: 12px;
+                height: 12px;
+            }
+        }
+    }
+
+    .see-all {
+        margin-left: 0.5rem;
+        margin-right: 0.5rem;
+        font-size: 11px;
+        width: calc(100% - 1rem);
+    }
+
+    .scroll-space {
+        padding: 8px 5px;
+    }
+
+    .placeholder-section {
+        margin-bottom: 25px;
+        padding: 0 5px;
+    }
+
+    .placeholder-section h2 {
+        font-size: 16px;
+        margin-bottom: 12px;
+    }
+
+    .placeholder-grid {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+        gap: 10px;
+    }
+
+    .placeholder-item {
+        padding: 18px 10px;
+        min-height: 100px;
+        font-size: 10px;
+        border-radius: 8px;
+    }
+
+    /* Минимальный скроллбар для очень маленьких экранов */
+    .main-content-scrollable::-webkit-scrollbar {
+        width: 2px;
+    }
+}
+
+/* Дополнительные улучшения для мобильных */
+@media (max-width: 425px) {
+    /* Улучшаем тач-таргеты */
+    .album-container,
+    .placeholder-item,
+    .see-all {
+        cursor: pointer;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    /* Увеличиваем область клика для кнопки play */
+    .album-cover-wrapper {
+        position: relative;
+        
+        .play-button-overlay {
+            width: 45px !important;
+            height: 45px !important;
+            
+            &::after {
+                content: '';
+                position: absolute;
+                top: -10px;
+                left: -10px;
+                right: -10px;
+                bottom: -10px;
+            }
+        }
+    }
+
+    /* Улучшаем читаемость текста */
+    h1, h2, p {
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Предотвращаем слишком длинные названия */
+    .album-container h1,
+    .album-container p {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        white-space: normal;
+        line-height: 1.3;
+    }
+
+    /* Уменьшаем отступы для экономии места */
+    .placeholder-item {
+        margin-bottom: 5px;
+    }
+
+    /* Гарантируем что все поместится */
+    .main-content-scrollable {
+        max-width: 100vw;
+        box-sizing: border-box;
+    }
+}
+
+/* Для ландшафтной ориентации на мобильных */
+@media (max-width: 425px) and (orientation: landscape) {
+    .albums-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
+    }
+
+    .album-container img {
+        height: 120px;
+        min-height: 120px;
+    }
+
+    .placeholder-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+}
