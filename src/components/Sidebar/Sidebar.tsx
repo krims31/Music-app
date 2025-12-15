@@ -20,7 +20,12 @@ const TEXT = {
   playlist: "Playlists",
 };
 
-export default function Sidebar() {
+interface SidebarProps {
+  isMobileMenuOpen?: boolean;
+  onCloseMobileMenu?: () => void;
+}
+
+export default function Sidebar({ isMobileMenuOpen, onCloseMobileMenu }: SidebarProps) {
   const [playlist, setPlaylist] = useState<string[]>([]);
   const [newPlaylistName, setNewPlaylistName] = useState<string>("");
   const [showInput, setShowInput] = useState<boolean>(false);
@@ -45,122 +50,164 @@ export default function Sidebar() {
     setPlaylist(playlist.filter((_, i) => i !== index));
   };
 
+  // Функция для обработки клика по ссылке на мобильных
+  const handleNavClick = () => {
+    if (window.innerWidth <= 1024 && onCloseMobileMenu) {
+      onCloseMobileMenu();
+    }
+  };
+
   return (
-    <aside className="sidebar">
-      <div className="logo">{TEXT.music}</div>
+    <>
+      {/* Оверлей для мобильного меню */}
+      {isMobileMenuOpen && (
+        <div 
+          className="sidebar-overlay" 
+          onClick={onCloseMobileMenu}
+        />
+      )}
+      
+      <aside className={`sidebar ${isMobileMenuOpen ? 'mobile-open' : ''}`}>
+        <div className="logo">{TEXT.music}</div>
 
-      <nav className="menu">
-        {/* Главная страница */}
-        <NavLink to="/" className="menu-item">
-          <img
-            src={home}
-            alt="home"
-            width={30}
-            style={{ marginLeft: "-40px" }}
-          />
-          <div>{TEXT.home}</div>
-        </NavLink>
-
-        {/* Жанры - пока нет маршрута */}
-        <NavLink to="/genres" className="menu-item">
-          <img
-            src={genres}
-            alt="genres"
-            width={30}
-            style={{ marginLeft: "-40px" }}
-          />
-          <div>{TEXT.genres}</div>
-        </NavLink>
-
-        {/* Артисты - пока нет маршрута */}
-        <NavLink to="/artist" className="menu-item">
-          <img
-            src={artist}
-            alt="artist"
-            width={30}
-            style={{ marginLeft: "-40px" }}
-          />
-          <div>{TEXT.artist}</div>
-        </NavLink>
-
-        {/* Альбомы - пока нет маршрута */}
-        <NavLink to="/albums" className="menu-item">
-          <img
-            src={albums}
-            alt="albums"
-            width={30}
-            style={{ marginLeft: "-40px" }}
-          />
-          <div>{TEXT.albums}</div>
-        </NavLink>
-
-        {/* Избранное - ПРАВИЛЬНЫЙ ПУТЬ */}
-        <NavLink to="/favourites" className="menu-item2">
-          <img
-            src={favourite}
-            alt="favourite"
-            width={30}
-            style={{ marginLeft: "-10px" }}
-          />
-          <div>{TEXT.favorites}</div>
-        </NavLink>
-
-        <NavLink to="/recently" className="menu-item3">
-          <img
-            src={recently}
-            alt="recently"
-            width={30}
-            style={{ marginLeft: "-40px" }}
-          />
-          <div>{TEXT.recently}</div>
-        </NavLink>
-
-        <div className="playlist">
-          <h1>{TEXT.playlist}</h1>
-          <button onClick={handleAddClick}>+</button>
-          {showInput && (
-            <input
-              type="text"
-              value={newPlaylistName}
-              onChange={handleInputChange}
-              onKeyDown={handleInputSubmit}
-              placeholder="Enter playlist name"
-              autoFocus
-              style={{
-                marginTop: "5px",
-                width: "90%",
-                padding: "10px 5px",
-                borderRadius: "5px",
-                border: "1px solid #1e90ff",
-                background: "#1a1a1a",
-                color: "#fff",
-              }}
+        <nav className="menu">
+          {/* Главная страница */}
+          <NavLink 
+            to="/" 
+            className={({ isActive }) => `menu-item ${isActive ? 'active' : ''}`}
+            onClick={handleNavClick}
+          >
+            <img
+              src={home}
+              alt="home"
+              width={30}
+              style={{ marginLeft: "-40px" }}
             />
-          )}
-          <ul>
-            {playlist.map((item, index) => (
-              <li
-                key={index}
+            <div>{TEXT.home}</div>
+          </NavLink>
+
+          {/* Жанры */}
+          <NavLink 
+            to="/genres" 
+            className={({ isActive }) => `menu-item ${isActive ? 'active' : ''}`}
+            onClick={handleNavClick}
+          >
+            <img
+              src={genres}
+              alt="genres"
+              width={30}
+              style={{ marginLeft: "-40px" }}
+            />
+            <div>{TEXT.genres}</div>
+          </NavLink>
+
+          {/* Артисты */}
+          <NavLink 
+            to="/artist" 
+            className={({ isActive }) => `menu-item ${isActive ? 'active' : ''}`}
+            onClick={handleNavClick}
+          >
+            <img
+              src={artist}
+              alt="artist"
+              width={30}
+              style={{ marginLeft: "-40px" }}
+            />
+            <div>{TEXT.artist}</div>
+          </NavLink>
+
+          {/* Альбомы */}
+          <NavLink 
+            to="/albums" 
+            className={({ isActive }) => `menu-item ${isActive ? 'active' : ''}`}
+            onClick={handleNavClick}
+          >
+            <img
+              src={albums}
+              alt="albums"
+              width={30}
+              style={{ marginLeft: "-40px" }}
+            />
+            <div>{TEXT.albums}</div>
+          </NavLink>
+
+          {/* Избранное */}
+          <NavLink 
+            to="/favourites" 
+            className={({ isActive }) => `menu-item2 ${isActive ? 'active' : ''}`}
+            onClick={handleNavClick}
+          >
+            <img
+              src={favourite}
+              alt="favourite"
+              width={30}
+              style={{ marginLeft: "-10px" }}
+            />
+            <div>{TEXT.favorites}</div>
+          </NavLink>
+
+          {/* Недавние */}
+          <NavLink 
+            to="/recently" 
+            className={({ isActive }) => `menu-item3 ${isActive ? 'active' : ''}`}
+            onClick={handleNavClick}
+          >
+            <img
+              src={recently}
+              alt="recently"
+              width={30}
+              style={{ marginLeft: "-40px" }}
+            />
+            <div>{TEXT.recently}</div>
+          </NavLink>
+
+          <div className="playlist">
+            <h1>{TEXT.playlist}</h1>
+            <button onClick={handleAddClick}>+</button>
+            {showInput && (
+              <input
+                type="text"
+                value={newPlaylistName}
+                onChange={handleInputChange}
+                onKeyDown={handleInputSubmit}
+                placeholder="Enter playlist name"
+                autoFocus
                 style={{
-                  display: "flex",
-                  justifyContent: "space-between",
-                  alignItems: "center",
+                  marginTop: "5px",
+                  width: "90%",
+                  padding: "10px 5px",
+                  borderRadius: "5px",
+                  border: "1px solid #1e90ff",
+                  background: "#1a1a1a",
+                  color: "#fff",
                 }}
-              >
-                {item}
-                <FaTrash
+              />
+            )}
+            <ul>
+              {playlist.map((item, index) => (
+                <li
+                  key={index}
                   style={{
-                    cursor: "pointer",
-                    marginLeft: "10px",
-                    color: "#ff4d4d",
+                    display: "flex",
+                    justifyContent: "space-between",
+                    alignItems: "center",
                   }}
-                  onClick={() => handleDeletePlaylist(index)}
-                />
-              </li>
-            ))}
-          </ul>
-        </div>
-      </nav>
-    </aside>
+                >
+                  {item}
+                  <FaTrash
+                    style={{
+                      cursor: "pointer",
+                      marginLeft: "10px",
+                      color: "#ff4d4d",
+                    }}
+                    onClick={() => handleDeletePlaylist(index)}
+                  />
+                </li>
+              ))}
+            </ul>
+          </div>
+        </nav>
+      </aside>
+    </>
   );
 }

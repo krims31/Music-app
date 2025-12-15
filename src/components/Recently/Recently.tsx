@@ -15,6 +15,7 @@ import carti from "./assets/Whole_Lotta_Red.png";
 import weeknd from "./assets/ab67616d00001e024718e2b124f79258be7bc452.jpeg";
 import legend from "./assets/ab67616d0000b2733e0698e4ae5ffb82a005aeeb.jpeg";
 import ed from "./assets/ed-sheeran-divide-cd.jpg";
+import Sidebar from "../Sidebar/Sidebar"; // Импортируйте ваш Sidebar компонент
 
 const RES = {
   recently: "Recently plays",
@@ -108,6 +109,10 @@ const songs: Song[] = [
 ];
 
 export default function Recently() {
+  // Состояние для мобильного меню
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
+  
+  // Состояния для плеера
   const [currentSong, setCurrentSong] = useState<Song | null>(null);
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
   const [currentTime, setCurrentTime] = useState<number>(0);
@@ -118,6 +123,16 @@ export default function Recently() {
 
   const audioRef = useRef<HTMLAudioElement>(null);
 
+  // Функции для управления мобильным меню
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false);
+  };
+
+  // Функции для плеера (без изменений)
   const playNextSong = () => {
     if (!currentSong) return;
 
@@ -231,6 +246,23 @@ export default function Recently() {
 
   return (
     <div className="page-wrapper">
+      {/* Бургер кнопка для мобильного меню */}
+      <button 
+        className={`burger-btn ${isMobileMenuOpen ? 'open' : ''}`}
+        onClick={toggleMobileMenu}
+        aria-label="Меню"
+      >
+        <span className="burger-line"></span>
+        <span className="burger-line"></span>
+        <span className="burger-line"></span>
+      </button>
+
+      {/* Sidebar с пропсами для управления мобильным меню */}
+      <Sidebar 
+        isMobileMenuOpen={isMobileMenuOpen}
+        onCloseMobileMenu={closeMobileMenu}
+      />
+
       {/* Основной контейнер с прокруткой */}
       <div className="main-content-scrollable">
         <div className="recently-container">

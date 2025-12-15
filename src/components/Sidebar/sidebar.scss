@@ -1,8 +1,66 @@
 /* Global reset */
+/* Global reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+/* Оверлей для мобильного меню */
+.sidebar-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 998;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Бургер меню кнопка */
+.burger-btn {
+    display: none;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1001;
+    width: 30px;
+    height: 24px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    flex-direction: column;
+    justify-content: space-between;
+    
+    &:focus {
+        outline: none;
+    }
+    
+    .burger-line {
+        width: 100%;
+        height: 3px;
+        background-color: #fff;
+        border-radius: 2px;
+        transition: all 0.3s ease;
+    }
+    
+    &.open {
+        .burger-line:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+        
+        .burger-line:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .burger-line:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+    }
 }
 
 /* Spotify-like Sidebar */
@@ -18,6 +76,9 @@
     position: fixed;
     left: 0px;
     top: -5px;
+    z-index: 999;
+    transform: translateX(0);
+    transition: transform 0.3s ease;
 }
 
 /* Logo */
@@ -141,4 +202,135 @@ nav.menu {
 .menu img {
     width: 24px !important;
     margin: 0 !important;
+}
+
+/* Медиа-запросы для адаптивности */
+
+/* Для планшетов и мобильных (1024px и меньше) */
+@media (max-width: 1024px) {
+    .burger-btn {
+        display: flex;
+    }
+    
+    .sidebar-overlay {
+        display: block;
+        opacity: 1;
+    }
+    
+    .sidebar {
+        transform: translateX(-100%);
+        
+        &.mobile-open {
+            transform: translateX(0);
+            box-shadow: 4px 0 20px rgba(0, 0, 0, 0.5);
+        }
+    }
+    
+    /* Корректируем отступы для контента когда Sidebar скрыт */
+    .page-wrapper {
+        margin-left: 0 !important;
+    }
+}
+
+/* Для мобильных телефонов */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 280px;
+        border-radius: 0;
+        top: 0;
+        left: 0;
+        height: 100%;
+    }
+    
+    .burger-btn {
+        top: 15px;
+        left: 15px;
+        z-index: 1002;
+    }
+    
+    .logo {
+        font-size: 24px;
+        margin-top: 10px;
+    }
+    
+    .menu-item,
+    .menu-item2,
+    .menu-item3 {
+        font-size: 16px;
+        padding: 12px 15px;
+    }
+    
+    .playlist {
+        h1 {
+            font-size: 13px;
+        }
+        
+        button {
+            width: 30px;
+            height: 30px;
+            font-size: 22px;
+            margin-left: 10rem;
+        }
+        
+        li {
+            font-size: 15px;
+            padding: 8px 0;
+        }
+    }
+}
+
+/* Для очень маленьких экранов */
+@media (max-width: 480px) {
+    .sidebar {
+        width: 260px;
+        padding: 15px;
+    }
+    
+    .logo {
+        font-size: 22px;
+        margin-top: 40px;
+    }
+    
+    .burger-btn {
+        top: 12px;
+        left: 12px;
+        
+        .burger-line {
+            height: 2.5px;
+        }
+    }
+    
+    .menu-item,
+    .menu-item2,
+    .menu-item3 {
+        font-size: 15px;
+        padding: 10px 12px;
+        gap: 12px;
+    }
+    
+    .playlist {
+        button {
+            margin-left: 8rem;
+        }
+        
+        li {
+            font-size: 14px;
+        }
+    }
+}
+
+/* Для ландшафтной ориентации */
+@media (max-width: 768px) and (orientation: landscape) {
+    .sidebar {
+        width: 250px;
+        
+        .playlist {
+            max-height: 150px;
+            overflow-y: auto;
+            
+            ul {
+                max-height: 100px;
+            }
+        }
+    }
 }
