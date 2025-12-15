@@ -352,7 +352,201 @@
   }
 }
 
-//* Для очень маленьких экранов (меньше 360px) */
+@media (max-width: 425px) {
+  .login-container {
+    padding: 1rem;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+  }
+
+  .login-header {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    min-height: 600px;
+    border-radius: 15px;
+    padding: 20px;
+    margin: 0;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Изображение слева */
+  .img img {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 160px;
+    height: 520px;
+    border-radius: 10px;
+    margin: 0;
+    object-fit: cover;
+  }
+
+  /* Заголовок и текст справа от изображения */
+  .login-header h1 {
+    font-size: 20px;
+    margin: 20px 0 5px 190px;
+    color: #1a1a1a;
+    text-align: left;
+  }
+
+  .login-header p {
+    font-size: 12px;
+    margin: 0 0 15px 190px;
+    color: gray;
+    text-align: left;
+  }
+
+  /* Форма под заголовком (справа от изображения) */
+  .input-login,
+  .input-email,
+  .input-password {
+    margin-left: 190px;
+    width: calc(100% - 210px);
+    margin-top: 50px;
+
+    h1 {
+      font-size: 13px;
+      margin: 0 0 20px;
+      color: #000;
+      text-align: left;
+    }
+
+    input {
+      width: 120%;
+      margin-top: -10rem;
+      margin-left: 8rem;
+      padding: 10px 12px;
+      font-size: 13px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      background: transparent;
+      color: #000;
+      box-sizing: border-box;
+    }
+  }
+
+  /* Стили для кнопки показа пароля */
+  .toggle-password {
+    top: 48%;
+  }
+
+  /* Ссылка "Забыли пароль" */
+  .forgot-password {
+    margin-left: -285px;
+    text-align: right;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    width: calc(100% - 210px);
+
+    a {
+      font-size: 11px;
+      color: #007bff;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  /* Чекбокс согласия */
+  .agree {
+    margin-left: 190px;
+    width: calc(100% - 210px);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 20px;
+
+    input {
+      margin: 0;
+      width: 16px;
+      height: 16px;
+    }
+
+    a {
+      font-size: 12px;
+      color: #000;
+      text-decoration: none;
+    }
+  }
+
+  /* Кнопка входа */
+  .btn {
+    margin-left: 190px;
+    width: calc(100% - 210px);
+    margin-top: 30px;
+
+    button {
+      width: 120%;
+      margin: 0;
+      padding: 12px;
+      font-size: 15px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      background-color: #007bff;
+      color: #fff;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: #0056b3;
+      }
+    }
+  }
+
+  .agree input {
+    margin-top: -2.8rem;
+  }
+
+  .agree a {
+    margin-top: -2rem;
+    margin-left: -0.5rem;
+  }
+
+  /* Ссылки внизу */
+  .have {
+    margin-left: -220px;
+    width: calc(100% - 210px);
+    text-align: center;
+    margin-top: 0;
+
+    a {
+      font-size: 13px;
+      color: #000;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .signup {
+    margin-left: -258px;
+    width: calc(100% - 210px);
+    text-align: center;
+    margin-top: 0;
+
+    a {
+      font-size: 13px;
+      color: #007bff;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+/* Для очень маленьких экранов (меньше 360px) */
 @media (max-width: 360px) {
   .login-container {
     padding: 0.5rem;
