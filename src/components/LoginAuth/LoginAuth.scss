@@ -433,7 +433,7 @@
 
   /* Стили для кнопки показа пароля */
   .toggle-password {
-    top: 50%;
+    top: 48%;
   }
 
   /* Ссылка "Забыли пароль" */
@@ -547,176 +547,212 @@
 }
 
 /* Для очень маленьких экранов (меньше 360px) */
-@media (max-width: 360px) {
+/* Для экранов 375px и меньше */
+@media (max-width: 375px) {
   .login-container {
-    padding: 0.5rem;
+    padding: 10px;
     min-height: 100vh;
     display: flex;
-    justify-content: flex-start;
-    padding-top: 2rem;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 1rem;
     overflow-x: hidden;
   }
 
   .login-header {
     width: 100%;
-    max-width: 320px;
+    max-width: 350px;
     height: auto;
-    min-height: 650px;
+    min-height: 620px;
     border-radius: 15px;
     position: relative;
-    padding-bottom: 2rem;
+    padding: 18px;
+    padding-bottom: 1.5rem;
     overflow: hidden;
   }
 
-  /* Сбрасываем все фиксированные margin-left */
+  /* Заголовок и текст */
   .login-header h1 {
-    font-size: 24px;
-    margin: 0;
-    position: absolute;
-    top: 2rem;
-    left: 50%;
-    transform: translateX(-50%);
+    font-size: 21px;
+    margin: 0 0 10px 0;
     text-align: center;
-    width: 90%;
+    width: 100%;
+    padding: 0 10px;
   }
 
   .login-header p {
-    font-size: 12px;
-    margin: 0;
-    position: absolute;
-    top: 5rem;
-    left: 50%;
-    transform: translateX(-50%);
+    font-size: 13px;
+    margin: 0 0 18px 0;
     text-align: center;
-    width: 85%;
+    width: 100%;
+    padding: 0 10px;
   }
 
-  /* Изображение - делаем его нормальным блоком */
+  /* Изображение */
   .img img {
-    position: relative;
-    margin: 0;
-    margin-top: 8rem;
-    margin-left: 50%;
-    transform: translateX(-50%);
-    width: 280px;
-    height: 180px;
-    border-radius: 10px;
+    width: 100%;
+    max-width: 280px;
+    height: 170px;
+    margin: 0 auto 18px;
+    border-radius: 9px;
     display: block;
+    position: static;
+    transform: none;
   }
 
-  /* Форма под изображением */
+  /* Форма */
   .input-login,
   .input-email,
   .input-password {
-    position: relative;
-    margin-top: 1rem;
     width: 100%;
-  }
-
-  .input-login h1,
-  .input-email h1,
-  .input-password h1 {
-    font-size: 12px;
-    margin: 0;
-    margin-left: 2rem;
-    margin-top: 0.5rem;
-  }
-
-  .input-login input,
-  .input-email input,
-  .input-password input {
-    width: 85%;
-    margin-left: 2rem;
-    font-size: 12px;
-    padding: 0.6rem;
+    margin: 0 auto 14px;
+    
+    h1 {
+      font-size: 13px;
+      margin: 0 0 5px 10px;
+      text-align: left;
+    }
+    
+    input {
+      width: 100%;
+      margin: 0;
+      padding: 9px 38px 9px 11px;
+      font-size: 13px;
+      border: 1px solid #ccc;
+      border-radius: 7px;
+      background: transparent;
+      color: #000;
+      box-sizing: border-box;
+    }
   }
 
   /* Password wrapper */
   .password-wrapper {
-    width: 85%;
-    margin-left: 2rem;
+    position: relative;
+    width: 100%;
   }
 
   .toggle-password {
-    right: 2.5rem;
-    left: auto;
+    position: absolute;
+    right: 10px;
     top: 50%;
+    transform: translateY(-50%);
+    width: 19px;
+    height: 19px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #666;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   /* Forgot password */
-  .forgot-password a {
-    position: relative;
-    left: auto;
-    top: auto;
-    display: block;
+  .forgot-password {
     text-align: right;
-    margin-right: 2rem;
-    margin-top: 0.5rem;
-    font-size: 12px;
+    margin: 9px 0 18px;
+    padding-right: 8px;
+    
+    a {
+      font-size: 12px;
+      color: #007bff;
+      text-decoration: none;
+      
+      &:hover {
+        text-decoration: underline;
+      }
+    }
   }
 
   /* Checkbox */
   .agree {
-    margin-top: 1rem;
-  }
-
-  .agree input {
-    margin-left: 2rem;
-    margin-top: 0.2rem;
-  }
-
-  .agree a {
-    position: relative;
-    top: auto;
-    left: auto;
-    font-size: 12px;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    margin: 9px 0 18px;
+    padding-left: 7px;
+    
+    input {
+      margin: 0;
+      width: 15px;
+      height: 15px;
+    }
+    
+    a {
+      font-size: 12px;
+      color: #000;
+      text-decoration: none;
+    }
   }
 
   /* Button */
   .btn {
-    margin-top: 1.5rem;
-  }
-
-  .btn button {
-    width: 85%;
-    margin-left: 2rem;
-    font-size: 16px;
-    padding: 0.6rem;
-    margin-top: 0;
+    width: 100%;
+    margin: 18px 0 10px;
+    
+    button {
+      width: 100%;
+      margin: 0;
+      padding: 11px;
+      font-size: 15px;
+      border-radius: 7px;
+      border: 1px solid #ccc;
+      background-color: #007bff;
+      color: #fff;
+      cursor: pointer;
+      
+      &:hover {
+        background-color: #0056b3;
+      }
+    }
   }
 
   /* Sign up links */
   .have {
-    margin-top: 1rem;
-  }
-
-  .have a {
-    position: relative;
-    left: auto;
-    top: auto;
-    display: block;
     text-align: center;
-    font-size: 12px;
-    margin-top: 0.5rem;
+    margin: 14px 0 5px;
+    
+    a {
+      font-size: 13px;
+      color: #000;
+      text-decoration: none;
+      
+      &:hover {
+        text-decoration: underline;
+      }
+    }
   }
 
   .signup {
-    margin-top: 0.3rem;
-  }
-
-  .signup a {
-    position: relative;
-    left: auto;
-    top: auto;
-    display: block;
     text-align: center;
-    font-size: 12px;
-    color: #007bff;
-    text-decoration: none;
+    margin: 0;
+    
+    a {
+      font-size: 13px;
+      color: #007bff;
+      text-decoration: none;
+      
+      &:hover {
+        text-decoration: underline;
+      }
+    }
   }
 
-  .signup a:hover {
-    text-decoration: underline;
+  /* Сброс всех позиций */
+  .input-login,
+  .input-email,
+  .input-password,
+  .forgot-password,
+  .agree,
+  .btn,
+  .have,
+  .signup {
+    position: static !important;
+    left: auto !important;
+    top: auto !important;
+    transform: none !important;
+    margin-left: 0 !important;
   }
 }
 
