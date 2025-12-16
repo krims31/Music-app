@@ -6,225 +6,6 @@
 }
 
 .page-wrapper {
-    margin-left: -10px;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-}
-
-.main-content-scrollable {
-    flex: 1;
-    overflow-y: auto;
-    padding: 20px;
-    padding-bottom: 100px;
-}
-
-.recently-container h1 {
-    margin-top: -1.5rem;
-    font-size: 24px;
-    color: #fff;
-    margin-left: 24rem;
-    margin-bottom: 2rem;
-}
-
-/* Контейнер для альбомов */
-.albums-grid {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap: 2rem;
-    margin-left: 24rem;
-    width: calc(100% - 24rem);
-}
-
-/* Общие стили для всех альбомов */
-.album-container {
-    width: 180px;
-
-    .album-cover-wrapper {
-        position: relative;
-        display: inline-block;
-        width: 100%;
-    }
-
-    img {
-        width: 150px;
-        height: 150px;
-        border-radius: 10px;
-        transform: scale(1.1);
-        transition: all 0.3s ease-in-out;
-
-        &:hover {
-            cursor: pointer;
-            box-shadow: 0 0 0 10px rgb(255, 255, 255, 0.02);
-        }
-    }
-
-    .play-button-overlay {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        border: 1px solid lightgreen;
-        border-radius: 20px;
-        padding: 10px;
-        background-color: lightgreen;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        opacity: 0;
-        transition: opacity 0.3s ease;
-        cursor: pointer;
-        z-index: 10;
-        pointer-events: auto;
-
-        &.overlapping {
-            pointer-events: none;
-            opacity: 0.5;
-        }
-    }
-
-    .album-cover-wrapper:hover .play-button-overlay {
-        opacity: 1;
-    }
-
-    .play-button-overlay:hover {
-        background-color: #32cd32;
-        border-color: #32cd32;
-    }
-
-    h1 {
-        font-size: 16px;
-        margin-top: 1rem;
-        color: #fff;
-        text-align: center;
-    }
-
-    p {
-        font-size: 13px;
-        margin-top: 0.5rem;
-        color: gray;
-        text-align: center;
-    }
-}
-
-/* Убираем все отдельные позиционированные стили */
-.juice-wrld,
-.ed-sheeran,
-.carti,
-.travis,
-.The-weeknd,
-.x {
-    /* Обнуляем все абсолютные позиции */
-    img,
-    h1,
-    p {
-        position: static;
-        margin: 0;
-        left: 0;
-        top: 0;
-    }
-
-    /* Обнуляем специфичные позиции кнопок */
-    .play-button-overlay {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    }
-}
-
-.see-all {
-    color: #fff;
-    font-size: 8px;
-    margin: 2rem 0;
-    margin-left: 24rem;
-}
-
-/* Пространство для скролла */
-.scroll-space {
-    margin-top: 3rem;
-    margin-left: 24rem;
-    width: calc(100% - 24rem);
-    padding: 20px 0;
-}
-
-.placeholder-section {
-    margin-bottom: 40px;
-    width: 100%;
-}
-
-.placeholder-section h2 {
-    color: white;
-    margin-bottom: 20px;
-    font-size: 24px;
-}
-
-.placeholder-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 20px;
-}
-
-.placeholder-item {
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-    padding: 30px 20px;
-    color: rgba(255, 255, 255, 0.7);
-    text-align: center;
-    min-height: 150px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
-
-    &:hover {
-        background: rgba(255, 255, 255, 0.15);
-        color: white;
-    }
-}
-
-/* Стили для скроллбара */
-.main-content-scrollable::-webkit-scrollbar {
-    width: 8px;
-}
-
-.main-content-scrollable::-webkit-scrollbar-track {
-    background: #1a1a1a;
-}
-
-.main-content-scrollable::-webkit-scrollbar-thumb {
-    background: #444;
-    border-radius: 4px;
-}
-
-.main-content-scrollable::-webkit-scrollbar-thumb:hover {
-    background: #555;
-}
-
-/* Плеер всегда внизу */
-.music-player {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 1000;
-}
-
-/* Исправляем позиционирование кнопки лайка */
-.like-btn-player {
-    position: static;
-    margin: 0;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-}
-
-.page-wrapper {
     display: flex;
     flex-direction: column;
     height: 100vh;
@@ -233,7 +14,6 @@
     padding: 0;
 }
 
-/* Главный контейнер для скролла */
 .main-content-scrollable {
     flex: 1;
     overflow-y: auto;
@@ -253,7 +33,6 @@
     margin-left: 24rem;
 }
 
-/* Сетка для альбомов */
 .albums-grid {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
@@ -263,7 +42,6 @@
     width: calc(100% - 26rem);
 }
 
-/* Общие стили для всех альбомов */
 .album-container {
     width: 100%;
     max-width: 200px;
@@ -417,7 +195,6 @@
     background: #555;
 }
 
-/* Плеер всегда внизу */
 .music-player {
     position: fixed;
     bottom: 0;
@@ -429,14 +206,90 @@
     padding: 15px 20px;
 }
 
+.juice-wrld,
+.ed-sheeran,
+.carti,
+.travis,
+.The-weeknd,
+.x {
+    img,
+    h1,
+    p {
+        position: static;
+        margin: 0;
+        left: 0;
+        top: 0;
+    }
 
-/* Для экранов 425px и меньше */
-@media (max-width: 425px) {
+    .play-button-overlay {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+@media (max-width: 1199px) {
+    .recently-container h1 {
+        margin-left: 15rem;
+    }
+
+    .albums-grid {
+        grid-template-columns: repeat(4, 1fr);
+        margin-left: 15rem;
+        width: calc(100% - 17rem);
+    }
+
+    .scroll-space {
+        margin-left: 15rem;
+        margin-right: 2rem;
+        width: calc(100% - 17rem);
+    }
+}
+
+/* Для больших планшетов и маленьких ноутбуков (900px - 1024px) */
+@media (max-width: 1024px) {
+    .recently-container h1 {
+        margin-left: 12rem;
+    }
+
+    .albums-grid {
+        grid-template-columns: repeat(3, 1fr);
+        margin-left: 12rem;
+        width: calc(100% - 14rem);
+    }
+
+    .scroll-space {
+        margin-left: 12rem;
+        margin-right: 2rem;
+        width: calc(100% - 14rem);
+    }
+}
+
+/* Для планшетов (768px - 899px) */
+@media (max-width: 899px) {
+    .recently-container h1 {
+        margin-left: 10rem;
+    }
+
+    .albums-grid {
+        grid-template-columns: repeat(3, 1fr);
+        margin-left: 10rem;
+        width: calc(100% - 12rem);
+    }
+
+    .scroll-space {
+        margin-left: 10rem;
+        margin-right: 2rem;
+        width: calc(100% - 12rem);
+    }
+}
+
+/* Для мобильных (425px - 767px) */
+@media (max-width: 767px) {
     .page-wrapper {
         margin-left: 0;
-        padding: 10px;
-        height: auto;
-        min-height: 100vh;
+        padding: 15px;
     }
 
     .main-content-scrollable {
@@ -449,14 +302,13 @@
 
     .recently-container h1 {
         font-size: 20px;
-        margin-left: 1rem;
+        margin-left: 0;
         margin-bottom: 1.5rem;
         text-align: center;
     }
 
-    /* Адаптивная сетка для альбомов */
     .albums-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
         gap: 15px;
         margin-left: 0;
         margin-right: 0;
@@ -489,7 +341,7 @@
         .play-button-overlay {
             width: 40px;
             height: 40px;
-            
+
             svg {
                 width: 16px;
                 height: 16px;
@@ -534,14 +386,13 @@
         font-size: 12px;
     }
 
-    /* Уменьшаем скроллбар на мобильных */
     .main-content-scrollable::-webkit-scrollbar {
         width: 4px;
     }
 }
 
-/* Для экранов 375px и меньше */
-@media (max-width: 375px) {
+/* Для маленьких телефонов (375px - 424px) */
+@media (max-width: 424px) {
     .recently-container h1 {
         font-size: 18px;
         margin-left: 0.5rem;
@@ -570,7 +421,7 @@
         .play-button-overlay {
             width: 36px;
             height: 36px;
-            
+
             svg {
                 width: 14px;
                 height: 14px;
@@ -590,8 +441,8 @@
     }
 }
 
-/* Для экранов 320px и меньше */
-@media (max-width: 320px) {
+/* Для очень маленьких телефонов (320px - 374px) */
+@media (max-width: 374px) {
     .page-wrapper {
         padding: 8px;
     }
@@ -634,7 +485,7 @@
             width: 32px;
             height: 32px;
             border-radius: 50%;
-            
+
             svg {
                 width: 12px;
                 height: 12px;
@@ -675,15 +526,12 @@
         border-radius: 8px;
     }
 
-    /* Минимальный скроллбар для очень маленьких экранов */
     .main-content-scrollable::-webkit-scrollbar {
         width: 2px;
     }
 }
 
-/* Дополнительные улучшения для мобильных */
-@media (max-width: 425px) {
-    /* Улучшаем тач-таргеты */
+@media (max-width: 767px) {
     .album-container,
     .placeholder-item,
     .see-all {
@@ -691,16 +539,15 @@
         -webkit-tap-highlight-color: transparent;
     }
 
-    /* Увеличиваем область клика для кнопки play */
     .album-cover-wrapper {
         position: relative;
-        
+
         .play-button-overlay {
             width: 45px !important;
             height: 45px !important;
-            
+
             &::after {
-                content: '';
+                content: "";
                 position: absolute;
                 top: -10px;
                 left: -10px;
@@ -710,12 +557,12 @@
         }
     }
 
-    /* Улучшаем читаемость текста */
-    h1, h2, p {
+    h1,
+    h2,
+    p {
         text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
     }
 
-    /* Предотвращаем слишком длинные названия */
     .album-container h1,
     .album-container p {
         overflow: hidden;
@@ -727,20 +574,13 @@
         line-height: 1.3;
     }
 
-    /* Уменьшаем отступы для экономии места */
-    .placeholder-item {
-        margin-bottom: 5px;
-    }
-
-    /* Гарантируем что все поместится */
     .main-content-scrollable {
         max-width: 100vw;
         box-sizing: border-box;
     }
 }
 
-/* Для ландшафтной ориентации на мобильных */
-@media (max-width: 425px) and (orientation: landscape) {
+@media (max-width: 767px) and (orientation: landscape) {
     .albums-grid {
         grid-template-columns: repeat(3, 1fr);
         gap: 15px;
