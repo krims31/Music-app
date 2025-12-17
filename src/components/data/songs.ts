@@ -503,7 +503,7 @@ export const songs = [
     duration: "3:37",
     audioUrl: "/music/Juice WRLD - Burn.mp3",
     coverUrl:
-      "https://images.genius.com/baad65e33b6c60c41d4b7a6c2f9d9bdf.1000x1000x1.png",
+      "https://upload.wikimedia.org/wikipedia/ru/1/1f/Fighting_Demons.jpg",
     genre: ["Emo rap"],
   },
   {
@@ -514,7 +514,7 @@ export const songs = [
     duration: "3:51",
     audioUrl: "/music/Juice WRLD - Relapse (Already Dead).mp3",
     coverUrl:
-      "https://images.genius.com/baad65e33b6c60c41d4b7a6c2f9d9bdf.1000x1000x1.png",
+      "https://upload.wikimedia.org/wikipedia/ru/1/1f/Fighting_Demons.jpg",
     genre: ["Emo rap"],
   },
   {
@@ -525,7 +525,7 @@ export const songs = [
     duration: "4:19",
     audioUrl: "/music/Juice WRLD - Sometimes.mp3",
     coverUrl:
-      "https://images.genius.com/baad65e33b6c60c41d4b7a6c2f9d9bdf.1000x1000x1.png",
+      "https://upload.wikimedia.org/wikipedia/ru/1/1f/Fighting_Demons.jpg",
     genre: ["Emo rap"],
   },
   {
@@ -536,7 +536,7 @@ export const songs = [
     duration: "3:02",
     audioUrl: "/music/Juice Wrld - Rockstar In His Prime.mp3",
     coverUrl:
-      "https://images.genius.com/baad65e33b6c60c41d4b7a6c2f9d9bdf.1000x1000x1.png",
+      "https://upload.wikimedia.org/wikipedia/ru/1/1f/Fighting_Demons.jpg",
     genre: ["Emo rap"],
   },
 ];
