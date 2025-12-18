@@ -113,6 +113,167 @@ const songs: Song[] = [
     coverUrl: x,
     genre: ["Emo rap"],
   },
+  {
+    id: 7,
+    title: "Conversations",
+    artist: "Juice Wrld",
+    album: "Legends Never Die",
+    duration: "3:24",
+    audioUrl: "./music/Juice Wrld - Conversations.mp3",
+    coverUrl: x,
+    genre: ["Emo rap"],
+  },
+  {
+    id: 8,
+    title: "Titanic",
+    artist: "Juice Wrld",
+    album: "Legends Never Die",
+    duration: "2:56",
+    audioUrl: "./music/Juice Wrld - Titanic.mp3",
+    coverUrl: x,
+    genre: ["Emo rap"],
+  },
+  {
+    id: 9,
+    title: "Come And Go",
+    artist: "Juice Wrld",
+    album: "Legends Never Die",
+    duration: "3:25",
+    audioUrl: "./music/Juice_WRLD_-_Juice_WRLD_-_Come_And_Go_(SkySound.cc).mp3",
+    coverUrl: x,
+    genre: ["Emo rap"],
+  },
+  {
+    id: 10,
+    title: "Blood On My Jeans",
+    artist: "Juice Wrld",
+    album: "Legends Never Die",
+    duration: "2:34",
+    audioUrl: "./music/Juice Wrld - Blood On My Jeans.mp3",
+    coverUrl: x,
+    genre: ["Emo rap"],
+  },
+  {
+    id: 11,
+    title: "Righteous",
+    artist: "Juice WRLD",
+    album: "Legends Never Die",
+    duration: "4:02",
+    audioUrl: "./music/Juice Wrld - Righteous.mp3",
+    coverUrl: legend,
+    genre: ["Emo rap"],
+  },
+  {
+    id: 12,
+    title: "Life's A Mess",
+    artist: "Juice WRLD",
+    album: "Legends Never Die",
+    duration: "3:22",
+    audioUrl: "./music/Juice WRLD, Halsey - Life's A Mess.mp3",
+    coverUrl: legend,
+    genre: ["Emo rap"],
+  },
+  {
+    id: 13,
+    title: "Hate The Other Side",
+    artist: "Juice WRLD",
+    album: "Legends Never Die",
+    duration: "2:40",
+    audioUrl:
+      "./music/Juice Wrld - Hate The Other Side (feat. Marshmello, The Kid Laroi).mp3",
+    coverUrl: legend,
+    genre: ["Emo rap"],
+  },
+  {
+    id: 14,
+    title: "Smile",
+    artist: "Juice WRLD",
+    album: "Legends Never Die",
+    duration: "3:16",
+    audioUrl: "./music/Juice Wrld & The Weeknd - Smile.mp3",
+    coverUrl: legend,
+    genre: ["Emo rap"],
+  },
+  {
+    id: 15,
+    title: "Tell Me U Luv Me",
+    artist: "Juice WRLD",
+    album: "Legends Never Die",
+    duration: "3:00",
+    audioUrl: "./music/Juice Wrld - Tell Me U Luv Me (feat. Trippie Redd).mp3",
+    coverUrl: legend,
+    genre: ["Emo rap"],
+  },
+  {
+    id: 16,
+    title: "Up Up and Away",
+    artist: "Juice WRLD",
+    album: "Legends Never Die",
+    duration: "2:27",
+    audioUrl: "./music/Juice Wrld - Up Up And Away.mp3",
+    coverUrl: legend,
+    genre: ["Emo rap"],
+  },
+  {
+    id: 17,
+    title: "I Want It",
+    artist: "Juice WRLD",
+    album: "Legends Never Die",
+    duration: "2:53",
+    audioUrl: "./music/Juice Wrld - I Want It.mp3",
+    coverUrl: legend,
+    genre: ["Emo rap"],
+  },
+  {
+    id: 18,
+    title: "Stay High",
+    artist: "Juice WRLD",
+    album: "Legends Never Die",
+    duration: "2:48",
+    audioUrl: "./music/Juice Wrld - Stay High.mp3",
+    coverUrl: legend,
+    genre: ["Emo rap"],
+  },
+  {
+    id: 19,
+    title: "Can't Die",
+    artist: "Juice WRLD",
+    album: "Legends Never Die",
+    duration: "3:02",
+    audioUrl: "./music/Juice Wrld - Can't Die.mp3",
+    coverUrl: legend,
+    genre: ["Emo rap"],
+  },
+  {
+    id: 20,
+    title: "Screw Juice",
+    artist: "Juice WRLD",
+    album: "Legends Never Die",
+    duration: "2:59",
+    audioUrl: "./music/Juice Wrld - Screw Juice.mp3",
+    coverUrl: legend,
+    genre: ["Emo rap"],
+  },
+  {
+    id: 21,
+    title: "Bad Energy",
+    artist: "Juice WRLD",
+    album: "Legends Never Die",
+    duration: "3:06",
+    audioUrl: "./music/Juice Wrld - Bad Energy.mp3",
+    coverUrl: legend,
+    genre: ["Emo rap"],
+  },
+  {
+    id: 22,
+    title: "Man Of The Year",
+    artist: "Juice WRLD",
+    album: "Legends Never Die",
+    duration: "2:16",
+    audioUrl: "./music/Juice Wrld - Man Of The Year.mp3",
+    coverUrl: legend,
+    genre: ["Emo rap"],
+  },
 ];
 
 export default function Recently() {
@@ -481,26 +642,6 @@ export default function Recently() {
                   </div>
                 ))}
               </div>
-            </div>
-          </div>
-
-          <div className="placeholder-section">
-            <h2>Рекомендуемые треки</h2>
-            <div className="placeholder-grid">
-              <div className="placeholder-item">Добавьте сюда трек 1</div>
-              <div className="placeholder-item">Добавьте сюда трек 2</div>
-              <div className="placeholder-item">Добавьте сюда трек 3</div>
-              <div className="placeholder-item">Добавьте сюда трек 4</div>
-            </div>
-          </div>
-
-          <div className="placeholder-section">
-            <h2>Новые релизы</h2>
-            <div className="placeholder-grid">
-              <div className="placeholder-item">Добавьте сюда альбом 1</div>
-              <div className="placeholder-item">Добавьте сюда альбом 2</div>
-              <div className="placeholder-item">Добавьте сюда альбом 3</div>
-              <div className="placeholder-item">Добавьте сюда альбом 4</div>
             </div>
           </div>
         </div>
