@@ -539,4 +539,15 @@ export const songs = [
       "https://upload.wikimedia.org/wikipedia/ru/1/1f/Fighting_Demons.jpg",
     genre: ["Emo rap"],
   },
+  {
+    id: 51,
+    title: "Relocate",
+    artist: "Juice WRLD",
+    album: "Fighting Demons",
+    duration: "3:28",
+    audioUrl: "/music/Juice WRLD - Relocate.mp3",
+    coverUrl:
+      "https://upload.wikimedia.org/wikipedia/ru/1/1f/Fighting_Demons.jpg",
+    genre: ["Emo rap"],
+  },
 ];
