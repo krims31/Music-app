@@ -53,6 +53,7 @@ export default function LoginAuth() {
               value={name}
               onChange={(e) => setName(e.target.value)}
             />
+            {error.name && <span className="error">{error.name}</span>}
           </div>
           <div className="input-email">
             <h1>{Login.email}</h1>
@@ -62,6 +63,7 @@ export default function LoginAuth() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
+            {error.email && <span className="error">{error.email}</span>}
           </div>
           <div className="input-password">
             <h1>{Login.password}</h1>
@@ -78,6 +80,7 @@ export default function LoginAuth() {
             >
               <FontAwesomeIcon icon={showPassword ? faEyeSlash : faEye} />
             </button>
+            {error.password && <span className="error">{error.password}</span>}
           </div>
           <div className="forgot-password">
             <a href="#">{Login.forgot}</a>

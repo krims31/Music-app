@@ -1,850 +1,851 @@
 .login-container {
-  background-color: #fff;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+    background-color: #fff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .login-header {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1),
-    inset 0 1px 0 rgba(255, 255, 255, 0.2);
-  border-radius: 20px;
-  width: 50%;
-  height: 40rem;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    width: 50%;
+    height: 40rem;
 
-  h1 {
-    color: #1a1a1a;
-    margin-top: 5rem;
-    font-size: 35px;
-    margin-left: 36rem;
-  }
+    h1 {
+        color: #1a1a1a;
+        margin-top: 5rem;
+        font-size: 35px;
+        margin-left: 36rem;
+    }
 
-  p {
-    margin-top: 1rem;
-    font-size: 14px;
-    margin-left: 36rem;
-    color: gray;
-  }
+    p {
+        margin-top: 1rem;
+        font-size: 14px;
+        margin-left: 36rem;
+        color: gray;
+    }
 }
 
 .input-login h1 {
-  color: #000;
-  margin-top: 1rem;
-  font-size: 14px;
-  margin-left: 36rem;
+    color: #000;
+    margin-top: 1rem;
+    font-size: 14px;
+    margin-left: 36rem;
 }
 
 .input-login input {
-  border: none;
-  outline: none;
-  background-color: transparent;
-  font-size: 14px;
-  color: #000;
-  margin-top: 0.5rem;
-  margin-left: 36rem;
-  width: 20rem;
-  padding: 0.7rem;
-  border-radius: 10px;
-  border: 1px solid #ccc;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    font-size: 14px;
+    color: #000;
+    margin-top: 0.5rem;
+    margin-left: 36rem;
+    width: 20rem;
+    padding: 0.7rem;
+    border-radius: 10px;
+    border: 1px solid #ccc;
 }
 
 .input-email h1 {
-  color: #000;
-  margin-top: 1rem;
-  font-size: 14px;
-  margin-left: 36rem;
+    color: #000;
+    margin-top: 1rem;
+    font-size: 14px;
+    margin-left: 36rem;
 }
 
 .input-email input {
-  border: none;
-  outline: none;
-  background-color: transparent;
-  font-size: 14px;
-  color: #000;
-  margin-top: 0.5rem;
-  margin-left: 36rem;
-  width: 20rem;
-  padding: 0.7rem;
-  border-radius: 10px;
-  border: 1px solid #ccc;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    font-size: 14px;
+    color: #000;
+    margin-top: 0.5rem;
+    margin-left: 36rem;
+    width: 20rem;
+    padding: 0.7rem;
+    border-radius: 10px;
+    border: 1px solid #ccc;
 }
 
 .input-password h1 {
-  color: #000;
-  margin-top: 1rem;
-  font-size: 14px;
-  margin-left: 36rem;
+    color: #000;
+    margin-top: 1rem;
+    font-size: 14px;
+    margin-left: 36rem;
 }
 
 .input-password input {
-  border: none;
-  outline: none;
-  background-color: transparent;
-  font-size: 14px;
-  color: #000;
-  margin-top: 0.5rem;
-  margin-left: 36rem;
-  width: 20rem;
-  padding: 0.7rem;
-  border-radius: 10px;
-  border: 1px solid #ccc;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    font-size: 14px;
+    color: #000;
+    margin-top: 0.5rem;
+    margin-left: 36rem;
+    width: 20rem;
+    padding: 0.7rem;
+    border-radius: 10px;
+    border: 1px solid #ccc;
 }
 
 .password-wrapper {
-  position: relative;
-  display: inline-block;
-  width: 20rem;
+    position: relative;
+    display: inline-block;
+    width: 20rem;
 }
 
 .toggle-password {
-  position: absolute;
-  right: 10px;
-  top: 58.5%;
-  left: 90%;
-  transform: translateY(-50%);
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: #666;
-  padding: 0;
-  width: 24px;
-  height: 24px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: color 0.3s ease;
+    position: absolute;
+    right: 10px;
+    top: 58.5%;
+    left: 90%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #666;
+    padding: 0;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.3s ease;
 }
 
 .toggle-password:hover {
-  color: #007bff;
+    color: #007bff;
 }
 
 .forgot-password a {
-  color: #007bff;
-  text-decoration: none;
-  position: relative;
-  left: 48rem;
-  top: -4rem;
+    color: #007bff;
+    text-decoration: none;
+    position: relative;
+    left: 48rem;
+    top: -4rem;
 
-  &:hover {
-    text-decoration: underline;
-  }
+    &:hover {
+        text-decoration: underline;
+    }
 }
 
 .agree input {
-  margin-left: 36.2rem;
+    margin-left: 36.2rem;
 }
 
 .agree a {
-  position: relative;
-  top: 0.7%;
-  left: 0.5rem;
-  font-size: 14px;
-  color: #000;
-  text-decoration: none;
+    position: relative;
+    top: 0.7%;
+    left: 0.5rem;
+    font-size: 14px;
+    color: #000;
+    text-decoration: none;
 }
 
 .btn button {
-  margin-left: 36rem;
-  width: 20rem;
-  margin-top: 1rem;
-  padding: 0.7rem;
-  border-radius: 10px;
-  border: 1px solid #ccc;
-  background-color: #007bff;
-  color: #fff;
-  font-size: 20px;
-  cursor: pointer;
+    margin-left: 36rem;
+    width: 20rem;
+    margin-top: 1rem;
+    padding: 0.7rem;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer;
 }
 
 .btn button:hover {
-  background-color: #0056b3;
-  transition: all 0.3s ease-in-out;
+    background-color: #0056b3;
+    transition: all 0.3s ease-in-out;
 }
 
 .have a {
-  color: #000;
-  text-decoration: none;
-  position: relative;
-  font-size: 14px;
-  left: 41rem;
-  top: 1rem;
+    color: #000;
+    text-decoration: none;
+    position: relative;
+    font-size: 14px;
+    left: 41rem;
+    top: 1rem;
 
-  &:hover {
-    text-decoration: underline;
-  }
+    &:hover {
+        text-decoration: underline;
+    }
 }
 
 .signup a {
-  color: #007bff;
-  text-decoration: none;
-  position: relative;
-  font-size: 14px;
-  left: 48.3rem;
-  top: -0.1rem;
+    color: #007bff;
+    text-decoration: none;
+    position: relative;
+    font-size: 14px;
+    left: 48.3rem;
+    top: -0.1rem;
 
-  &:hover {
-    text-decoration: underline;
-  }
+    &:hover {
+        text-decoration: underline;
+    }
 }
 
 .img img {
-  margin-top: -32.5rem;
-  margin-left: 0.5rem;
-  border-radius: 1rem;
+    margin-top: -32.5rem;
+    margin-left: 0.5rem;
+    border-radius: 1rem;
 }
 
 @media (max-width: 1440px) {
-  .login-header {
-    width: 66%;
-  }
+    .login-header {
+        width: 66%;
+    }
 }
 
 /* Для ноутбуков и планшетов (1200px - 768px) */
 @media (max-width: 1200px) {
-  .login-header {
-    width: 83%;
-  }
+    .login-header {
+        width: 83%;
+    }
 
-  .login-header h1,
-  .login-header p,
-  .input-login h1,
-  .input-login input,
-  .input-email h1,
-  .input-email input,
-  .input-password h1,
-  .input-password input,
-  .btn button {
-    margin-left: 30rem;
-  }
+    .login-header h1,
+    .login-header p,
+    .input-login h1,
+    .input-login input,
+    .input-email h1,
+    .input-email input,
+    .input-password h1,
+    .input-password input,
+    .btn button {
+        margin-left: 30rem;
+    }
 
-  .forgot-password a {
-    left: 42rem;
-  }
+    .forgot-password a {
+        left: 42rem;
+    }
 
-  .agree input {
-    margin-left: 30.2rem;
-  }
+    .agree input {
+        margin-left: 30.2rem;
+    }
 
-  .have a {
-    left: 35rem;
-  }
+    .have a {
+        left: 35rem;
+    }
 
-  .signup a {
-    left: 42.3rem;
-  }
+    .signup a {
+        left: 42.3rem;
+    }
 
-  .img img {
-    margin-top: -32.5rem;
-    margin-left: 0.5rem;
-    width: 450px;
-    height: 590px;
-  }
+    .img img {
+        margin-top: -32.5rem;
+        margin-left: 0.5rem;
+        width: 450px;
+        height: 590px;
+    }
 }
 
 /* Для планшетов (768px - 480px) */
 @media (max-width: 768px) {
-  .login-header {
-    width: 85%;
-    height: 35rem;
-  }
+    .login-header {
+        width: 85%;
+        height: 35rem;
+    }
 
-  .login-header h1 {
-    margin-left: 22rem;
-  }
+    .login-header h1 {
+        margin-left: 22rem;
+    }
 
-  .input-login h1 {
-    position: relative;
-    top: -2rem;
-  }
+    .input-login h1 {
+        position: relative;
+        top: -2rem;
+    }
 
-  .input-login input {
-    position: relative;
-    top: -2rem;
-    left: -8rem;
-    width: 17rem;
-  }
+    .input-login input {
+        position: relative;
+        top: -2rem;
+        left: -8rem;
+        width: 17rem;
+    }
 
-  .login-header p {
-    margin-top: 6px;
-    margin-left: 22rem;
-  }
-  .input-email h1 {
-    position: relative;
-    top: -5rem;
-  }
-  .input-email input {
-    position: relative;
-    top: -5rem;
-    left: -8rem;
-    width: 17rem;
-  }
-  .input-password h1 {
-    position: relative;
-    top: -8rem;
-  }
-  .input-password input {
-    position: relative;
-    top: -8rem;
-    left: -8rem;
-    width: 17rem;
-  }
+    .login-header p {
+        margin-top: 6px;
+        margin-left: 22rem;
+    }
+    .input-email h1 {
+        position: relative;
+        top: -5rem;
+    }
+    .input-email input {
+        position: relative;
+        top: -5rem;
+        left: -8rem;
+        width: 17rem;
+    }
+    .input-password h1 {
+        position: relative;
+        top: -8rem;
+    }
+    .input-password input {
+        position: relative;
+        top: -8rem;
+        left: -8rem;
+        width: 17rem;
+    }
 
-  .btn button {
-    margin-left: 22rem;
-  }
+    .btn button {
+        margin-left: 22rem;
+    }
 
-  .login-header h1 {
-    font-size: 14px;
-    margin-top: 4rem;
-  }
+    .login-header h1 {
+        font-size: 14px;
+        margin-top: 4rem;
+    }
 
-  .btn button {
-    position: relative;
-    top: -8rem;
-    width: 15rem;
-  }
+    .btn button {
+        position: relative;
+        top: -8rem;
+        width: 15rem;
+    }
 
-  .forgot-password a {
-    left: 31.5rem;
-    font-size: 14px;
-    top: -12rem;
-  }
+    .forgot-password a {
+        left: 31.5rem;
+        font-size: 14px;
+        top: -12rem;
+    }
 
-  .agree input {
-    position: relative;
-    top: -8rem;
-    margin-left: 22.2rem;
-  }
+    .agree input {
+        position: relative;
+        top: -8rem;
+        margin-left: 22.2rem;
+    }
 
-  .agree a {
-    position: relative;
-    top: -8rem;
-  }
+    .agree a {
+        position: relative;
+        top: -8rem;
+    }
 
-  .have a {
-    left: 25rem;
-    top: -7rem;
-  }
+    .have a {
+        left: 25rem;
+        top: -7rem;
+    }
 
-  .signup a {
-    left: 32.3rem;
-    top: -8.1rem;
-  }
+    .signup a {
+        left: 32.3rem;
+        top: -8.1rem;
+    }
 
-  .img img {
-    position: relative;
-    top: -5.8rem;
-    margin-left: 0.2rem;
-    width: 320px;
-    height: 540px;
-  }
+    .img img {
+        position: relative;
+        top: -5.8rem;
+        margin-left: 0.2rem;
+        width: 320px;
+        height: 540px;
+    }
 
-  .toggle-password {
-    left: 90%;
-    top: 61%;
-  }
+    .toggle-password {
+        left: 90%;
+        top: 61%;
+    }
 }
 
 @media (max-width: 425px) {
-  .login-container {
-    padding: 1rem;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #fff;
-  }
-
-  .login-header {
-    width: 100%;
-    max-width: 400px;
-    height: auto;
-    min-height: 600px;
-    border-radius: 15px;
-    padding: 20px;
-    margin: 0;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-    position: relative;
-    overflow: hidden;
-  }
-
-  /* Изображение слева */
-  .img img {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    width: 160px;
-    height: 520px;
-    border-radius: 10px;
-    margin: 0;
-    object-fit: cover;
-  }
-
-  /* Заголовок и текст справа от изображения */
-  .login-header h1 {
-    font-size: 20px;
-    margin: 20px 0 5px 190px;
-    color: #1a1a1a;
-    text-align: left;
-  }
-
-  .login-header p {
-    font-size: 12px;
-    margin: 0 0 15px 190px;
-    color: gray;
-    text-align: left;
-  }
-
-  /* Форма под заголовком (справа от изображения) */
-  .input-login,
-  .input-email,
-  .input-password {
-    margin-left: 190px;
-    width: calc(100% - 210px);
-    margin-top: 50px;
-
-    h1 {
-      font-size: 13px;
-      margin: 0 0 20px;
-      color: #000;
-      text-align: left;
+    .login-container {
+        padding: 1rem;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #fff;
     }
 
-    input {
-      width: 130%;
-      margin-top: -10rem;
-      margin-left: 8rem;
-      padding: 10px 12px;
-      font-size: 13px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      background: transparent;
-      color: #000;
-      box-sizing: border-box;
-    }
-  }
-
-  /* Стили для кнопки показа пароля */
-  .toggle-password {
-    top: 50%;
-    left: 20.5rem;
-  }
-
-  /* Ссылка "Забыли пароль" */
-  .forgot-password {
-    margin-left: -285px;
-    text-align: right;
-    margin-top: 5px;
-    margin-bottom: 15px;
-    width: calc(100% - 210px);
-
-    a {
-      font-size: 11px;
-      color: #007bff;
-      text-decoration: none;
-
-      &:hover {
-        text-decoration: underline;
-      }
-    }
-  }
-
-  /* Чекбокс согласия */
-  .agree {
-    margin-left: 190px;
-    width: calc(100% - 210px);
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 20px;
-
-    input {
-      margin: 0;
-      width: 16px;
-      height: 16px;
+    .login-header {
+        width: 100%;
+        max-width: 400px;
+        height: auto;
+        min-height: 600px;
+        border-radius: 15px;
+        padding: 20px;
+        margin: 0;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        position: relative;
+        overflow: hidden;
     }
 
-    a {
-      font-size: 12px;
-      color: #000;
-      text-decoration: none;
+    /* Изображение слева */
+    .img img {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        width: 160px;
+        height: 520px;
+        border-radius: 10px;
+        margin: 0;
+        object-fit: cover;
     }
-  }
 
-  /* Кнопка входа */
-  .btn {
-    margin-left: 190px;
-    width: calc(100% - 210px);
-    margin-top: 30px;
-
-    button {
-      width: 120%;
-      margin: 0;
-      padding: 12px;
-      font-size: 15px;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-      background-color: #007bff;
-      color: #fff;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-
-      &:hover {
-        background-color: #0056b3;
-      }
+    /* Заголовок и текст справа от изображения */
+    .login-header h1 {
+        font-size: 20px;
+        margin: 20px 0 5px 190px;
+        color: #1a1a1a;
+        text-align: left;
     }
-  }
 
-  .agree input {
-    margin-top: -2.8rem;
-  }
-
-  .agree a {
-    margin-top: -2rem;
-    margin-left: -0.5rem;
-  }
-
-  /* Ссылки внизу */
-  .have {
-    margin-left: -220px;
-    width: calc(100% - 210px);
-    text-align: center;
-    margin-top: 0;
-
-    a {
-      font-size: 13px;
-      color: #000;
-      text-decoration: none;
-
-      &:hover {
-        text-decoration: underline;
-      }
+    .login-header p {
+        font-size: 12px;
+        margin: 0 0 15px 190px;
+        color: gray;
+        text-align: left;
     }
-  }
 
-  .signup {
-    margin-left: -258px;
-    width: calc(100% - 210px);
-    text-align: center;
-    margin-top: 0;
+    /* Форма под заголовком (справа от изображения) */
+    .input-login,
+    .input-email,
+    .input-password {
+        margin-left: 190px;
+        width: calc(100% - 210px);
+        margin-top: 50px;
 
-    a {
-      font-size: 13px;
-      color: #007bff;
-      text-decoration: none;
+        h1 {
+            font-size: 13px;
+            margin: 0 0 20px;
+            color: #000;
+            text-align: left;
+        }
 
-      &:hover {
-        text-decoration: underline;
-      }
+        input {
+            width: 130%;
+            margin-top: -10rem;
+            margin-left: 8rem;
+            padding: 10px 12px;
+            font-size: 13px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background: transparent;
+            color: #000;
+            box-sizing: border-box;
+        }
     }
-  }
+
+    /* Стили для кнопки показа пароля */
+    .toggle-password {
+        top: 50%;
+        left: 20.5rem;
+    }
+
+    /* Ссылка "Забыли пароль" */
+    .forgot-password {
+        margin-left: -285px;
+        text-align: right;
+        margin-top: 5px;
+        margin-bottom: 15px;
+        width: calc(100% - 210px);
+
+        a {
+            font-size: 11px;
+            color: #007bff;
+            text-decoration: none;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+
+    /* Чекбокс согласия */
+    .agree {
+        margin-left: 190px;
+        width: calc(100% - 210px);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 20px;
+
+        input {
+            margin: 0;
+            width: 16px;
+            height: 16px;
+        }
+
+        a {
+            font-size: 12px;
+            color: #000;
+            text-decoration: none;
+        }
+    }
+
+    /* Кнопка входа */
+    .btn {
+        margin-left: 190px;
+        width: calc(100% - 210px);
+        margin-top: 30px;
+
+        button {
+            width: 120%;
+            margin: 0;
+            padding: 12px;
+            font-size: 15px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+
+            &:hover {
+                background-color: #0056b3;
+            }
+        }
+    }
+
+    .agree input {
+        margin-top: -2.8rem;
+    }
+
+    .agree a {
+        margin-top: -2rem;
+        margin-left: -0.5rem;
+    }
+
+    /* Ссылки внизу */
+    .have {
+        margin-left: -220px;
+        width: calc(100% - 210px);
+        text-align: center;
+        margin-top: 0;
+
+        a {
+            font-size: 13px;
+            color: #000;
+            text-decoration: none;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+
+    .signup {
+        margin-left: -258px;
+        width: calc(100% - 210px);
+        text-align: center;
+        margin-top: 0;
+
+        a {
+            font-size: 13px;
+            color: #007bff;
+            text-decoration: none;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
 }
 
 /* Для очень маленьких экранов (меньше 360px) */
 /* Для экранов 375px и меньше */
 @media (max-width: 375px) {
-  .login-container {
-    padding: 10px;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    padding-top: 1rem;
-    overflow-x: hidden;
-  }
-
-  .login-header {
-    width: 100%;
-    max-width: 350px;
-    height: auto;
-    min-height: 620px;
-    border-radius: 15px;
-    position: relative;
-    padding: 18px;
-    padding-bottom: 1.5rem;
-    overflow: hidden;
-  }
-
-  /* Заголовок и текст */
-  .login-header h1 {
-    font-size: 21px;
-    margin: 0 0 10px 0;
-    text-align: center;
-    width: 100%;
-    padding: 0 10px;
-  }
-
-  .login-header p {
-    font-size: 13px;
-    margin: 0 0 18px 0;
-    text-align: center;
-    width: 100%;
-    padding: 0 10px;
-  }
-
-  /* Изображение */
-  .img img {
-    width: 100%;
-    max-width: 280px;
-    height: 170px;
-    margin: 0 auto 18px;
-    border-radius: 9px;
-    display: block;
-    position: static;
-    transform: none;
-  }
-
-  /* Форма */
-  .input-login,
-  .input-email,
-  .input-password {
-    width: 100%;
-    margin: 0 auto 14px;
-    
-    h1 {
-      font-size: 13px;
-      margin: 0 0 5px 10px;
-      text-align: left;
+    .login-container {
+        padding: 10px;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        padding-top: 1rem;
+        overflow-x: hidden;
     }
-    
-    input {
-      width: 100%;
-      margin: 0;
-      padding: 9px 38px 9px 11px;
-      font-size: 13px;
-      border: 1px solid #ccc;
-      border-radius: 7px;
-      background: transparent;
-      color: #000;
-      box-sizing: border-box;
+
+    .login-header {
+        width: 100%;
+        max-width: 350px;
+        height: auto;
+        min-height: 620px;
+        border-radius: 15px;
+        position: relative;
+        padding: 18px;
+        padding-bottom: 1.5rem;
+        overflow: hidden;
     }
-  }
 
-  /* Password wrapper */
-  .password-wrapper {
-    position: relative;
-    width: 100%;
-  }
-
-  .toggle-password {
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 19px;
-    height: 19px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: #666;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  /* Forgot password */
-  .forgot-password {
-    text-align: right;
-    margin: 9px 0 18px;
-    padding-right: 8px;
-    
-    a {
-      font-size: 12px;
-      color: #007bff;
-      text-decoration: none;
-      
-      &:hover {
-        text-decoration: underline;
-      }
+    /* Заголовок и текст */
+    .login-header h1 {
+        font-size: 21px;
+        margin: 0 0 10px 0;
+        text-align: center;
+        width: 100%;
+        padding: 0 10px;
     }
-  }
 
-  /* Checkbox */
-  .agree {
-    display: flex;
-    align-items: center;
-    gap: 7px;
-    margin: 9px 0 18px;
-    padding-left: 7px;
-    
-    input {
-      margin: 0;
-      width: 15px;
-      height: 15px;
+    .login-header p {
+        font-size: 13px;
+        margin: 0 0 18px 0;
+        text-align: center;
+        width: 100%;
+        padding: 0 10px;
     }
-    
-    a {
-      font-size: 12px;
-      color: #000;
-      text-decoration: none;
-    }
-  }
 
-  /* Button */
-  .btn {
-    width: 100%;
-    margin: 18px 0 10px;
-    
-    button {
-      width: 100%;
-      margin: 0;
-      padding: 11px;
-      font-size: 15px;
-      border-radius: 7px;
-      border: 1px solid #ccc;
-      background-color: #007bff;
-      color: #fff;
-      cursor: pointer;
-      
-      &:hover {
-        background-color: #0056b3;
-      }
+    /* Изображение */
+    .img img {
+        width: 100%;
+        max-width: 280px;
+        height: 170px;
+        margin: 0 auto 18px;
+        border-radius: 9px;
+        display: block;
+        position: static;
+        transform: none;
     }
-  }
 
-  /* Sign up links */
-  .have {
-    text-align: center;
-    margin: 14px 0 5px;
-    
-    a {
-      font-size: 13px;
-      color: #000;
-      text-decoration: none;
-      
-      &:hover {
-        text-decoration: underline;
-      }
+    /* Форма */
+    .input-login,
+    .input-email,
+    .input-password {
+        width: 100%;
+        margin: 0 auto 14px;
+
+        h1 {
+            font-size: 13px;
+            margin: 0 0 5px 10px;
+            text-align: left;
+        }
+
+        input {
+            width: 100%;
+            margin: 0;
+            padding: 9px 38px 9px 11px;
+            font-size: 13px;
+            border: 1px solid #ccc;
+            border-radius: 7px;
+            background: transparent;
+            color: #000;
+            box-sizing: border-box;
+        }
     }
-  }
 
-  .signup {
-    text-align: center;
-    margin: 0;
-    
-    a {
-      font-size: 13px;
-      color: #007bff;
-      text-decoration: none;
-      
-      &:hover {
-        text-decoration: underline;
-      }
+    /* Password wrapper */
+    .password-wrapper {
+        position: relative;
+        width: 100%;
     }
-  }
 
-  /* Сброс всех позиций */
-  .input-login,
-  .input-email,
-  .input-password,
-  .forgot-password,
-  .agree,
-  .btn,
-  .have,
-  .signup {
-    position: static !important;
-    left: auto !important;
-    top: auto !important;
-    transform: none !important;
-    margin-left: 0 !important;
-  }
+    .toggle-password {
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 19px;
+        height: 19px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: #666;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Forgot password */
+    .forgot-password {
+        text-align: right;
+        margin: 9px 0 18px;
+        padding-right: 8px;
+
+        a {
+            font-size: 12px;
+            color: #007bff;
+            text-decoration: none;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+
+    /* Checkbox */
+    .agree {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        margin: 9px 0 18px;
+        padding-left: 7px;
+
+        input {
+            margin: 0;
+            width: 15px;
+            height: 15px;
+        }
+
+        a {
+            font-size: 12px;
+            color: #000;
+            text-decoration: none;
+        }
+    }
+
+    /* Button */
+    .btn {
+        width: 100%;
+        margin: 18px 0 10px;
+
+        button {
+            width: 100%;
+            margin: 0;
+            padding: 11px;
+            font-size: 15px;
+            border-radius: 7px;
+            border: 1px solid #ccc;
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+
+            &:hover {
+                background-color: #0056b3;
+            }
+        }
+    }
+
+    /* Sign up links */
+    .have {
+        text-align: center;
+        margin: 14px 0 5px;
+
+        a {
+            font-size: 13px;
+            color: #000;
+            text-decoration: none;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+
+    .signup {
+        text-align: center;
+        margin: 0;
+
+        a {
+            font-size: 13px;
+            color: #007bff;
+            text-decoration: none;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+
+    /* Сброс всех позиций */
+    .input-login,
+    .input-email,
+    .input-password,
+    .forgot-password,
+    .agree,
+    .btn,
+    .have,
+    .signup {
+        position: static !important;
+        left: auto !important;
+        top: auto !important;
+        transform: none !important;
+        margin-left: 0 !important;
+    }
 }
 
 @media (max-width: 320px) {
-  .login-header {
-    max-width: 300px;
-    min-height: 720px;
-  }
+    .login-header {
+        max-width: 300px;
+        min-height: 720px;
+    }
 
-  .login-header h1 {
-    font-size: 22px;
-    top: 12rem;
-    left: 8rem;
-  }
+    .login-header h1 {
+        font-size: 22px;
+        top: 12rem;
+        left: 8rem;
+    }
 
-  .login-header p {
-    top: 14rem;
-    font-size: 11px;
-  }
+    .login-header p {
+        top: 14rem;
+        font-size: 11px;
+    }
 
-  .img img {
-    width: 260px;
-    height: 160px;
-    margin-top: -29rem;
-  }
+    .img img {
+        width: 260px;
+        height: 160px;
+        margin-top: -29rem;
+    }
 
-  .input-login h1 {
-    font-size: 14px;
-    margin-top: 3rem;
-    margin-left: -4rem;
-  }
-  .input-email h1 {
-    font-size: 14px;
-    margin-top: -14rem;
-    margin-left: -2.1rem;
-  }
-  .input-password h1 {
-    font-size: 14px;
-    margin-top: -17rem;
-    margin-left: -3.1rem;
-  }
-  .input-login input {
-    margin-top: 18.2rem;
-    margin-left: 10.5rem;
-    width: 14rem;
-  }
-  .input-email input {
-    margin-top: 4.2rem;
-    margin-left: 10.5rem;
-    width: 14rem;
-  }
+    .input-login h1 {
+        font-size: 14px;
+        margin-top: 3rem;
+        margin-left: -4rem;
+    }
+    .input-email h1 {
+        font-size: 14px;
+        margin-top: -14rem;
+        margin-left: -2.1rem;
+    }
+    .input-password h1 {
+        font-size: 14px;
+        margin-top: -17rem;
+        margin-left: -3.1rem;
+    }
+    .input-login input {
+        margin-top: 18.2rem;
+        margin-left: 10.5rem;
+        width: 14rem;
+    }
+    .input-email input {
+        margin-top: 4.2rem;
+        margin-left: 10.5rem;
+        width: 14rem;
+    }
 
-  .input-password input {
-    margin-top: 4.2rem;
-    margin-left: 10.5rem;
-    width: 14rem;
-  }
+    .input-password input {
+        margin-top: 4.2rem;
+        margin-left: 10.5rem;
+        width: 14rem;
+    }
 
-  .forgot-password a {
-    top: -11.8rem;
-    margin-right: 2.3rem;
-  }
+    .forgot-password a {
+        top: -11.8rem;
+        margin-right: 2.3rem;
+    }
 
-  .agree input {
-    position: relative;
-    top: -9.5rem;
-    margin-left: 2.5rem;
-  }
+    .agree input {
+        position: relative;
+        top: -9.5rem;
+        margin-left: 2.5rem;
+    }
 
-  .agree a {
-    position: relative;
-    top: -9.6rem;
-    left: 0.5rem;
-  }
+    .agree a {
+        position: relative;
+        top: -9.6rem;
+        left: 0.5rem;
+    }
 
-  .have a {
-    margin-top: -10rem;
-    margin-left: -2rem;
-  }
+    .have a {
+        margin-top: -10rem;
+        margin-left: -2rem;
+    }
 
-  .signup a {
-    margin-top: -1.2rem;
-    margin-left: 7.2rem;
-  }
+    .signup a {
+        margin-top: -1.2rem;
+        margin-left: 7.2rem;
+    }
 
-  .btn button {
-    top: -10rem;
-    width: 87%;
-  }
+    .btn button {
+        top: -10rem;
+        width: 87%;
+    }
 
-  .toggle-password {
-    top: -42%;
-  }
+    .toggle-password {
+        top: -42%;
+    }
 }

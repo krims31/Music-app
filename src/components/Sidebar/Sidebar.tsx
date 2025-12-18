@@ -25,7 +25,10 @@ interface SidebarProps {
   onCloseMobileMenu?: () => void;
 }
 
-export default function Sidebar({ isMobileMenuOpen, onCloseMobileMenu }: SidebarProps) {
+export default function Sidebar({
+  isMobileMenuOpen,
+  onCloseMobileMenu,
+}: SidebarProps) {
   const [playlist, setPlaylist] = useState<string[]>([]);
   const [newPlaylistName, setNewPlaylistName] = useState<string>("");
   const [showInput, setShowInput] = useState<boolean>(false);
@@ -59,22 +62,17 @@ export default function Sidebar({ isMobileMenuOpen, onCloseMobileMenu }: Sidebar
 
   return (
     <>
-      {/* Оверлей для мобильного меню */}
       {isMobileMenuOpen && (
-        <div 
-          className="sidebar-overlay" 
-          onClick={onCloseMobileMenu}
-        />
+        <div className="sidebar-overlay" onClick={onCloseMobileMenu} />
       )}
-      
-      <aside className={`sidebar ${isMobileMenuOpen ? 'mobile-open' : ''}`}>
-        <div className="logo">{TEXT.music}</div>
 
+      <aside className={`sidebar ${isMobileMenuOpen ? "mobile-open" : ""}`}>
         <nav className="menu">
-          {/* Главная страница */}
-          <NavLink 
-            to="/" 
-            className={({ isActive }) => `menu-item ${isActive ? 'active' : ''}`}
+          <NavLink
+            to="/"
+            className={({ isActive }) =>
+              `menu-item ${isActive ? "active" : ""}`
+            }
             onClick={handleNavClick}
           >
             <img
@@ -86,10 +84,11 @@ export default function Sidebar({ isMobileMenuOpen, onCloseMobileMenu }: Sidebar
             <div>{TEXT.home}</div>
           </NavLink>
 
-          {/* Жанры */}
-          <NavLink 
-            to="/genres" 
-            className={({ isActive }) => `menu-item ${isActive ? 'active' : ''}`}
+          <NavLink
+            to="/genres"
+            className={({ isActive }) =>
+              `menu-item ${isActive ? "active" : ""}`
+            }
             onClick={handleNavClick}
           >
             <img
@@ -101,10 +100,11 @@ export default function Sidebar({ isMobileMenuOpen, onCloseMobileMenu }: Sidebar
             <div>{TEXT.genres}</div>
           </NavLink>
 
-          {/* Артисты */}
-          <NavLink 
-            to="/artist" 
-            className={({ isActive }) => `menu-item ${isActive ? 'active' : ''}`}
+          <NavLink
+            to="/artist"
+            className={({ isActive }) =>
+              `menu-item ${isActive ? "active" : ""}`
+            }
             onClick={handleNavClick}
           >
             <img
@@ -116,10 +116,11 @@ export default function Sidebar({ isMobileMenuOpen, onCloseMobileMenu }: Sidebar
             <div>{TEXT.artist}</div>
           </NavLink>
 
-          {/* Альбомы */}
-          <NavLink 
-            to="/albums" 
-            className={({ isActive }) => `menu-item ${isActive ? 'active' : ''}`}
+          <NavLink
+            to="/albums"
+            className={({ isActive }) =>
+              `menu-item ${isActive ? "active" : ""}`
+            }
             onClick={handleNavClick}
           >
             <img
@@ -131,10 +132,11 @@ export default function Sidebar({ isMobileMenuOpen, onCloseMobileMenu }: Sidebar
             <div>{TEXT.albums}</div>
           </NavLink>
 
-          {/* Избранное */}
-          <NavLink 
-            to="/favourites" 
-            className={({ isActive }) => `menu-item2 ${isActive ? 'active' : ''}`}
+          <NavLink
+            to="/favourites"
+            className={({ isActive }) =>
+              `menu-item2 ${isActive ? "active" : ""}`
+            }
             onClick={handleNavClick}
           >
             <img
@@ -146,10 +148,11 @@ export default function Sidebar({ isMobileMenuOpen, onCloseMobileMenu }: Sidebar
             <div>{TEXT.favorites}</div>
           </NavLink>
 
-          {/* Недавние */}
-          <NavLink 
-            to="/recently" 
-            className={({ isActive }) => `menu-item3 ${isActive ? 'active' : ''}`}
+          <NavLink
+            to="/recently"
+            className={({ isActive }) =>
+              `menu-item3 ${isActive ? "active" : ""}`
+            }
             onClick={handleNavClick}
           >
             <img

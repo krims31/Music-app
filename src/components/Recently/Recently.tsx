@@ -45,6 +45,13 @@ interface Song {
   genre: string[];
 }
 
+interface Playlist {
+  id: number;
+  name: string;
+  coverUrl: string;
+  songs: Song[];
+}
+
 const songs: Song[] = [
   {
     id: 1,
@@ -119,8 +126,28 @@ export default function Recently() {
   const [volume, setVolume] = useState<number>(0.7);
   const [isMuted, setIsMuted] = useState<boolean>(false);
   const [likedSongs, setLikedSongs] = useState<number[]>([]);
+  const [activePlaylistId, setActivePlaylistId] = useState<number | null>(null);
+  const [playlists, setPlaylists] = useState<Playlist[]>([
+    {
+      id: 1,
+      name: "Legends Never Die",
+      coverUrl: legend,
+      songs: songs.filter((s) => s.album === "Legends Never Die"),
+    },
+  ]);
+
+  const playlistsRef = useRef<HTMLDivElement>(null);
 
   const audioRef = useRef<HTMLAudioElement>(null);
+
+  const scrollPlaylists = (offset: number) => {
+    if (playlistsRef.current) {
+      playlistsRef.current.scrollBy({
+        left: offset,
+        behavior: "smooth",
+      });
+    }
+  };
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -253,20 +280,16 @@ export default function Recently() {
         <span className="burger-line"></span>
       </button>
 
-      {/* Sidebar с пропсами для управления мобильным меню */}
       <Sidebar
         isMobileMenuOpen={isMobileMenuOpen}
         onCloseMobileMenu={closeMobileMenu}
       />
 
-      {/* Основной контейнер с прокруткой */}
       <div className="main-content-scrollable">
         <div className="recently-container">
           <h1>{RES.recently}</h1>
 
-          {/* Сетка для альбомов */}
           <div className="albums-grid">
-            {/* Juice WRLD */}
             <div className="juice-wrld album-container">
               <div className="album-cover-wrapper">
                 <img src={legend} alt="Juice WRLD - Wishing Well" />
@@ -286,7 +309,6 @@ export default function Recently() {
               <p>{RES.artist1}</p>
             </div>
 
-            {/* Ed Sheeran */}
             <div className="ed-sheeran album-container">
               <div className="album-cover-wrapper">
                 <img src={ed} alt="Ed Sheeran" />
@@ -306,7 +328,6 @@ export default function Recently() {
               <p>{RES.artist2}</p>
             </div>
 
-            {/* Playboi Carti */}
             <div className="carti album-container">
               <div className="album-cover-wrapper">
                 <img src={carti} alt="Playboi Carti" />
@@ -326,7 +347,6 @@ export default function Recently() {
               <p>{RES.artist3}</p>
             </div>
 
-            {/* Travis Scott */}
             <div className="travis album-container">
               <div className="album-cover-wrapper">
                 <img src={travis} alt="Travis Scott" />
@@ -346,7 +366,6 @@ export default function Recently() {
               <p>{RES.artist4}</p>
             </div>
 
-            {/* The Weeknd */}
             <div className="The-weeknd album-container">
               <div className="album-cover-wrapper">
                 <img src={weeknd} alt="The Weeknd" />
@@ -366,7 +385,6 @@ export default function Recently() {
               <p>{RES.artist5}</p>
             </div>
 
-            {/* XXXTentacion */}
             <div className="x album-container">
               <div className="album-cover-wrapper">
                 <img src={x} alt="XXXTentacion" />
@@ -392,15 +410,77 @@ export default function Recently() {
           <h1>{RES.seeall}</h1>
         </div>
 
-        {/* Пространство для скролла */}
         <div className="scroll-space">
-          <div className="placeholder-section">
-            <h2>Ваши плейлисты</h2>
-            <div className="placeholder-grid">
-              <div className="placeholder-item">Добавьте сюда плейлист 1</div>
-              <div className="placeholder-item">Добавьте сюда плейлист 2</div>
-              <div className="placeholder-item">Добавьте сюда плейлист 3</div>
-              <div className="placeholder-item">Добавьте сюда плейлист 4</div>
+          <div className="scroll-space">
+            <div className="placeholder-section">
+              <h2>Ваши плейлисты</h2>
+              <div className="placeholder-grid">
+                {playlists.map((pl) => (
+                  <div key={pl.id} className="playlist-card">
+                    <div
+                      className="playlist-title"
+                      onClick={() =>
+                        setActivePlaylistId(
+                          activePlaylistId === pl.id ? null : pl.id,
+                        )
+                      }
+                    >
+                      <img
+                        src={pl.coverUrl}
+                        alt={pl.name}
+                        className="playlist-cover"
+                      />
+                      <span>{pl.name}</span>
+                    </div>
+
+                    {activePlaylistId === pl.id && (
+                      <div className="playlist-songs">
+                        {pl.songs.map((song) => {
+                          const songState = getSongState(song.id);
+                          const isLiked = likedSongs.includes(song.id);
+
+                          return (
+                            <div key={song.id} className="playlist-song">
+                              <div
+                                className="song-info"
+                                onClick={() => togglePlayPause(song)}
+                              >
+                                <button className="play-btn">
+                                  {songState.isPlaying ? (
+                                    <FaPause />
+                                  ) : (
+                                    <FaPlay />
+                                  )}
+                                </button>
+                                <div className="song-text">
+                                  <span className="song-title">
+                                    {song.title}
+                                  </span>
+                                  <span className="song-artist">
+                                    {song.artist}
+                                  </span>
+                                </div>
+                              </div>
+
+                              <div className="song-actions">
+                                <span className="song-duration">
+                                  {song.duration}
+                                </span>
+                                <button
+                                  className={`like-btn ${isLiked ? "liked" : ""}`}
+                                  onClick={(e) => toggleLike(song.id, e)}
+                                >
+                                  <FaHeart />
+                                </button>
+                              </div>
+                            </div>
+                          );
+                        })}
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
 
@@ -426,7 +506,6 @@ export default function Recently() {
         </div>
       </div>
 
-      {/* Аудио элемент */}
       <audio
         ref={audioRef}
         onTimeUpdate={handleTimeUpdate}
@@ -446,7 +525,6 @@ export default function Recently() {
         }}
       />
 
-      {/* Панель управления плеером */}
       {currentSong && (
         <div className="music-player">
           <div className="player-left">
