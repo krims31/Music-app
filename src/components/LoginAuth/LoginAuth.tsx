@@ -6,7 +6,11 @@ import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import "./LoginAuth.scss";
 
 export default function LoginAuth() {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState<boolean>(false);
+  const [error, setError] = useState<{ [key: string]: string }>({});
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -17,12 +21,20 @@ export default function LoginAuth() {
   }, [navigate]);
 
   const handleLogin = () => {
-    console.log("Login button clicked");
+    const newErrors: { [key: string]: string } = {};
+    if (!name.trim()) {
+      newErrors.name = "Name is required";
+    }
 
-    // Устанавливаем флаг авторизации
+    if (!email.match(/^\S+@\S+\.\S+$/)) newErrors.email = "Invalid email";
+    if (password.length < 6) newErrors.password = "Password too short";
+
+    if (Object.keys(newErrors).length > 0) {
+      setError(newErrors);
+      return;
+    }
+
     localStorage.setItem("auth", "true");
-
-    // Обновляем состояние во всем приложении
     window.dispatchEvent(new Event("storage"));
     navigate("/", { replace: true });
   };
@@ -35,17 +47,29 @@ export default function LoginAuth() {
           <p>{Login.letterLog}</p>
           <div className="input-login">
             <h1>{Login.name}</h1>
-            <input type="text" placeholder="Enter your name..." />
+            <input
+              type="text"
+              placeholder="Enter your name..."
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
           </div>
           <div className="input-email">
             <h1>{Login.email}</h1>
-            <input type="email" placeholder="Enter your email..." />
+            <input
+              type="email"
+              placeholder="Enter your email..."
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
           </div>
           <div className="input-password">
             <h1>{Login.password}</h1>
             <input
               type={showPassword ? "text" : "password"}
               placeholder="Enter your password..."
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
             />
             <button
               type="button"
