@@ -128,7 +128,7 @@ export default function Recently() {
   const [volume, setVolume] = useState<number>(0.7);
   const [isMuted, setIsMuted] = useState<boolean>(false);
   const [likedSongs, setLikedSongs] = useState<number[]>([]);
-  const [activePlaylistId, setActivePlaylistId] = useState<number | null>(null);
+  const [activePlaylistId] = useState<number | null>(null);
   const [playlists, setPlaylists] = useState<Playlist[]>([
     {
       id: 1,
