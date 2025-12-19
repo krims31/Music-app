@@ -152,6 +152,63 @@
     }
 }
 
+.playlist-controls {
+    position: relative;
+    margin: 15px 0;
+
+    .scroll-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(0, 0, 0, 0.5);
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+        font-size: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 10;
+        transition: background 0.3s;
+
+        &:hover {
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        &.left {
+            top: 130px;
+            left: -50px;
+        }
+
+        &.right {
+            top: 122px;
+            right: -430px;
+        }
+    }
+}
+
+.placeholder-grid {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 10px 0;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.playlist-card {
+    flex: 0 0 auto;
+    width: 250px;
+}
+
 .recently-container h1 {
     font-size: 24px;
     color: #fff;

@@ -575,6 +575,23 @@ export default function Recently() {
           <div className="scroll-space">
             <div className="placeholder-section">
               <h2>Ваши плейлисты</h2>
+
+              <div className="playlist-controls">
+                <button
+                  className="scroll-btn left"
+                  onClick={() => scrollPlaylists(-300)}
+                  aria-label="Прокрутить влево"
+                >
+                  ‹
+                </button>
+                <button
+                  className="scroll-btn right"
+                  onClick={() => scrollPlaylists(300)}
+                  aria-label="Прокрутить вправо"
+                >
+                  ›
+                </button>
+              </div>
               <div className="placeholder-grid">
                 {playlists.map((pl) => (
                   <div key={pl.id} className="playlist-card">
