@@ -1,13 +1,16 @@
-import { useState, useRef } from "react";
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import { useRef, useState } from "react";
 import {
+  FaHeart,
   FaPause,
   FaPlay,
-  FaVolumeUp,
-  FaVolumeMute,
-  FaHeart,
-  FaStepForward,
   FaStepBackward,
+  FaStepForward,
+  FaVolumeMute,
+  FaVolumeUp,
 } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
+import Sidebar from "../Sidebar/Sidebar";
 import "./Recently.scss";
 import x from "./assets/17_by_XXXTentacion_cover.jpg";
 import travis from "./assets/Travis_Scott_Astroworld.jpg";
@@ -15,7 +18,6 @@ import carti from "./assets/Whole_Lotta_Red.png";
 import weeknd from "./assets/ab67616d00001e024718e2b124f79258be7bc452.jpeg";
 import legend from "./assets/ab67616d0000b2733e0698e4ae5ffb82a005aeeb.jpeg";
 import ed from "./assets/ed-sheeran-divide-cd.jpg";
-import Sidebar from "../Sidebar/Sidebar";
 
 const RES = {
   recently: "Recently plays",
@@ -113,167 +115,6 @@ const songs: Song[] = [
     coverUrl: x,
     genre: ["Emo rap"],
   },
-  {
-    id: 7,
-    title: "Conversations",
-    artist: "Juice Wrld",
-    album: "Legends Never Die",
-    duration: "3:24",
-    audioUrl: "./music/Juice Wrld - Conversations.mp3",
-    coverUrl: x,
-    genre: ["Emo rap"],
-  },
-  {
-    id: 8,
-    title: "Titanic",
-    artist: "Juice Wrld",
-    album: "Legends Never Die",
-    duration: "2:56",
-    audioUrl: "./music/Juice Wrld - Titanic.mp3",
-    coverUrl: x,
-    genre: ["Emo rap"],
-  },
-  {
-    id: 9,
-    title: "Come And Go",
-    artist: "Juice Wrld",
-    album: "Legends Never Die",
-    duration: "3:25",
-    audioUrl: "./music/Juice_WRLD_-_Juice_WRLD_-_Come_And_Go_(SkySound.cc).mp3",
-    coverUrl: x,
-    genre: ["Emo rap"],
-  },
-  {
-    id: 10,
-    title: "Blood On My Jeans",
-    artist: "Juice Wrld",
-    album: "Legends Never Die",
-    duration: "2:34",
-    audioUrl: "./music/Juice Wrld - Blood On My Jeans.mp3",
-    coverUrl: x,
-    genre: ["Emo rap"],
-  },
-  {
-    id: 11,
-    title: "Righteous",
-    artist: "Juice WRLD",
-    album: "Legends Never Die",
-    duration: "4:02",
-    audioUrl: "./music/Juice Wrld - Righteous.mp3",
-    coverUrl: legend,
-    genre: ["Emo rap"],
-  },
-  {
-    id: 12,
-    title: "Life's A Mess",
-    artist: "Juice WRLD",
-    album: "Legends Never Die",
-    duration: "3:22",
-    audioUrl: "./music/Juice WRLD, Halsey - Life's A Mess.mp3",
-    coverUrl: legend,
-    genre: ["Emo rap"],
-  },
-  {
-    id: 13,
-    title: "Hate The Other Side",
-    artist: "Juice WRLD",
-    album: "Legends Never Die",
-    duration: "2:40",
-    audioUrl:
-      "./music/Juice Wrld - Hate The Other Side (feat. Marshmello, The Kid Laroi).mp3",
-    coverUrl: legend,
-    genre: ["Emo rap"],
-  },
-  {
-    id: 14,
-    title: "Smile",
-    artist: "Juice WRLD",
-    album: "Legends Never Die",
-    duration: "3:16",
-    audioUrl: "./music/Juice Wrld & The Weeknd - Smile.mp3",
-    coverUrl: legend,
-    genre: ["Emo rap"],
-  },
-  {
-    id: 15,
-    title: "Tell Me U Luv Me",
-    artist: "Juice WRLD",
-    album: "Legends Never Die",
-    duration: "3:00",
-    audioUrl: "./music/Juice Wrld - Tell Me U Luv Me (feat. Trippie Redd).mp3",
-    coverUrl: legend,
-    genre: ["Emo rap"],
-  },
-  {
-    id: 16,
-    title: "Up Up and Away",
-    artist: "Juice WRLD",
-    album: "Legends Never Die",
-    duration: "2:27",
-    audioUrl: "./music/Juice Wrld - Up Up And Away.mp3",
-    coverUrl: legend,
-    genre: ["Emo rap"],
-  },
-  {
-    id: 17,
-    title: "I Want It",
-    artist: "Juice WRLD",
-    album: "Legends Never Die",
-    duration: "2:53",
-    audioUrl: "./music/Juice Wrld - I Want It.mp3",
-    coverUrl: legend,
-    genre: ["Emo rap"],
-  },
-  {
-    id: 18,
-    title: "Stay High",
-    artist: "Juice WRLD",
-    album: "Legends Never Die",
-    duration: "2:48",
-    audioUrl: "./music/Juice Wrld - Stay High.mp3",
-    coverUrl: legend,
-    genre: ["Emo rap"],
-  },
-  {
-    id: 19,
-    title: "Can't Die",
-    artist: "Juice WRLD",
-    album: "Legends Never Die",
-    duration: "3:02",
-    audioUrl: "./music/Juice Wrld - Can't Die.mp3",
-    coverUrl: legend,
-    genre: ["Emo rap"],
-  },
-  {
-    id: 20,
-    title: "Screw Juice",
-    artist: "Juice WRLD",
-    album: "Legends Never Die",
-    duration: "2:59",
-    audioUrl: "./music/Juice Wrld - Screw Juice.mp3",
-    coverUrl: legend,
-    genre: ["Emo rap"],
-  },
-  {
-    id: 21,
-    title: "Bad Energy",
-    artist: "Juice WRLD",
-    album: "Legends Never Die",
-    duration: "3:06",
-    audioUrl: "./music/Juice Wrld - Bad Energy.mp3",
-    coverUrl: legend,
-    genre: ["Emo rap"],
-  },
-  {
-    id: 22,
-    title: "Man Of The Year",
-    artist: "Juice WRLD",
-    album: "Legends Never Die",
-    duration: "2:16",
-    audioUrl: "./music/Juice Wrld - Man Of The Year.mp3",
-    coverUrl: legend,
-    genre: ["Emo rap"],
-  },
 ];
 
 export default function Recently() {
@@ -296,6 +137,8 @@ export default function Recently() {
       songs: songs.filter((s) => s.album === "Legends Never Die"),
     },
   ]);
+
+  const navigate = useNavigate();
 
   const playlistsRef = useRef<HTMLDivElement>(null);
 
@@ -623,11 +466,7 @@ export default function Recently() {
                   <div key={pl.id} className="playlist-card">
                     <div
                       className="playlist-title"
-                      onClick={() =>
-                        setActivePlaylistId(
-                          activePlaylistId === pl.id ? null : pl.id,
-                        )
-                      }
+                      onClick={() => navigate(`/playlist/${pl.id}`)}
                     >
                       <img
                         src={pl.coverUrl}
@@ -671,7 +510,9 @@ export default function Recently() {
                                   {song.duration}
                                 </span>
                                 <button
-                                  className={`like-btn ${isLiked ? "liked" : ""}`}
+                                  className={`like-btn ${
+                                    isLiked ? "liked" : ""
+                                  }`}
                                   onClick={(e) => toggleLike(song.id, e)}
                                 >
                                   <FaHeart />
@@ -760,7 +601,9 @@ export default function Recently() {
 
           <div className="player-right">
             <button
-              className={`like-btn-player ${likedSongs.includes(currentSong.id) ? "liked" : ""}`}
+              className={`like-btn-player ${
+                likedSongs.includes(currentSong.id) ? "liked" : ""
+              }`}
               onClick={() => toggleLike(currentSong.id)}
             >
               <FaHeart size={16} />

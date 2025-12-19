@@ -1,21 +1,21 @@
 import {
   BrowserRouter,
-  Route,
-  Routes,
   Navigate,
   Outlet,
+  Route,
+  Routes,
 } from "react-router-dom";
 import "./App.css";
 import Search from "./components/Header/Search";
 import AuthProvider from "./components/LoginAuth/AuthContext";
 import LoginAuth from "./components/LoginAuth/LoginAuth";
 import Music from "./components/MusicPlay/Music";
+import { PlayerProvider } from "./components/PlayerContext/PlayerContext";
+import PlaylistPage from "./components/PlaylistPage/PlaylistPage";
 import ProfileAuth from "./components/ProfileAuth/ProfileAuth";
 import Recently from "./components/Recently/Recently";
 import Sidebar from "./components/Sidebar/Sidebar";
 import { Favourites } from "./Favourites/Favourites";
-import { PlayerProvider } from "./components/PlayerContext/PlayerContext";
-
 function App() {
   return (
     <BrowserRouter>
@@ -26,6 +26,7 @@ function App() {
               <Route path="/" element={<Recently />} />
               <Route path="/recently" element={<Recently />} />
               <Route path="/favourites" element={<Favourites />} />
+              <Route path="/playlist/:id" element={<PlaylistPage />} />
             </Route>
             <Route path="/login" element={<LoginPage />} />
             <Route path="*" element={<Navigate to="/" replace />} />
