@@ -310,6 +310,17 @@ export default function Recently() {
     }
   };
 
+  const addNewPlaylist = () => {
+    const newPlaylist: Playlist = {
+      id: playlists.length + 1,
+      name: `My Playlist ${playlists.length + 1}`,
+      coverUrl: legend,
+      songs: [songs[0], songs[1]],
+    };
+
+    setPlaylists([...playlists, newPlaylist]);
+  };
+
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
@@ -575,6 +586,21 @@ export default function Recently() {
           <div className="scroll-space">
             <div className="placeholder-section">
               <h2>Ваши плейлисты</h2>
+
+              <button
+                onClick={addNewPlaylist}
+                className="add-playlist-btn"
+                style={{
+                  padding: "8px 16px",
+                  background: "#1db954",
+                  color: "white",
+                  border: "none",
+                  borderRadius: "20px",
+                  cursor: "pointer",
+                }}
+              >
+                + Создать плейлист
+              </button>
 
               <div className="playlist-controls">
                 <button
