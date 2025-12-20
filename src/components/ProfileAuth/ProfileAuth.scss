@@ -1,8 +1,8 @@
 .profile {
-    position: relative;
-    display: inline-block;
-    left: 105rem;
-    top: -62rem;
+    position: fixed;
+    top: 16px;
+    right: 104px;
+    z-index: 2000;
     cursor: pointer;
 
     .profile-btn {
