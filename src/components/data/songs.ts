@@ -550,4 +550,15 @@ export const songs = [
       "https://upload.wikimedia.org/wikipedia/ru/1/1f/Fighting_Demons.jpg",
     genre: ["Emo rap"],
   },
+  {
+    id: 52,
+    title: "Doom",
+    artist: "Juice WRLD",
+    album: "Fighting Demons",
+    duration: "3:37",
+    audioUrl: "/music/Juice WRLD - Doom.mp3",
+    coverUrl:
+      "https://upload.wikimedia.org/wikipedia/ru/1/1f/Fighting_Demons.jpg",
+    genre: ["Emo rap"],
+  },
 ];
