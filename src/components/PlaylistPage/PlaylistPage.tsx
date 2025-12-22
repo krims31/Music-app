@@ -42,8 +42,8 @@ export default function PlaylistPage() {
 					console.log('Audio play failed:', err)
 				})
 		} catch (e) {
-      console.log(e);
-    }
+			console.log(e)
+		}
 	}
 
 	const togglePlayPause = () => {
@@ -61,43 +61,67 @@ export default function PlaylistPage() {
 	}
 
 	const playNextSong = () => {
-		if (!currentSong) return
-		const index = playlist.songs.findIndex(s => s.id === currentSong.id)
-		const nextIndex = (index + 1) % playlist.songs.length
-		playSong(playlist.songs[nextIndex])
+		try {
+			if (!currentSong) return
+			const index = playlist.songs.findIndex(s => s.id === currentSong.id)
+			const nextIndex = (index + 1) % playlist.songs.length
+			playSong(playlist.songs[nextIndex])
+		} catch (e) {
+			console.log(e)
+		}
 	}
 
 	const playPrevSong = () => {
-		if (!currentSong) return
-		const index = playlist.songs.findIndex(s => s.id === currentSong.id)
-		const prevIndex = index === 0 ? playlist.songs.length - 1 : index - 1
-		playSong(playlist.songs[prevIndex])
+		try {
+			if (!currentSong) return
+			const index = playlist.songs.findIndex(s => s.id === currentSong.id)
+			const prevIndex = index === 0 ? playlist.songs.length - 1 : index - 1
+			playSong(playlist.songs[prevIndex])
+		} catch (e) {
+			console.log(e)
+		}
 	}
 
 	const toggleLike = (songId: number) => {
-		setLikedSongs(prev =>
-			prev.includes(songId)
-				? prev.filter(id => id !== songId)
-				: [...prev, songId]
-		)
+		try {
+			setLikedSongs(prev =>
+				prev.includes(songId)
+					? prev.filter(id => id !== songId)
+					: [...prev, songId]
+			)
+		} catch (e) {
+			console.log(e)
+		}
 	}
 
 	const toggleMute = () => {
-		if (!audioRef.current) return
-		audioRef.current.volume = isMuted ? volume : 0
-		setIsMuted(!isMuted)
+		try {
+			if (!audioRef.current) return
+			audioRef.current.volume = isMuted ? volume : 0
+			setIsMuted(!isMuted)
+		} catch (e) {
+			console.log(e)
+		}
 	}
 
 	const handleVolumeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-		const vol = parseFloat(e.target.value)
-		setVolume(vol)
-		if (audioRef.current && !isMuted) audioRef.current.volume = vol
+		try {
+			const vol = parseFloat(e.target.value)
+			setVolume(vol)
+			if (audioRef.current && !isMuted) audioRef.current.volume = vol
+		} catch (e) {
+			console.log(e)
+		}
 	}
 
 	const formatTime = (seconds: number) => {
-		const min = Math.floor(seconds / 60)
-		const sec = Math.floor(seconds % 60)
-		return `${min}:${sec < 10 ? '0' : ''}${sec}`
+		try {
+			const min = Math.floor(seconds / 60)
+			const sec = Math.floor(seconds % 60)
+			return `${min}:${sec < 10 ? '0' : ''}${sec}`
+		} catch (e) {
+			console.log(e)
+		}
 	}
 
 	return (

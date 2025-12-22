@@ -6,7 +6,7 @@ import {
 	Routes
 } from 'react-router-dom'
 import './App.css'
-import Search from './components/Header/Search'
+// import Search from './components/Header/Search'
 import AuthProvider from './components/LoginAuth/AuthContext'
 import LoginAuth from './components/LoginAuth/LoginAuth'
 import Music from './components/MusicPlay/Music'
@@ -75,7 +75,7 @@ function ProtectedLayout() {
 	return (
 		<div className="app-container">
 			<Sidebar />
-			<Search />
+			{/* <Search /> */}
 			<div className="content-area">
 				<Outlet />
 			</div>
