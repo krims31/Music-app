@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { useRef, useState } from "react";
+import { useRef, useState } from "react"
 import {
   FaHeart,
   FaPause,
@@ -8,17 +8,17 @@ import {
   FaStepForward,
   FaVolumeMute,
   FaVolumeUp,
-} from "react-icons/fa";
-import { useNavigate } from "react-router-dom";
-import Sidebar from "../Sidebar/Sidebar";
-import "./Recently.scss";
-import x from "./assets/17_by_XXXTentacion_cover.jpg";
-import travis from "./assets/Travis_Scott_Astroworld.jpg";
-import carti from "./assets/Whole_Lotta_Red.png";
-import weeknd from "./assets/ab67616d00001e024718e2b124f79258be7bc452.jpeg";
-import legend from "./assets/ab67616d0000b2733e0698e4ae5ffb82a005aeeb.jpeg";
-import fighting from "./assets/Fighting_Demons.jpg";
-import ed from "./assets/ed-sheeran-divide-cd.jpg";
+} from "react-icons/fa"
+import { useNavigate } from "react-router-dom"
+import Sidebar from "../Sidebar/Sidebar"
+import "./Recently.scss"
+import x from "./assets/17_by_XXXTentacion_cover.jpg"
+import fighting from "./assets/Fighting_Demons.jpg"
+import travis from "./assets/Travis_Scott_Astroworld.jpg"
+import carti from "./assets/Whole_Lotta_Red.png"
+import weeknd from "./assets/ab67616d00001e024718e2b124f79258be7bc452.jpeg"
+import legend from "./assets/ab67616d0000b2733e0698e4ae5ffb82a005aeeb.jpeg"
+import ed from "./assets/ed-sheeran-divide-cd.jpg"
 
 const RES = {
   recently: "Recently plays",
@@ -151,11 +151,15 @@ export default function Recently() {
   const audioRef = useRef<HTMLAudioElement>(null);
 
   const scrollPlaylists = (offset: number) => {
-    if (playlistsRef.current) {
-      playlistsRef.current.scrollBy({
-        left: offset,
-        behavior: "smooth",
-      });
+    try {
+        if (playlistsRef.current) {
+        playlistsRef.current.scrollBy({
+          left: offset,
+          behavior: "smooth",
+        });
+      }
+    } catch (e) {
+      console.log(e);
     }
   };
 
